@@ -55,7 +55,7 @@ print_info "Building HomeBrewAssistant..."
 if xcodebuild clean build \
     -project HomeBrewAssistant.xcodeproj \
     -scheme HomeBrewAssistant \
-    -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2' \
+    -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4' \
     CODE_SIGNING_ALLOWED=NO \
     -quiet; then
     print_status "Build successful!"
@@ -70,7 +70,7 @@ print_info "Running tests..."
 if xcodebuild test \
     -project HomeBrewAssistant.xcodeproj \
     -scheme HomeBrewAssistant \
-    -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2' \
+    -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4' \
     CODE_SIGNING_ALLOWED=NO \
     -quiet 2>/dev/null; then
     print_status "All tests passed!"
