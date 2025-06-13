@@ -1,20 +1,18 @@
-//
-//  HomeBrewAssistantApp.swift
-//  HomeBrewAssistant
-//
-//  Created by Cor Meskers on 09/06/2025.
-//
-
 import SwiftUI
 
 @main
 struct HomeBrewAssistantApp: App {
+    // 1. Voeg de PersistenceController toe
     let persistenceController = PersistenceController.shared
+    
+    // 2. Voeg LocalizationManager toe
+    @StateObject private var localizationManager = LocalizationManager.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(localizationManager)
         }
     }
 }

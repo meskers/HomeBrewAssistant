@@ -1,0 +1,507 @@
+/* 
+   English (International) Localization
+   HomeBrewAssistant
+*/
+
+// MARK: - Tab Names
+"tab.recipes" = "Recipes";
+"tab.inventory" = "Inventory";
+"tab.brewing" = "Brewing";
+"tab.abv" = "ABV";
+"tab.ibu" = "IBU";
+"tab.srm" = "SRM";
+"tab.co2" = "CO₂";
+"tab.water" = "Water";
+"tab.photos" = "Photos";
+"tab.analytics" = "Analytics";
+"tab.history" = "History";
+
+// MARK: - Recipe Management
+"recipes.title" = "My Recipes";
+"recipes.search.placeholder" = "Search recipes...";
+"recipes.count" = "%d recipes";
+"recipes.import" = "Import XML";
+"recipes.add" = "New Recipe";
+"recipes.empty.title" = "No recipes found";
+"recipes.empty.message" = "Add your first recipe or import a BeerXML file";
+"recipes.import.error" = "Import failed: %@";
+"recipes.import.success" = "Recipe imported successfully!";
+"recipes.selected" = "Selected";
+"recipes.select.instruction" = "Choose a recipe to brew";
+"recipes.details" = "Details";
+"recipes.use.for.brewing" = "Use for Brewing";
+
+// MARK: - Recipe Details
+"recipe.details.title" = "Recipe Details";
+"recipe.details.style" = "Style: %@";
+"recipe.details.abv" = "ABV: %.1f%%";
+"recipe.details.ibu" = "IBU: %.0f";
+"recipe.details.srm" = "SRM: %.1f";
+"recipe.details.volume" = "Volume: %.1f L";
+"recipe.details.ingredients" = "Ingredients";
+"recipe.details.instructions" = "Instructions";
+"recipe.details.notes" = "Notes";
+"recipe.details.brew" = "Start Brewing";
+"recipe.details.edit" = "Edit";
+"recipe.details.delete" = "Delete";
+
+// MARK: - Inventory
+"inventory.title" = "Inventory & Shopping";
+"inventory.tab" = "Inventory";
+"shopping.tab" = "Shopping";
+"inventory.empty" = "No inventory items";
+"shopping.empty" = "Shopping list is empty";
+"shopping.select.recipe" = "Select Recipe";
+"shopping.add.to.list" = "Add to list";
+"shopping.total.cost" = "Total cost: €%.2f";
+"shopping.item.purchased" = "Purchased";
+
+// MARK: - Brewing Process
+"brewing.title" = "Brew Tracker";
+"brewing.select.recipe" = "Select a recipe to begin";
+"brewing.start" = "Start Brewing";
+"brewing.step" = "Step %d of %d";
+"brewing.timer.start" = "Start Timer";
+"brewing.timer.pause" = "Pause";
+"brewing.timer.resume" = "Resume";
+"brewing.timer.reset" = "Reset";
+"brewing.next.step" = "Next Step";
+"brewing.complete" = "Brew Complete!";
+"brewing.save.session" = "Save Session";
+"brewing.notes.placeholder" = "Add notes...";
+
+// MARK: - Brewing Steps
+"step.preparation" = "Preparation";
+"step.mashing" = "Mashing";
+"step.lautering" = "Lautering";
+"step.boiling" = "Boiling";
+"step.cooling" = "Cooling";
+"step.fermentation" = "Fermentation";
+"step.conditioning" = "Conditioning";
+"step.carbonation" = "Carbonation";
+"step.bottling" = "Bottling";
+"step.completion" = "Completion";
+
+// MARK: - ABV Calculator
+"abv.title" = "ABV Calculator";
+"abv.subtitle" = "Calculate alcohol percentage";
+"abv.og.label" = "OG (Original Gravity):";
+"abv.fg.label" = "FG (Final Gravity):";
+"abv.og.placeholder" = "1.050";
+"abv.fg.placeholder" = "1.010";
+"abv.calculate" = "Calculate ABV";
+"abv.clear" = "Clear";
+"abv.result" = "%.2f%% ABV";
+"abv.attenuation" = "Attenuation: %.1f%%";
+"abv.calories" = "~%.0f cal/12oz";
+"abv.ready" = "Ready to calculate";
+
+// MARK: - IBU Calculator
+"ibu.title" = "IBU Calculator";
+"ibu.subtitle" = "Calculate hop bitterness";
+"ibu.volume.label" = "Volume:";
+"ibu.volume.unit" = "L";
+"ibu.gravity.label" = "Gravity:";
+"ibu.hops" = "Hop Additions";
+"ibu.add.hop" = "Add Hop";
+"ibu.calculate" = "Calculate IBU";
+"ibu.result" = "%.1f IBU";
+"ibu.per.hop" = "%.1f IBU";
+"ibu.total" = "Total: %.1f IBU";
+
+// MARK: - SRM Calculator  
+"srm.title" = "SRM Calculator";
+"srm.subtitle" = "Calculate beer color";
+"srm.volume.label" = "Volume:";
+"srm.malts" = "Malt Additions";
+"srm.add.malt" = "Add Malt";
+"srm.calculate" = "Calculate SRM";
+"srm.result" = "%.1f SRM";
+"srm.color.preview" = "Color Preview";
+
+// MARK: - CO2 Calculator
+"co2.title" = "CO₂ Calculator";
+"co2.subtitle" = "Calculate priming sugar for carbonation";
+"co2.volume.label" = "Volume:";
+"co2.temperature.label" = "Temperature:";
+"co2.target.label" = "Target CO₂:";
+"co2.target.unit" = "vol";
+"co2.style" = "Beer Style (Recommended CO₂)";
+"co2.parameters" = "Beer Parameters";
+"co2.priming.type" = "Priming Sugar Type";
+"co2.calculate" = "Calculate CO₂";
+"co2.result" = "%.1f g";
+"co2.per.batch" = "For %@ liter batch";
+
+// MARK: - Water Calculator
+"water.title" = "Water Calculator";
+"water.subtitle" = "Optimize water profile for your beer style";
+"water.target.profile" = "Target Water Profile";
+"water.source.profile" = "Source Water Profile (ppm)";
+"water.batch.parameters" = "Batch Parameters";
+"water.batch.volume" = "Batch Volume:";  
+"water.grain.weight" = "Grain Weight:";
+"water.calculate" = "Calculate Water Treatment";
+"water.reset" = "Reset";
+"water.treatment.plan" = "Water Treatment Plan";
+"water.salt.additions" = "Salt Additions";
+"water.comparison" = "Before vs After Treatment";
+"water.recommendations" = "Brewing Recommendations";
+
+// MARK: - History
+"history.title" = "Brew History";
+"history.empty" = "No brew sessions yet";
+"history.sessions" = "Sessions";
+"history.date" = "Date: %@";
+"history.duration" = "Duration: %@";
+"history.rating" = "Rating";
+"history.notes" = "Notes";
+
+// MARK: - Common Actions
+"action.save" = "Save";
+"action.cancel" = "Cancel";
+"action.delete" = "Delete";
+"action.edit" = "Edit";
+"action.add" = "Add";
+"action.remove" = "Remove";
+"action.clear" = "Clear";
+"action.calculate" = "Calculate";
+"action.start" = "Start";
+"action.stop" = "Stop";
+"action.pause" = "Pause";
+"action.resume" = "Resume";
+"action.next" = "Next";
+"action.previous" = "Previous";
+"action.done" = "Done";
+"action.close" = "Close";
+
+// MARK: - Units
+"unit.grams" = "g";
+"unit.kilograms" = "kg";
+"unit.liters" = "L";
+"unit.milliliters" = "ml";
+"unit.celsius" = "°C";
+"unit.minutes" = "min";
+"unit.hours" = "hrs";
+"unit.percent" = "%";
+"unit.ppm" = "ppm";
+
+// MARK: - Beer Styles
+"style.lager" = "Lager";
+"style.ale" = "Ale";
+"style.wheat" = "Wheat";
+"style.belgian" = "Belgian";
+"style.stout" = "Stout";
+"style.ipa" = "IPA";
+"style.pilsner" = "Pilsner";
+
+// MARK: - Ingredients
+"ingredient.malt" = "Malt";
+"ingredient.hops" = "Hops";
+
+// MARK: - New Tab System
+"tab.calculators" = "Calculators";
+"tab.more" = "More";
+
+// MARK: - Calculators View
+"calculators.title" = "Brewing Calculators";
+"calculators.subtitle" = "Essential brewing calculations";
+"calculator.abv.title" = "ABV Calculator";
+"calculator.abv.description" = "Calculate alcohol percentage";
+"calculator.ibu.title" = "IBU Calculator";
+"calculator.ibu.description" = "Calculate hop bitterness";
+"calculator.srm.title" = "SRM Calculator";
+"calculator.srm.description" = "Calculate beer color";
+"calculator.co2.title" = "CO₂ Calculator";
+"calculator.co2.description" = "Calculate carbonation";
+"calculator.water.title" = "Water Calculator";
+"calculator.water.description" = "Optimize water profile";
+
+// MARK: - More View
+"more.title" = "More";
+"more.subtitle" = "Analytics, Photos, Settings & Tools";
+"more.features.section" = "Features";
+"more.settings.section" = "Settings";
+"more.analytics.title" = "Brew Analytics";
+"more.analytics.description" = "Track your brewing progress and achievements";
+"more.photos.title" = "Photo Gallery";
+"more.photos.description" = "Brewing photos and documentation";
+"more.history.title" = "Brew History";
+"more.history.description" = "View completed brewing sessions";
+"more.beerxml.title" = "BeerXML Import/Export";
+"more.beerxml.description" = "Import and export recipes in BeerXML format";
+"more.language.title" = "Language";
+"more.about.title" = "About";
+"more.about.subtitle" = "App information and credits";
+"ingredient.yeast" = "Yeast";
+"ingredient.other" = "Other";
+"ingredient.grains" = "Grains";
+"ingredient.extracts" = "Extracts";
+"ingredient.sugars" = "Sugars";
+"ingredient.spices" = "Spices";
+
+// MARK: - Recipe Scaling
+"recipe.scaling.title" = "Scale Recipe";
+"recipe.scaling.original_batch" = "Original Batch";
+"recipe.scaling.target_batch" = "Target Batch Size";
+"recipe.scaling.custom_size" = "Custom size";
+"recipe.scaling.liters" = "liters";
+"recipe.scaling.scale_factor" = "Scale Factor";
+"recipe.scaling.preset_sizes" = "Preset Sizes";
+"recipe.scaling.scale_recipe" = "Scale Recipe";
+"recipe.scaling.save_scaled" = "Save Scaled Recipe";
+"recipe.scaling.preview" = "Scaled Recipe Preview";
+"recipe.scaling.scaled_ingredients" = "Scaled Ingredients";
+"recipe.scaling.scaled_instructions" = "Updated Instructions";
+"scaling.success.title" = "Recipe Scaled Successfully";
+"scaling.success.message" = "Recipe scaled to %@ liters";
+"scaling.error.too_small" = "Batch size too small (minimum 1L)";
+"scaling.error.too_large" = "Batch size too large (maximum 100L)";
+
+// MARK: - Brewing Timers
+"timer.sound.default" = "Default";
+"timer.sound.chime" = "Chime";
+"timer.sound.bell" = "Bell";
+"timer.sound.alarm" = "Alarm";
+"timer.sound.gentle" = "Gentle";
+"timer.vibration" = "Vibration";
+"timer.test_sound" = "Test Sound";
+"timer.notifications" = "Notifications";
+"timer.completed" = "Timer Completed!";
+"timer.overtime" = "OVERTIME";
+"timer.finished" = "FINISHED";
+"timer.active_session" = "Active Brewing Session";
+"timer.ready_to_brew" = "Ready to Brew";
+"timer.total_time" = "Total time";
+"timer.active_timers" = "Active timers";
+"timer.step_of" = "Step %d of %d";
+"timer.start_brewing" = "Start Brewing";
+"timer.end_session" = "End Session";
+"timer.new_timer" = "New Timer";
+"timer.presets" = "Presets";
+"timer.pause_all" = "Pause All";
+"timer.resume_all" = "Resume All";
+"timer.previous" = "Previous";
+"timer.next" = "Next";
+
+// MARK: - Enhanced Analytics
+"analytics.achievements" = "Achievements";
+"analytics.personal_bests" = "Personal Bests";
+"analytics.streak" = "Streak";
+"analytics.this_year" = "This Year";
+"analytics.recent_achievement" = "Recent";
+"analytics.next_milestone" = "Next";
+"analytics.achievement_score" = "Achievement Score";
+"analytics.current_streak" = "Current Streak";
+"analytics.longest_streak" = "Longest Streak";
+"analytics.active" = "Active";
+"analytics.inactive" = "Inactive";
+"analytics.seasonal_patterns" = "Seasonal Patterns";
+"analytics.weekly_pattern" = "Weekly Pattern";
+"analytics.best_efficiency" = "Best Efficiency";
+"analytics.largest_batch" = "Largest Batch";
+"analytics.highest_abv" = "Highest ABV";
+"analytics.highest_ibu" = "Highest IBU";
+"analytics.fastest_brew" = "Fastest Brew";
+"analytics.no_achievements" = "No achievements yet";
+"analytics.no_records" = "No personal records yet";
+"analytics.start_brewing" = "Start brewing to earn your first achievement!";
+"analytics.complete_first" = "Complete your first brew to track records!";
+
+// MARK: - Achievement Categories
+"achievement.milestone" = "Milestone";
+"achievement.quality" = "Quality";
+"achievement.technical" = "Technical";
+"achievement.volume" = "Volume";
+"achievement.diversity" = "Diversity";
+"achievement.consistency" = "Consistency";
+"achievement.speed" = "Speed";
+"achievement.innovation" = "Innovation";
+
+// MARK: - Achievement Rarities
+"rarity.common" = "Common";
+"rarity.uncommon" = "Uncommon";
+"rarity.rare" = "Rare";
+"rarity.epic" = "Epic";
+"rarity.legendary" = "Legendary";
+
+// MARK: - Version Management
+"version.history.title" = "Version History";
+"version.current" = "Current Version: %@";
+"version.number" = "Version";
+"version.build" = "Build";
+"version.changes" = "What's New";
+"version.type.major" = "Major Release";
+"version.type.minor" = "Feature Update";
+"version.type.patch" = "Bug Fix";
+
+// MARK: - Errors
+"error.title" = "Error";
+"error.generic" = "An error occurred";
+"error.network" = "Network error";
+"error.file.read" = "Cannot read file";
+"error.file.write" = "Cannot write file";
+"error.invalid.input" = "Invalid input";
+"error.calculation" = "Calculation error";
+
+// MARK: - Success Messages
+"success.saved" = "Successfully saved";
+"success.imported" = "Successfully imported";
+"success.calculated" = "Calculation completed";
+
+// MARK: - Info
+"info.more" = "More Info";
+"info.about" = "About";
+"info.help" = "Help";
+"info.settings" = "Settings";
+
+// MARK: - Language
+"language.dutch" = "Nederlands";
+"language.english" = "English";
+"language.current" = "Current language";
+"language.change" = "Change language";
+
+// MARK: - Photo Documentation
+"photo.gallery.title" = "Photo Gallery";
+"photo.gallery.subtitle" = "Document your brewing process";
+"photo.gallery.empty.title" = "No photos yet";
+"photo.gallery.empty.message" = "Add photos to document your brewing process";
+"photo.add.first" = "Add First Photo";
+"photo.add.title" = "Add Photo";
+"photo.add.for" = "Add photo for %@";
+"photo.source.title" = "Photo Source";
+"photo.source.camera" = "Camera";
+"photo.source.library" = "Photo Library";
+"photo.select.prompt" = "Select a photo to add";
+"photo.details" = "Photo Details";
+"photo.description" = "Description";
+"photo.description.placeholder" = "Describe this photo...";
+"photo.location" = "Location";
+"photo.location.placeholder" = "Where was this photo taken?";
+"photo.save" = "Save Photo";
+"photo.detail.title" = "Photo Details";
+"photo.delete.confirm" = "Delete Photo";
+"photo.delete.message" = "Are you sure you want to delete this photo?";
+
+// MARK: - Photo Contexts
+"context.recipe" = "Recipe";
+"context.ingredients" = "Ingredients";
+"context.grain.bill" = "Grain Bill";
+"context.mashing" = "Mashing";
+"context.boiling" = "Boiling";
+"context.fermentation" = "Fermentation";
+"context.conditioning" = "Conditioning";
+"context.final.product" = "Final Product";
+"context.equipment" = "Equipment";
+"context.process" = "Process";
+
+// Recipe Scaling
+"recipe.scaling.title" = "Recipe Scaling";
+"recipe.scaling.original_batch" = "Original Batch";
+"recipe.scaling.target_batch" = "Target Batch Size";
+"recipe.scaling.scale_factor" = "Scale Factor";
+"recipe.scaling.scale_recipe" = "Scale Recipe";
+"recipe.scaling.scaled_ingredients" = "Scaled Ingredients";
+"recipe.scaling.scaled_instructions" = "Scaled Instructions";
+"recipe.scaling.preset_sizes" = "Preset Sizes";
+"recipe.scaling.custom_size" = "Custom Size";
+"recipe.scaling.liters" = "Liters";
+"recipe.scaling.current_recipe" = "Current Recipe";
+"recipe.scaling.new_recipe" = "Scaled Recipe";
+"recipe.scaling.save_scaled" = "Save Scaled Recipe";
+"recipe.scaling.preview" = "Preview";
+
+// Brew Analytics
+"analytics.title" = "Brew Analytics";
+"analytics.overview" = "Overview";
+"analytics.statistics" = "Statistics";
+"analytics.trends" = "Trends";
+"analytics.costs" = "Costs";
+
+// Statistics
+"analytics.total_brews" = "Total Brews";
+"analytics.completed_brews" = "Completed Brews";
+"analytics.success_rate" = "Success Rate";
+"analytics.average_abv" = "Average ABV";
+"analytics.average_ibu" = "Average IBU";
+"analytics.total_liters" = "Total Liters Brewed";
+"analytics.average_batch_size" = "Average Batch Size";
+"analytics.most_brewed_style" = "Most Brewed Style";
+"analytics.brewing_frequency" = "Brewing Frequency";
+"analytics.average_brew_time" = "Average Brew Time";
+"analytics.brews_per_week" = "brews per week";
+"analytics.minutes" = "minutes";
+"analytics.liters_short" = "L";
+
+// Trends
+"analytics.monthly_trends" = "Monthly Trends";
+"analytics.efficiency_trend" = "Efficiency Trend";
+"analytics.style_distribution" = "Style Distribution";
+"analytics.brew_count" = "Brew Count";
+"analytics.efficiency" = "Efficiency";
+"analytics.brew_number" = "Brew Number";
+
+// Cost Analysis
+"analytics.cost_analysis" = "Cost Analysis";
+"analytics.total_investment" = "Total Investment";
+"analytics.cost_per_liter" = "Cost per Liter";
+"analytics.average_batch_cost" = "Average Batch Cost";
+"analytics.most_expensive_style" = "Most Expensive Style";
+"analytics.cost_trend" = "Cost Trend";
+"analytics.euros" = "€";
+
+// Brew Status
+"brew_status.planned" = "Planned";
+"brew_status.inProgress" = "In Progress";
+"brew_status.fermenting" = "Fermenting";
+"brew_status.conditioning" = "Conditioning";
+"brew_status.completed" = "Completed";
+"brew_status.failed" = "Failed";
+
+// Batch Size Presets
+"batch_preset.mini_batch" = "Mini Batch";
+"batch_preset.test_batch" = "Test Batch";
+"batch_preset.small_batch" = "Small Batch";
+"batch_preset.home_batch" = "Home Batch";
+"batch_preset.standard" = "Standard";
+"batch_preset.large_batch" = "Large Batch";
+"batch_preset.party_batch" = "Party Batch";
+"batch_preset.commercial" = "Commercial";
+
+"batch_preset.mini_batch_desc" = "Small test brew";
+"batch_preset.test_batch_desc" = "Experimental brewing";
+"batch_preset.small_batch_desc" = "Small quantity";
+"batch_preset.home_batch_desc" = "Standard homebrew";
+"batch_preset.standard_desc" = "Classic batch size";
+"batch_preset.large_batch_desc" = "Large quantity";
+"batch_preset.party_batch_desc" = "For parties";
+"batch_preset.commercial_desc" = "Semi-commercial";
+
+// Recipe actions
+"recipe.scale" = "Scale";
+"recipe.duplicate" = "Duplicate";
+"recipe.edit" = "Edit";
+"recipe.delete" = "Delete";
+"recipe.export" = "Export";
+
+// Scaling alerts
+"scaling.error.invalid_size" = "Invalid batch size";
+"scaling.error.too_small" = "Batch size must be at least 1 liter";
+"scaling.error.too_large" = "Batch size cannot exceed 100 liters";
+"scaling.success.title" = "Recipe Scaled";
+"scaling.success.message" = "Recipe successfully scaled to %@ liters";
+
+// Analytics periods
+"analytics.period.week" = "Week";
+"analytics.period.month" = "Month";
+"analytics.period.quarter" = "Quarter";
+"analytics.period.year" = "Year";
+"analytics.period.all_time" = "All Time";
+
+// Charts
+"chart.no_data" = "No data available";
+"chart.loading" = "Loading...";
+"chart.style_count" = "Count by style";
+"chart.monthly_production" = "Monthly Production";
+"chart.efficiency_over_time" = "Efficiency Over Time";
+"chart.cost_per_batch" = "Cost per Batch"; 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recipes>
+    <recipe>
+        <name>Belgian Wit</name>
+        <style>Belgian Witbier</style>
+        <og>1.048</og>
+        <fg>1.012</fg>
+        <abv>4.7</abv>
+        <ibu>15</ibu>
+        <notes>Een verfrissende Belgian Witbier met coriander en sinaasappelschil. Perfect voor de zomer!</notes>
+        <boil_time>60</boil_time>
+        <description>Traditioneel Belgisch witbier recept met klassieke kruiden.</description>
+    </recipe>
+    
+    <recipe>
+        <name>German Weizen</name>
+        <style>Hefeweizen</style>
+        <og>1.052</og>
+        <fg>1.014</fg>
+        <ibu>12</ibu>
+        <notes>Authentiek Beierse Weissbier met karakteristieke banaan en kruidnagel aroma's.</notes>
+        <boil_time>75</boil_time>
+        <description>Een klassiek Duits tarwebier met grote kop.</description>
+    </recipe>
+    
+    <recipe>
+        <name>Russian Imperial Stout</name>
+        <style>Imperial Stout</style>
+        <og>1.095</og>
+        <fg>1.022</fg>
+        <abv>9.5</abv>
+        <ibu>75</ibu>
+        <notes>Krachtige, complexe stout met chocolade en koffie tonen. Lang lageren aanbevolen.</notes>
+        <boil_time>90</boil_time>
+        <description>Een robuuste stout met intense smaken van geroosterde mout.</description>
+    </recipe>
+</recipes> 

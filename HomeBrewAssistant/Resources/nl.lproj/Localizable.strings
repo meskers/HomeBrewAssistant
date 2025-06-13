@@ -1,0 +1,507 @@
+/* 
+   Dutch (Netherlands) Localization
+   HomeBrewAssistant
+*/
+
+// MARK: - Tab Names
+"tab.recipes" = "Recepten";
+"tab.inventory" = "Voorraad";
+"tab.brewing" = "Brouwen";
+"tab.abv" = "ABV";
+"tab.ibu" = "IBU";
+"tab.srm" = "SRM";
+"tab.co2" = "CO₂";
+"tab.water" = "Water";
+"tab.photos" = "Foto's";
+"tab.analytics" = "Analytics";
+"tab.history" = "Geschiedenis";
+
+// MARK: - Recipe Management
+"recipes.title" = "Mijn Recepten";
+"recipes.search.placeholder" = "Zoek recepten...";
+"recipes.count" = "%d recepten";
+"recipes.import" = "Importeer XML";
+"recipes.add" = "Nieuw Recept";
+"recipes.empty.title" = "Geen recepten gevonden";
+"recipes.empty.message" = "Voeg je eerste recept toe of importeer een BeerXML bestand";
+"recipes.import.error" = "Import mislukt: %@";
+"recipes.import.success" = "Recept succesvol geïmporteerd!";
+"recipes.selected" = "Geselecteerd";
+"recipes.select.instruction" = "Kies een recept om te brouwen";
+"recipes.details" = "Details";
+"recipes.use.for.brewing" = "Gebruik voor Brouwen";
+
+// MARK: - Recipe Details
+"recipe.details.title" = "Recept Details";
+"recipe.details.style" = "Stijl: %@";
+"recipe.details.abv" = "ABV: %.1f%%";
+"recipe.details.ibu" = "IBU: %.0f";
+"recipe.details.srm" = "SRM: %.1f";
+"recipe.details.volume" = "Volume: %.1f L";
+"recipe.details.ingredients" = "Ingrediënten";
+"recipe.details.instructions" = "Instructies";
+"recipe.details.notes" = "Opmerkingen";
+"recipe.details.brew" = "Start Brouwen";
+"recipe.details.edit" = "Bewerk";
+"recipe.details.delete" = "Verwijder";
+
+// MARK: - Inventory
+"inventory.title" = "Voorraad & Boodschappen";
+"inventory.tab" = "Voorraad";
+"shopping.tab" = "Boodschappen";
+"inventory.empty" = "Geen voorraad items";
+"shopping.empty" = "Boodschappenlijst is leeg";
+"shopping.select.recipe" = "Selecteer Recept";
+"shopping.add.to.list" = "Voeg toe aan lijst";
+"shopping.total.cost" = "Totale kosten: €%.2f";
+"shopping.item.purchased" = "Gekocht";
+
+// MARK: - Brewing Process
+"brewing.title" = "Brouw Tracker";
+"brewing.select.recipe" = "Selecteer een recept om te beginnen";
+"brewing.start" = "Start Brouwen";
+"brewing.step" = "Stap %d van %d";
+"brewing.timer.start" = "Start Timer";
+"brewing.timer.pause" = "Pauzeer";
+"brewing.timer.resume" = "Hervat";
+"brewing.timer.reset" = "Reset";
+"brewing.next.step" = "Volgende Stap";
+"brewing.complete" = "Brouw Voltooid!";
+"brewing.save.session" = "Sessie Opslaan";
+"brewing.notes.placeholder" = "Voeg notities toe...";
+
+// MARK: - Brewing Steps
+"step.preparation" = "Voorbereiding";
+"step.mashing" = "Maischen";
+"step.lautering" = "Filteren";
+"step.boiling" = "Koken";
+"step.cooling" = "Koelen";
+"step.fermentation" = "Gisten";
+"step.conditioning" = "Lageren";
+"step.carbonation" = "Carbonatie";
+"step.bottling" = "Bottelen";
+"step.completion" = "Voltooid";
+
+// MARK: - ABV Calculator
+"abv.title" = "ABV Calculator";
+"abv.subtitle" = "Bereken alcohol percentage";
+"abv.og.label" = "OG (Original Gravity):";
+"abv.fg.label" = "FG (Final Gravity):";
+"abv.og.placeholder" = "1.050";
+"abv.fg.placeholder" = "1.010";
+"abv.calculate" = "Bereken ABV";
+"abv.clear" = "Wissen";
+"abv.result" = "%.2f%% ABV";
+"abv.attenuation" = "Vergisting: %.1f%%";
+"abv.calories" = "~%.0f cal/355ml";
+"abv.ready" = "Klaar voor berekening";
+
+// MARK: - IBU Calculator
+"ibu.title" = "IBU Calculator";
+"ibu.subtitle" = "Bereken hop bitterheid";
+"ibu.volume.label" = "Volume:";
+"ibu.volume.unit" = "L";
+"ibu.gravity.label" = "Gravity:";
+"ibu.hops" = "Hop Toevoegingen";
+"ibu.add.hop" = "Voeg Hop Toe";
+"ibu.calculate" = "Bereken IBU";
+"ibu.result" = "%.1f IBU";
+"ibu.per.hop" = "%.1f IBU";
+"ibu.total" = "Totaal: %.1f IBU";
+
+// MARK: - SRM Calculator  
+"srm.title" = "SRM Calculator";
+"srm.subtitle" = "Bereken bierkleur";
+"srm.volume.label" = "Volume:";
+"srm.malts" = "Mout Toevoegingen";
+"srm.add.malt" = "Voeg Mout Toe";
+"srm.calculate" = "Bereken SRM";
+"srm.result" = "%.1f SRM";
+"srm.color.preview" = "Kleur Preview";
+
+// MARK: - CO2 Calculator
+"co2.title" = "CO₂ Calculator";
+"co2.subtitle" = "Bereken priming sugar voor carbonatie";
+"co2.volume.label" = "Volume:";
+"co2.temperature.label" = "Temperatuur:";
+"co2.target.label" = "Doel CO₂:";
+"co2.target.unit" = "vol";
+"co2.style" = "Bierstijl (Aanbevolen CO₂)";
+"co2.parameters" = "Bier Parameters";
+"co2.priming.type" = "Priming Sugar Type";
+"co2.calculate" = "Bereken CO₂";
+"co2.result" = "%.1f g";
+"co2.per.batch" = "Voor %@ liter bier";
+
+// MARK: - Water Calculator
+"water.title" = "Water Calculator";
+"water.subtitle" = "Optimaliseer water profiel voor je bierstijl";
+"water.target.profile" = "Doel Water Profiel";
+"water.source.profile" = "Bron Water Profiel (ppm)";
+"water.batch.parameters" = "Batch Parameters";
+"water.batch.volume" = "Batch Volume:";
+"water.grain.weight" = "Grain Weight:";
+"water.calculate" = "Bereken Water Treatment";
+"water.reset" = "Reset";
+"water.treatment.plan" = "Water Treatment Plan";
+"water.salt.additions" = "Zout Toevoegingen";
+"water.comparison" = "Voor vs Na Behandeling";
+"water.recommendations" = "Brouw Aanbevelingen";
+
+// MARK: - History
+"history.title" = "Brouw Geschiedenis";
+"history.empty" = "Nog geen brouw sessies";
+"history.sessions" = "Sessies";
+"history.date" = "Datum: %@";
+"history.duration" = "Duur: %@";
+"history.rating" = "Beoordeling";
+"history.notes" = "Notities";
+
+// MARK: - Common Actions
+"action.save" = "Opslaan";
+"action.cancel" = "Annuleren";
+"action.delete" = "Verwijder";
+"action.edit" = "Bewerk";
+"action.add" = "Toevoegen";
+"action.remove" = "Verwijder";
+"action.clear" = "Wissen";
+"action.calculate" = "Bereken";
+"action.start" = "Start";
+"action.stop" = "Stop";
+"action.pause" = "Pauzeer";
+"action.resume" = "Hervat";
+"action.next" = "Volgende";
+"action.previous" = "Vorige";
+"action.done" = "Klaar";
+"action.close" = "Sluiten";
+
+// MARK: - Units
+"unit.grams" = "g";
+"unit.kilograms" = "kg";
+"unit.liters" = "L";
+"unit.milliliters" = "ml";
+"unit.celsius" = "°C";
+"unit.minutes" = "min";
+"unit.hours" = "uur";
+"unit.percent" = "%";
+"unit.ppm" = "ppm";
+
+// MARK: - Beer Styles
+"style.lager" = "Lager";
+"style.ale" = "Ale";
+"style.wheat" = "Weizen";
+"style.belgian" = "Belgian";
+"style.stout" = "Stout";
+"style.ipa" = "IPA";
+"style.pilsner" = "Pilsner";
+
+// MARK: - Ingredients
+"ingredient.malt" = "Mout";
+"ingredient.hops" = "Hop";
+"ingredient.yeast" = "Gist";
+"ingredient.other" = "Overig";
+"ingredient.grains" = "Graan";
+"ingredient.extracts" = "Extract";
+"ingredient.sugars" = "Suikers";
+"ingredient.spices" = "Kruiden";
+
+// MARK: - Errors
+"error.title" = "Fout";
+"error.generic" = "Er is een fout opgetreden";
+"error.network" = "Netwerkfout";
+"error.file.read" = "Kan bestand niet lezen";
+"error.file.write" = "Kan bestand niet schrijven";
+"error.invalid.input" = "Ongeldige invoer";
+"error.calculation" = "Berekeningsfout";
+
+// MARK: - Success Messages
+"success.saved" = "Succesvol opgeslagen";
+"success.imported" = "Succesvol geïmporteerd";
+"success.calculated" = "Berekening voltooid";
+
+// MARK: - Info
+"info.more" = "Meer Info";
+"info.about" = "Over";
+"info.help" = "Help";
+"info.settings" = "Instellingen";
+
+// MARK: - Language
+"language.dutch" = "Nederlands";
+"language.english" = "English";
+"language.current" = "Huidige taal";
+"language.change" = "Taal wijzigen";
+
+// MARK: - Photo Documentation
+"photo.gallery.title" = "Foto Galerij";
+"photo.gallery.subtitle" = "Documenteer je brouwproces";
+"photo.gallery.empty.title" = "Nog geen foto's";
+"photo.gallery.empty.message" = "Voeg foto's toe om je brouwproces te documenteren";
+"photo.add.first" = "Eerste Foto Toevoegen";
+"photo.add.title" = "Foto Toevoegen";
+"photo.add.for" = "Foto toevoegen voor %@";
+"photo.source.title" = "Foto Bron";
+"photo.source.camera" = "Camera";
+"photo.source.library" = "Fotobibliotheek";
+"photo.select.prompt" = "Selecteer een foto om toe te voegen";
+"photo.details" = "Foto Details";
+"photo.description" = "Beschrijving";
+"photo.description.placeholder" = "Beschrijf deze foto...";
+"photo.location" = "Locatie";
+"photo.location.placeholder" = "Waar is deze foto genomen?";
+"photo.save" = "Foto Opslaan";
+"photo.detail.title" = "Foto Details";
+"photo.delete.confirm" = "Foto Verwijderen";
+"photo.delete.message" = "Weet je zeker dat je deze foto wilt verwijderen?";
+
+// MARK: - Photo Contexts
+"context.recipe" = "Recept";
+"context.ingredients" = "Ingrediënten";
+"context.grain.bill" = "Mout Overzicht";
+"context.mashing" = "Maischen";
+"context.boiling" = "Koken";
+"context.fermentation" = "Gisten";
+"context.conditioning" = "Lageren";
+"context.final.product" = "Eindproduct";
+"context.equipment" = "Apparatuur";
+"context.process" = "Proces";
+
+// Recipe Scaling
+"recipe.scaling.title" = "Recept Schalen";
+"recipe.scaling.original_batch" = "Originele Batch";
+"recipe.scaling.target_batch" = "Nieuwe Batch Size";
+"recipe.scaling.scale_factor" = "Schaalfactor";
+"recipe.scaling.scale_recipe" = "Schaal Recept";
+"recipe.scaling.scaled_ingredients" = "Geschaalde Ingrediënten";
+"recipe.scaling.scaled_instructions" = "Geschaalde Instructies";
+"recipe.scaling.preset_sizes" = "Voorkeursgroottes";
+"recipe.scaling.custom_size" = "Aangepaste Grootte";
+"recipe.scaling.liters" = "Liter";
+"recipe.scaling.current_recipe" = "Huidig Recept";
+"recipe.scaling.new_recipe" = "Geschaald Recept";
+"recipe.scaling.save_scaled" = "Bewaar Geschaald Recept";
+"recipe.scaling.preview" = "Voorvertoning";
+
+// Brew Analytics
+"analytics.title" = "Brouw Analytics";
+"analytics.overview" = "Overzicht";
+"analytics.statistics" = "Statistieken";
+"analytics.trends" = "Trends";
+"analytics.costs" = "Kosten";
+
+// Statistics
+"analytics.total_brews" = "Totaal Brouwsels";
+"analytics.completed_brews" = "Voltooide Brouwsels";
+"analytics.success_rate" = "Slagingspercentage";
+"analytics.average_abv" = "Gemiddeld ABV";
+"analytics.average_ibu" = "Gemiddeld IBU";
+"analytics.total_liters" = "Totaal Liter Gebrouwen";
+"analytics.average_batch_size" = "Gemiddelde Batch Grootte";
+"analytics.most_brewed_style" = "Meest Gebrouwde Stijl";
+"analytics.brewing_frequency" = "Brouwfrequentie";
+"analytics.average_brew_time" = "Gemiddelde Brouwtijd";
+"analytics.brews_per_week" = "brouwsels per week";
+"analytics.minutes" = "minuten";
+"analytics.liters_short" = "L";
+
+// Trends
+"analytics.monthly_trends" = "Maandelijkse Trends";
+"analytics.efficiency_trend" = "Efficiëntie Trend";
+"analytics.style_distribution" = "Stijl Verdeling";
+"analytics.brew_count" = "Aantal Brouwsels";
+"analytics.efficiency" = "Efficiëntie";
+"analytics.brew_number" = "Brouwsel Nummer";
+
+// Cost Analysis
+"analytics.cost_analysis" = "Kosten Analyse";
+"analytics.total_investment" = "Totale Investering";
+"analytics.cost_per_liter" = "Kosten per Liter";
+"analytics.average_batch_cost" = "Gemiddelde Batch Kosten";
+"analytics.most_expensive_style" = "Duurste Stijl";
+"analytics.cost_trend" = "Kosten Trend";
+"analytics.euros" = "€";
+
+// Brew Status
+"brew_status.planned" = "Gepland";
+"brew_status.inProgress" = "Bezig";
+"brew_status.fermenting" = "Gisting";
+"brew_status.conditioning" = "Rijping";
+"brew_status.completed" = "Voltooid";
+"brew_status.failed" = "Mislukt";
+
+// Batch Size Presets
+"batch_preset.mini_batch" = "Mini Batch";
+"batch_preset.test_batch" = "Test Batch";
+"batch_preset.small_batch" = "Small Batch";
+"batch_preset.home_batch" = "Home Batch";
+"batch_preset.standard" = "Standard";
+"batch_preset.large_batch" = "Large Batch";
+"batch_preset.party_batch" = "Party Batch";
+"batch_preset.commercial" = "Commercial";
+
+"batch_preset.mini_batch_desc" = "Klein proefbrouwsel";
+"batch_preset.test_batch_desc" = "Experimenteel brouwen";
+"batch_preset.small_batch_desc" = "Kleine hoeveelheid";
+"batch_preset.home_batch_desc" = "Standaard thuisbrouw";
+"batch_preset.standard_desc" = "Klassieke batch size";
+"batch_preset.large_batch_desc" = "Grote hoeveelheid";
+"batch_preset.party_batch_desc" = "Voor feesten";
+"batch_preset.commercial_desc" = "Semi-commercieel";
+
+// Recipe actions
+"recipe.scale" = "Schaal";
+"recipe.duplicate" = "Dupliceer";
+"recipe.edit" = "Bewerk";
+"recipe.delete" = "Verwijder";
+"recipe.export" = "Exporteer";
+
+// Scaling alerts
+"scaling.error.invalid_size" = "Ongeldige batch grootte";
+"scaling.error.too_small" = "Batch grootte moet minimaal 1 liter zijn";
+"scaling.error.too_large" = "Batch grootte mag maximaal 100 liter zijn";
+"scaling.success.title" = "Recept Geschaald";
+"scaling.success.message" = "Recept succesvol geschaald naar %@ liter";
+
+// Analytics periods
+"analytics.period.week" = "Week";
+"analytics.period.month" = "Maand";
+"analytics.period.quarter" = "Kwartaal";
+"analytics.period.year" = "Jaar";
+"analytics.period.all_time" = "Alle Tijd";
+
+// Charts
+"chart.no_data" = "Geen data beschikbaar";
+"chart.loading" = "Laden...";
+"chart.style_count" = "Aantal per stijl";
+"chart.monthly_production" = "Maandelijkse Productie";
+"chart.efficiency_over_time" = "Efficiëntie in de Tijd";
+"chart.cost_per_batch" = "Kosten per Batch";
+
+// MARK: - New Tab System
+"tab.calculators" = "Calculators";
+"tab.more" = "Meer";
+
+// MARK: - Calculators View
+"calculators.title" = "Brouw Calculators";
+"calculators.subtitle" = "Essentiële brouwberekeningen";
+"calculator.abv.title" = "ABV Calculator";
+"calculator.abv.description" = "Bereken alcoholpercentage";
+"calculator.ibu.title" = "IBU Calculator";
+"calculator.ibu.description" = "Bereken hopbitterheid";
+"calculator.srm.title" = "SRM Calculator";
+"calculator.srm.description" = "Bereken bierkleur";
+"calculator.co2.title" = "CO₂ Calculator";
+"calculator.co2.description" = "Bereken koolzuur";
+"calculator.water.title" = "Water Calculator";
+"calculator.water.description" = "Optimaliseer waterprofiel";
+
+// MARK: - More View
+"more.title" = "Meer";
+"more.subtitle" = "Analytics, Foto's, Instellingen & Tools";
+"more.features.section" = "Functies";
+"more.settings.section" = "Instellingen";
+"more.analytics.title" = "Brouw Analytics";
+"more.analytics.description" = "Volg je brouwvoortgang en prestaties";
+"more.photos.title" = "Foto Galerij";
+"more.photos.description" = "Brouwfoto's en documentatie";
+"more.history.title" = "Brouw Geschiedenis";
+"more.history.description" = "Bekijk voltooide brouwsessies";
+"more.beerxml.title" = "BeerXML Import/Export";
+"more.beerxml.description" = "Importeer en exporteer recepten in BeerXML formaat";
+"more.language.title" = "Taal";
+"more.about.title" = "Over";
+"more.about.subtitle" = "App informatie en credits";
+
+// MARK: - Recipe Scaling
+"recipe.scaling.title" = "Recept Schalen";
+"recipe.scaling.original_batch" = "Originele Batch";
+"recipe.scaling.target_batch" = "Gewenste Batch Grootte";
+"recipe.scaling.custom_size" = "Aangepaste grootte";
+"recipe.scaling.liters" = "liter";
+"recipe.scaling.scale_factor" = "Schaalfactor";
+"recipe.scaling.preset_sizes" = "Standaard Groottes";
+"recipe.scaling.scale_recipe" = "Schaal Recept";
+"recipe.scaling.save_scaled" = "Bewaar Geschaald Recept";
+"recipe.scaling.preview" = "Geschaald Recept Voorbeeld";
+"recipe.scaling.scaled_ingredients" = "Geschaalde Ingrediënten";
+"recipe.scaling.scaled_instructions" = "Aangepaste Instructies";
+"scaling.success.title" = "Recept Succesvol Geschaald";
+"scaling.success.message" = "Recept geschaald naar %@ liter";
+"scaling.error.too_small" = "Batch te klein (minimum 1L)";
+"scaling.error.too_large" = "Batch te groot (maximum 100L)";
+
+// MARK: - Brewing Timers
+"timer.sound.default" = "Standaard";
+"timer.sound.chime" = "Chime";
+"timer.sound.bell" = "Bel";
+"timer.sound.alarm" = "Alarm";
+"timer.sound.gentle" = "Zacht";
+"timer.vibration" = "Trillen";
+"timer.test_sound" = "Test Geluid";
+"timer.notifications" = "Meldingen";
+"timer.completed" = "Timer Voltooid!";
+"timer.overtime" = "OVERTIME";
+"timer.finished" = "KLAAR";
+"timer.active_session" = "Actieve Brouwsessie";
+"timer.ready_to_brew" = "Klaar om te brouwen";
+"timer.total_time" = "Totale tijd";
+"timer.active_timers" = "Actieve timers";
+"timer.step_of" = "Stap %d van %d";
+"timer.start_brewing" = "Start Brouwen";
+"timer.end_session" = "Sessie Beëindigen";
+"timer.new_timer" = "Nieuwe Timer";
+"timer.presets" = "Presets";
+"timer.pause_all" = "Pauzeer Alles";
+"timer.resume_all" = "Hervat Alles";
+"timer.previous" = "Vorige";
+"timer.next" = "Volgende";
+
+// MARK: - Enhanced Analytics
+"analytics.achievements" = "Prestaties";
+"analytics.personal_bests" = "Persoonlijke Records";
+"analytics.streak" = "Streak";
+"analytics.this_year" = "Dit Jaar";
+"analytics.recent_achievement" = "Nieuwste";
+"analytics.next_milestone" = "Volgende";
+"analytics.achievement_score" = "Prestatie Score";
+"analytics.current_streak" = "Huidige Streak";
+"analytics.longest_streak" = "Langste Streak";
+"analytics.active" = "Actief";
+"analytics.inactive" = "Inactief";
+"analytics.seasonal_patterns" = "Seizoenspatronen";
+"analytics.weekly_pattern" = "Weekpatroon";
+"analytics.best_efficiency" = "Beste Efficiëntie";
+"analytics.largest_batch" = "Grootste Batch";
+"analytics.highest_abv" = "Hoogste ABV";
+"analytics.highest_ibu" = "Hoogste IBU";
+"analytics.fastest_brew" = "Snelste Brouw";
+"analytics.no_achievements" = "Nog geen prestaties behaald";
+"analytics.no_records" = "Nog geen persoonlijke records";
+"analytics.start_brewing" = "Start met brouwen om je eerste prestatie te behalen!";
+"analytics.complete_first" = "Voltooi je eerste brouwsel om records bij te houden!";
+
+// MARK: - Achievement Categories
+"achievement.milestone" = "Mijlpaal";
+"achievement.quality" = "Kwaliteit";
+"achievement.technical" = "Technisch";
+"achievement.volume" = "Volume";
+"achievement.diversity" = "Diversiteit";
+"achievement.consistency" = "Consistentie";
+"achievement.speed" = "Snelheid";
+"achievement.innovation" = "Innovatie";
+
+// MARK: - Achievement Rarities
+"rarity.common" = "Gewoon";
+"rarity.uncommon" = "Ongewoon";
+"rarity.rare" = "Zeldzaam";
+"rarity.epic" = "Episch";
+"rarity.legendary" = "Legendarisch";
+
+// MARK: - Version Management
+"version.history.title" = "Versiegeschiedenis";
+"version.current" = "Huidige Versie: %@";
+"version.number" = "Versie";
+"version.build" = "Build";
+"version.changes" = "Wat is er nieuw";
+"version.type.major" = "Grote Release";
+"version.type.minor" = "Feature Update";
+"version.type.patch" = "Bugfix"; 
