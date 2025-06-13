@@ -1,0 +1,38 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Swift source files
+*.swift text diff=swift
+
+# Xcode project files
+*.pbxproj text merge=union
+*.xcconfig text
+*.entitlements text
+
+# Documentation
+*.md text
+*.txt text
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg text
+
+# Audio files
+*.mp3 binary
+*.wav binary
+*.m4a binary
+
+# Archives
+*.zip binary
+*.tar.gz binary
+
+# iOS specific
+*.ipa binary
+*.dSYM binary
+
+# Core Data
+*.xcdatamodel text
+*.xcdatamodeld text 
