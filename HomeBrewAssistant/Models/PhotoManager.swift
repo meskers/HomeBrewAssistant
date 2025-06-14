@@ -67,7 +67,7 @@ class PhotoManager: NSObject, ObservableObject {
         
         // Schedule periodic cleanup of old cached files
         Timer.scheduledTimer(withTimeInterval: 24 * 60 * 60, repeats: true) { [weak self] _ in
-            Task.detached {
+            Task.detached { [weak self] in
                 await MainActor.run {
                     self?.cleanupOldCachedFiles()
                 }
@@ -126,8 +126,8 @@ class PhotoManager: NSObject, ObservableObject {
         let cache = thumbnail ? thumbnailCache : imageCache
         cache.setObject(image, forKey: id.uuidString as NSString)
         
-        Task.detached(priority: .background) {
-            self.saveImageToDisk(image, for: id, thumbnail: thumbnail)
+        Task.detached(priority: .background) { [weak self] in
+            self?.saveImageToDisk(image, for: id, thumbnail: thumbnail)
         }
     }
     

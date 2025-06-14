@@ -54,9 +54,9 @@ class RecipeViewModel: ObservableObject {
         ingredients = recipe.ingredientsArray.map { ingredient in
             IngredientModel(
                 name: ingredient.wrappedName,
-                type: ingredient.wrappedType ?? "Mout",
+                type: ingredient.wrappedType,
                 amount: ingredient.wrappedAmount,
-                timing: ingredient.wrappedTiming ?? "Mashing"
+                timing: ingredient.wrappedTiming
             )
         }
     }
@@ -130,6 +130,8 @@ class RecipeViewModel: ObservableObject {
             newIngredient.id = UUID()
             newIngredient.name = ingredient.name.trimmingCharacters(in: .whitespacesAndNewlines)
             newIngredient.amount = ingredient.amount.trimmingCharacters(in: .whitespacesAndNewlines)
+            newIngredient.type = ingredient.type
+            newIngredient.timing = ingredient.timing
             newIngredient.recipe = recipe
         }
         

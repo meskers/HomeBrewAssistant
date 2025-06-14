@@ -44,14 +44,20 @@ struct MainTabView: View {
                 .tabItem {
                     Label("tab.calculators".localized, systemImage: "function")
                 }
+
+            // 4. BREW MONITOR - Advanced brewing process monitoring (v1.3)
+            BrewingProcessMonitorView()
+                .tabItem {
+                    Label("Brew Monitor", systemImage: "flask.fill")
+                }
             
-            // 4. INGREDIËNTEN - Inventory management  
+            // 5. INGREDIËNTEN - Inventory management  
             SmartIngredientsView(selectedRecipe: selectedRecipeForBrewing, allRecipes: $recipes)
                 .tabItem {
                     Label("tab.inventory".localized, systemImage: "list.clipboard.fill")
                 }
             
-            // 5. MEER - Analytics, Photos, Settings, More tools
+            // 6. MEER - Analytics, Photos, Settings, More tools
             MoreView(selectedRecipeForBrewing: $selectedRecipeForBrewing, recipes: $recipes)
                 .tabItem {
                     Label("tab.more".localized, systemImage: "ellipsis.circle.fill")
@@ -3959,15 +3965,15 @@ struct CarbonationInfoSheetView: View {
 // MARK: - Water Calculator
 
 struct WaterCalculatorView: View {
-    @State private var baseWaterProfile = WaterProfile()
-    @State private var targetWaterProfile = WaterProfile.pilsner
+    @State private var baseWaterProfile = LegacyWaterProfile()
+    @State private var targetWaterProfile = LegacyWaterProfile.pilsner
     @State private var batchSize = ""
     @State private var mashGrainWeight = ""
     @State private var waterAdditions: [WaterAddition] = []
     @State private var showResults = false
     @State private var showingInfo = false
     @State private var calculatedAdditions: [SaltAddition] = []
-    @State private var resultingProfile = WaterProfile()
+    @State private var resultingProfile = LegacyWaterProfile()
     @FocusState private var isInputFocused: Bool
     
     var body: some View {
@@ -4047,7 +4053,7 @@ struct WaterCalculatorView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 10) {
-                        ForEach(WaterProfile.knownProfiles, id: \.name) { profile in
+                        ForEach(LegacyWaterProfile.knownProfiles, id: \.name) { profile in
                             Button(action: {
                                 targetWaterProfile = profile
                             }) {
@@ -4140,7 +4146,7 @@ struct WaterCalculatorView: View {
                     // Quick water profile buttons
                     HStack {
                         Button("Amsterdam Water") {
-                            baseWaterProfile = WaterProfile.amsterdam
+                            baseWaterProfile = LegacyWaterProfile.amsterdam
                         }
                         .font(.caption)
                         .padding(.horizontal, 8)
@@ -4149,7 +4155,7 @@ struct WaterCalculatorView: View {
                         .cornerRadius(6)
                         
                         Button("RO Water") {
-                            baseWaterProfile = WaterProfile.ro
+                            baseWaterProfile = LegacyWaterProfile.ro
                         }
                         .font(.caption)
                         .padding(.horizontal, 8)
@@ -4158,7 +4164,7 @@ struct WaterCalculatorView: View {
                         .cornerRadius(6)
                         
                         Button("Distilled") {
-                            baseWaterProfile = WaterProfile.distilled
+                            baseWaterProfile = LegacyWaterProfile.distilled
                         }
                         .font(.caption)
                         .padding(.horizontal, 8)
@@ -4471,7 +4477,7 @@ struct WaterCalculatorView: View {
         showResults = true
     }
     
-    private func calculateEstimatedPH(profile: WaterProfile, grainWeight: Double) -> Double {
+    private func calculateEstimatedPH(profile: LegacyWaterProfile, grainWeight: Double) -> Double {
         // Simplified mash pH calculation
         // Base pH from grain bill (assuming typical pale malt)
         let basePH = 5.8
@@ -4486,13 +4492,13 @@ struct WaterCalculatorView: View {
     }
     
     private func clearAll() {
-        baseWaterProfile = WaterProfile()
-        targetWaterProfile = WaterProfile.pilsner
+        baseWaterProfile = LegacyWaterProfile()
+        targetWaterProfile = LegacyWaterProfile.pilsner
         batchSize = ""
         mashGrainWeight = ""
         waterAdditions = []
         calculatedAdditions = []
-        resultingProfile = WaterProfile()
+        resultingProfile = LegacyWaterProfile()
         showResults = false
     }
 }
@@ -4523,138 +4529,7 @@ struct WaterComparisonRow: View {
     }
 }
 
-struct WaterProfile {
-    var name: String = "Custom"
-    var description: String = "Custom water profile"
-    var calcium: Double = 20
-    var magnesium: Double = 5
-    var sulfate: Double = 15
-    var chloride: Double = 10
-    var bicarbonate: Double = 50
-    var sodium: Double = 8
-    var estimatedPH: Double = 7.0
-    
-    var sulfateToChlorideRatio: Double {
-        return chloride > 0 ? sulfate / chloride : sulfate
-    }
-    
-    static let pilsner = WaterProfile(
-        name: "Pilsner",
-        description: "Zacht, laag mineraal",
-        calcium: 50,
-        magnesium: 10,
-        sulfate: 25,
-        chloride: 15,
-        bicarbonate: 20,
-        sodium: 5,
-        estimatedPH: 5.3
-    )
-    
-    static let ipa = WaterProfile(
-        name: "IPA",
-        description: "Hoog sulfaat, hoppy",
-        calcium: 200,
-        magnesium: 15,
-        sulfate: 350,
-        chloride: 75,
-        bicarbonate: 30,
-        sodium: 10,
-        estimatedPH: 5.4
-    )
-    
-    static let stout = WaterProfile(
-        name: "Stout",
-        description: "Hoog chloride, malty",
-        calcium: 150,
-        magnesium: 25,
-        sulfate: 75,
-        chloride: 200,
-        bicarbonate: 150,
-        sodium: 15,
-        estimatedPH: 5.6
-    )
-    
-    static let balanced = WaterProfile(
-        name: "Balanced",
-        description: "Universeel profiel",
-        calcium: 150,
-        magnesium: 15,
-        sulfate: 150,
-        chloride: 100,
-        bicarbonate: 75,
-        sodium: 10,
-        estimatedPH: 5.5
-    )
-    
-    static let amsterdam = WaterProfile(
-        name: "Amsterdam",
-        description: "Lokaal water profiel",
-        calcium: 65,
-        magnesium: 15,
-        sulfate: 45,
-        chloride: 85,
-        bicarbonate: 120,
-        sodium: 25,
-        estimatedPH: 7.2
-    )
-    
-    static let ro = WaterProfile(
-        name: "RO Water",
-        description: "Reverse osmosis",
-        calcium: 0,
-        magnesium: 0,
-        sulfate: 0,
-        chloride: 0,
-        bicarbonate: 0,
-        sodium: 0,
-        estimatedPH: 7.0
-    )
-    
-    static let distilled = WaterProfile(
-        name: "Distilled",
-        description: "Gedestilleerd water",
-        calcium: 0,
-        magnesium: 0,
-        sulfate: 0,
-        chloride: 0,
-        bicarbonate: 0,
-        sodium: 0,
-        estimatedPH: 7.0
-    )
-    
-    static let knownProfiles: [WaterProfile] = [
-        .pilsner, .ipa, .stout, .balanced
-    ]
-}
-
-struct WaterAddition {
-    var salt: WaterSalt
-    var amount: Double // grams
-}
-
-struct SaltAddition {
-    let name: String
-    let description: String
-    let amount: Double
-}
-
-enum WaterSalt: String, CaseIterable {
-    case gypsum = "Gypsum (CaSO₄)"
-    case calciumChloride = "Calcium Chloride (CaCl₂)"
-    case epsomSalt = "Epsom Salt (MgSO₄)"
-    case bakingSoda = "Baking Soda (NaHCO₃)"
-    case salt = "Salt (NaCl)"
-    
-    var description: String {
-        switch self {
-        case .gypsum: return "Verhoogt Ca²⁺ en SO₄²⁻"
-        case .calciumChloride: return "Verhoogt Ca²⁺ en Cl⁻"
-        case .epsomSalt: return "Verhoogt Mg²⁺ en SO₄²⁻"
-        case .bakingSoda: return "Verhoogt Na⁺ en HCO₃⁻"
-        case .salt: return "Verhoogt Na⁺ en Cl⁻"
-        }
-    }
-}
+// Removed duplicate WaterProfile struct - using the one from CalculatorsView.swift
 
 struct WaterChemistryInfoSheetView: View {
     @Environment(\.dismiss) private var dismiss
@@ -6161,6 +6036,140 @@ class BeerXMLParser: NSObject, XMLParserDelegate {
             "Gist toevoegen en vergisten op 18-20°C",
             "Nabezinken en botelen na 1-2 weken"
         ]
+    }
+}
+
+// MARK: - Legacy Water Profile for Water Calculator (to avoid conflicts)
+struct LegacyWaterProfile {
+    var name: String = "Custom"
+    var description: String = "Custom water profile"
+    var calcium: Double = 20
+    var magnesium: Double = 5
+    var sulfate: Double = 15
+    var chloride: Double = 10
+    var bicarbonate: Double = 50
+    var sodium: Double = 8
+    var estimatedPH: Double = 7.0
+    
+    var sulfateToChlorideRatio: Double {
+        return chloride > 0 ? sulfate / chloride : sulfate
+    }
+    
+    static let pilsner = LegacyWaterProfile(
+        name: "Pilsner",
+        description: "Zacht, laag mineraal",
+        calcium: 50,
+        magnesium: 10,
+        sulfate: 25,
+        chloride: 15,
+        bicarbonate: 20,
+        sodium: 5,
+        estimatedPH: 5.3
+    )
+    
+    static let ipa = LegacyWaterProfile(
+        name: "IPA",
+        description: "Hoog sulfaat, hoppy",
+        calcium: 200,
+        magnesium: 15,
+        sulfate: 350,
+        chloride: 75,
+        bicarbonate: 30,
+        sodium: 10,
+        estimatedPH: 5.4
+    )
+    
+    static let stout = LegacyWaterProfile(
+        name: "Stout",
+        description: "Hoog chloride, malty",
+        calcium: 150,
+        magnesium: 25,
+        sulfate: 75,
+        chloride: 200,
+        bicarbonate: 150,
+        sodium: 15,
+        estimatedPH: 5.6
+    )
+    
+    static let balanced = LegacyWaterProfile(
+        name: "Balanced",
+        description: "Universeel profiel",
+        calcium: 150,
+        magnesium: 15,
+        sulfate: 150,
+        chloride: 100,
+        bicarbonate: 75,
+        sodium: 10,
+        estimatedPH: 5.5
+    )
+    
+    static let amsterdam = LegacyWaterProfile(
+        name: "Amsterdam",
+        description: "Lokaal water profiel",
+        calcium: 65,
+        magnesium: 15,
+        sulfate: 45,
+        chloride: 85,
+        bicarbonate: 120,
+        sodium: 25,
+        estimatedPH: 7.2
+    )
+    
+    static let ro = LegacyWaterProfile(
+        name: "RO Water",
+        description: "Reverse osmosis",
+        calcium: 0,
+        magnesium: 0,
+        sulfate: 0,
+        chloride: 0,
+        bicarbonate: 0,
+        sodium: 0,
+        estimatedPH: 7.0
+    )
+    
+    static let distilled = LegacyWaterProfile(
+        name: "Distilled",
+        description: "Gedestilleerd water",
+        calcium: 0,
+        magnesium: 0,
+        sulfate: 0,
+        chloride: 0,
+        bicarbonate: 0,
+        sodium: 0,
+        estimatedPH: 7.0
+    )
+    
+    static let knownProfiles: [LegacyWaterProfile] = [
+        .pilsner, .ipa, .stout, .balanced
+    ]
+}
+
+struct WaterAddition {
+    var salt: WaterSalt
+    var amount: Double // grams
+}
+
+struct SaltAddition {
+    let name: String
+    let description: String
+    let amount: Double
+}
+
+enum WaterSalt: String, CaseIterable {
+    case gypsum = "Gypsum (CaSO₄)"
+    case calciumChloride = "Calcium Chloride (CaCl₂)"
+    case epsomSalt = "Epsom Salt (MgSO₄)"
+    case bakingSoda = "Baking Soda (NaHCO₃)"
+    case salt = "Salt (NaCl)"
+    
+    var description: String {
+        switch self {
+        case .gypsum: return "Verhoogt Ca²⁺ en SO₄²⁻"
+        case .calciumChloride: return "Verhoogt Ca²⁺ en Cl⁻"
+        case .epsomSalt: return "Verhoogt Mg²⁺ en SO₄²⁻"
+        case .bakingSoda: return "Verhoogt Na⁺ en HCO₃⁻"
+        case .salt: return "Verhoogt Na⁺ en Cl⁻"
+        }
     }
 }
 
