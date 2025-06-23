@@ -650,70 +650,8 @@ class BrewAnalytics: ObservableObject {
     
     // MARK: - Mock Data
     private func loadMockData() {
-        let mockSessions = [
-            BrewSession(
-                recipeName: "Klassiek Pilsner",
-                style: "Czech Pilsner",
-                brewDate: Calendar.current.date(byAdding: .month, value: -3, to: Date()) ?? Date(),
-                batchSize: 23,
-                targetABV: 4.8,
-                targetIBU: 35,
-                brewTimeMinutes: 240,
-                efficiency: 72,
-                estimatedCost: 28.50,
-                status: .completed
-            ),
-            BrewSession(
-                recipeName: "American IPA",
-                style: "American IPA",
-                brewDate: Calendar.current.date(byAdding: .month, value: -2, to: Date()) ?? Date(),
-                batchSize: 20,
-                targetABV: 6.2,
-                targetIBU: 65,
-                brewTimeMinutes: 300,
-                efficiency: 68,
-                estimatedCost: 35.00,
-                status: .completed
-            ),
-            BrewSession(
-                recipeName: "Wheat Beer",
-                style: "Hefeweizen",
-                brewDate: Calendar.current.date(byAdding: .month, value: -1, to: Date()) ?? Date(),
-                batchSize: 25,
-                targetABV: 5.2,
-                targetIBU: 12,
-                brewTimeMinutes: 220,
-                efficiency: 75,
-                estimatedCost: 22.75,
-                status: .completed
-            ),
-            BrewSession(
-                recipeName: "Porter",
-                style: "Robust Porter",
-                brewDate: Calendar.current.date(byAdding: .weekOfYear, value: -2, to: Date()) ?? Date(),
-                batchSize: 23,
-                targetABV: 5.8,
-                targetIBU: 28,
-                brewTimeMinutes: 280,
-                efficiency: 70,
-                estimatedCost: 31.20,
-                status: .inProgress
-            ),
-            BrewSession(
-                recipeName: "Saison",
-                style: "Belgian Saison",
-                brewDate: Calendar.current.date(byAdding: .day, value: -5, to: Date()) ?? Date(),
-                batchSize: 20,
-                targetABV: 6.5,
-                targetIBU: 22,
-                brewTimeMinutes: 320,
-                efficiency: 73,
-                estimatedCost: 26.80,
-                status: .fermenting
-            )
-        ]
         
-        brewSessions = mockSessions
+        // DISABLED: brewSessions = mockSessions
     }
 }
 

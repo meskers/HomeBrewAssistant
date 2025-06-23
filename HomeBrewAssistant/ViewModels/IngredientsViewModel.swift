@@ -2,14 +2,9 @@ import SwiftUI
 import Foundation
 
 class IngredientsViewModel: ObservableObject {
-    @Published var ingredients: [InventoryItem] = [
-        InventoryItem(name: "Pilsner Malt", category: .grain, amount: "5 kg", inStock: true),
-        InventoryItem(name: "Munich Malt", category: .grain, amount: "2 kg", inStock: true),
-        InventoryItem(name: "Cascade Hop", category: .hop, amount: "100 g", inStock: false),
-        InventoryItem(name: "Centennial Hop", category: .hop, amount: "50 g", inStock: true),
-        InventoryItem(name: "SafAle US-05", category: .yeast, amount: "2 pakjes", inStock: true),
-        InventoryItem(name: "Irish Moss", category: .other, amount: "10 g", inStock: true)
-    ]
+    @Published var ingredients: [InventoryItem] = [] // CLEAN APP STORE: No mock ingredients]
+    // CLEAN APP STORE EXPERIENCE: No mock ingredients
+    // Users should start with empty ingredient inventory
     
     @Published var selectedCategory: IngredientType? = nil
     @Published var searchText = ""
