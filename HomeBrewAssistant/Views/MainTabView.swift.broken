@@ -23,7 +23,7 @@ struct MainTabView: View {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var selectedRecipeForBrewing: DetailedRecipe?
     @State private var showingLanguageSettings = false
-    @State private var recipes: [DetailedRecipe] = DefaultRecipesDatabase.getAllDefaultRecipes()  // Load default recipes immediately
+    @State private var recipes: [DetailedRecipe] = []  // Start empty - recipes come from CoreData only
     @State private var selectedRecipe: DetailedRecipe?
     @State private var showingNewRecipe = false
     @State private var searchText = ""
@@ -32,6 +32,12 @@ struct MainTabView: View {
     @State private var showingBeerXMLImportExport = false
     @State private var showingAIGenerator = false
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         TabView {
             // 1. RECEPTEN - Main recipe management
@@ -65,7 +71,14 @@ struct MainTabView: View {
                 }
         }
         .sheet(isPresented: $showingLanguageSettings) {
-            LanguageSettingsView()
+        .onAppear {
+            loadDefaultRecipesIfNeeded()
+        }            LanguageSettingsView()
+        }
+        .onAppear {
+            // Load default recipes immediately for better user experience
+            // This ensures users always have recipes to start with
+            loadDefaultRecipesIfNeeded()
         }
         .overlay(alignment: .topTrailing) {
             // Quick language switcher (floating)
@@ -122,6 +135,12 @@ struct SimpleRecipeListView: View {
         }
     }
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -179,7 +198,7 @@ struct SimpleRecipeListView: View {
                                 }
                             
                             HStack {
-                                Button("📖 \("recipes.details".localized)") {
+                                Button("�� \("recipes.details".localized)") {
                                     selectedRecipe = recipe
                                 }
                                 .buttonStyle(.bordered)
@@ -302,6 +321,12 @@ struct SimpleRecipeListView: View {
 struct InfoSheetView: View {
     @Environment(\.dismiss) private var dismiss
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         NavigationView {
             ScrollView {
@@ -376,6 +401,12 @@ struct InfoSheetView: View {
 struct SimpleRecipeRowView: View {
     let recipe: DetailedRecipe
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -406,6 +437,12 @@ struct SimpleRecipeRowView: View {
 struct DifficultyBadge: View {
     let difficulty: RecipeDifficulty
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         Text(difficulty.rawValue)
             .font(.caption)
@@ -423,6 +460,12 @@ struct SimpleRecipeDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedTab = 0
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -494,6 +537,12 @@ struct StatView: View {
     let value: String
     let color: Color
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         VStack(spacing: 4) {
             Text(value)
@@ -527,6 +576,12 @@ struct IngredientsTabView: View {
         ingredients.filter { $0.type == .other }
     }
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             if !grainIngredients.isEmpty {
@@ -554,6 +609,12 @@ struct IngredientSection: View {
     let icon: String
     let color: Color
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
@@ -591,6 +652,12 @@ struct IngredientSection: View {
 struct InstructionsTabView: View {
     let instructions: [String]
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Text("Brouwinstructies")
@@ -621,6 +688,12 @@ struct InstructionsTabView: View {
 struct NotesTabView: View {
     let notes: String
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Text("Brouwnotities")
@@ -649,6 +722,12 @@ struct AddRecipeView: View {
     @State private var brewTime = ""
     @State private var notes = ""
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         NavigationView {
             Form {
@@ -761,6 +840,12 @@ struct SmartIngredientsView: View {
     
     private let categories = ["Graan", "Hop", "Gist", "Overig"]
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -843,6 +928,12 @@ struct InventoryView: View {
     @Binding var selectedCategory: String
     let categories: [String]
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         VStack(spacing: 0) {
             List {
@@ -915,6 +1006,12 @@ struct SmartShoppingListView: View {
     @State private var showingRecipeSelector = false
     @State private var estimatedTotal: Double = 0.0
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         VStack(spacing: 0) {
             // Recipe Selection Section
@@ -1168,6 +1265,12 @@ struct ShoppingItemRow: View {
     @Binding var item: ShoppingItem
     let onToggle: () -> Void
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         HStack(spacing: 12) {
             Button(action: {
@@ -1226,6 +1329,12 @@ struct RecipeSelectorView: View {
     let onSelectionChange: () -> Void
     @Environment(\.dismiss) private var dismiss
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         NavigationView {
             List {
@@ -1330,6 +1439,12 @@ struct SimpleBrewTrackerView: View {
         BrewStep(name: "Bottelen", duration: 30, description: "Bottelen met priming sugar", tips: "Saniteer alles, vermijd oxidatie", requiresTemperature: false, targetTemperature: "")
     ]
     
+    private func loadDefaultRecipesIfNeeded() {
+        // Ensure users always have default recipes available immediately
+        if recipes.isEmpty {
+            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
+        }
+    }
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
