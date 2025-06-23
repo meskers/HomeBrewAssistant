@@ -35,12 +35,12 @@ struct SimpleRecipeDetailView: View {
                     Divider()
                     
                     // Recipe details
-                    if !recipe.description.isEmpty {
+                    if !recipe.notes.isEmpty {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Description")
                                 .font(.headline)
                                 .fontWeight(.bold)
-                            Text(recipe.description)
+                            Text(recipe.notes)
                                 .font(.body)
                         }
                         .accessibilityElement(children: .combine)
@@ -70,8 +70,15 @@ struct SimpleRecipeDetailView: View {
                             Text("Instructions")
                                 .font(.headline)
                                 .fontWeight(.bold)
-                            Text(recipe.instructions)
-                                .font(.body)
+                            
+                            ForEach(Array(recipe.instructions.enumerated()), id: \.offset) { index, instruction in
+                                HStack(alignment: .top) {
+                                    Text("\(index + 1).")
+                                        .fontWeight(.medium)
+                                    Text(instruction)
+                                        .font(.body)
+                                }
+                            }
                         }
                         .accessibilityElement(children: .combine)
                     }

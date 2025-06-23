@@ -96,11 +96,6 @@ struct RecipesTabView: View {
                 BeerXMLImportExportView(recipes: $recipes)
                     .environmentObject(localizationManager)
             }
-            .sheet(isPresented: $showingAddRecipe) {
-                AddRecipeView { newRecipe in
-                    recipes.append(newRecipe)
-                }
-            }
             .sheet(isPresented: $showingXMLImport) {
                 BeerXMLImportExportView(recipes: $recipes)
                     .environmentObject(localizationManager)
