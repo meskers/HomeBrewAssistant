@@ -15,14 +15,16 @@ class BrewAnalytics: ObservableObject {
     init() {
         loadData()
         
-        // Only load mock data if:
-        // 1. No existing data is found
-        // 2. This is not a fresh App Store download (no factory reset performed)
+        // CLEAN APP STORE EXPERIENCE: No auto-mock data
+        // Only load mock data if explicitly requested or in development
+        // New users should start with clean analytics until they brew something
         let hasExistingData = !brewSessions.isEmpty
-        let isFactoryResetApp = UserDefaults.standard.object(forKey: "hasCompletedOnboarding") == nil
+        let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
+        let isDevelopmentMode = UserDefaults.standard.bool(forKey: "developmentMode")
         
-        if !hasExistingData && !isFactoryResetApp {
-            loadMockData() // Voor demo doeleinden alleen bij eerste gebruik
+        // Only load mock data in development mode
+        if !hasExistingData && isDevelopmentMode {
+            loadMockData() // Only for development/testing
         }
         
         calculateStatistics()

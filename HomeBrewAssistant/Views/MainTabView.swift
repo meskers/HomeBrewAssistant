@@ -23,7 +23,14 @@ struct MainTabView: View {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var selectedRecipeForBrewing: DetailedRecipe?
     @State private var showingLanguageSettings = false
-    @State private var recipes: [DetailedRecipe] = [] // Load from CoreData only, not from defaults
+    @State private var recipes: [DetailedRecipe] = []  // Start empty - recipes come from CoreData only
+    @State private var selectedRecipe: DetailedRecipe?
+    @State private var showingNewRecipe = false
+    @State private var searchText = ""
+    @State private var showingXMLImport = false
+    @State private var showingAbout = false
+    @State private var showingBeerXMLImportExport = false
+    @State private var showingAIGenerator = false
     
     var body: some View {
         TabView {
