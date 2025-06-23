@@ -577,7 +577,7 @@
 "ai.recipe.title" = "AI Recipe Generator";
 "ai.recipe.subtitle" = "Let artificial intelligence create the perfect brew recipe based on BJCP guidelines and brewing science";
 "ai.recipe.nav.title" = "🤖 AI Recipe Generator";
-"ai.recipe.brewing.progress" = "�� Brewing the Perfect Recipe...";
+"ai.recipe.brewing.progress" = "Brewing the Perfect Recipe...";
 "ai.recipe.progress.complete" = "% Complete";
 "ai.recipe.step.calculating" = "📊 Calculating specifications";
 "ai.recipe.step.grain" = "🌾 Selecting grain bill";
@@ -638,9 +638,175 @@
 "factory.reset.progress.subtitle" = "Creating perfect first-download experience";
 "factory.reset.progress.almost" = "✨ Almost ready for 5-star reviews!";
 "factory.reset.complete.title" = "Reset Complete! 🎉";
-"factory.reset.complete.message" = "App has been reset to perfect App Store download state! ✨
-
-• All user data cleared
-• Default recipes preserved
-• Ready for 5-star reviews";
+"factory.reset.complete.message" = "App has been reset to perfect App Store download state! ✨\n\n• All user data cleared\n• Default recipes preserved\n• Ready for 5-star reviews";
 "factory.reset.perfect" = "Perfect!";
+
+// MARK: - Onboarding Additions
+"onboarding.skip" = "Skip";
+"onboarding.previous" = "Previous";
+"onboarding.next" = "Next";
+
+// Page 1 - Welcome
+"onboarding.page1.title" = "Welcome to HomeBrewAssistant";
+"onboarding.page1.subtitle" = "Your complete brewing companion";
+"onboarding.page1.description" = "Start your brewing journey with the most comprehensive homebrew assistant app.";
+"onboarding.page1.feature1.title" = "50+ Expert Recipes";
+"onboarding.page1.feature1.description" = "Award-winning formulas";
+"onboarding.page1.feature2.title" = "Professional Tools";
+"onboarding.page1.feature2.description" = "ABV, IBU, SRM calculators";
+"onboarding.page1.feature3.title" = "Analytics";
+"onboarding.page1.feature3.description" = "Track your brewing progress";
+
+// Page 2 - Recipes  
+"onboarding.page2.title" = "Discover Amazing Recipes";
+"onboarding.page2.subtitle" = "Start with our curated collection";
+"onboarding.page2.description" = "Discover our curated collection of award-winning recipes from master brewers worldwide.";
+"onboarding.page2.feature1.title" = "Beginner Friendly";
+"onboarding.page2.feature1.description" = "97% success rate recipes";
+"onboarding.page2.feature2.title" = "Dutch Classics";
+"onboarding.page2.feature2.description" = "Authentic local styles";
+"onboarding.page2.feature3.title" = "World Favorites";
+"onboarding.page2.feature3.description" = "International beer styles";
+
+// Page 3 - Tools
+"onboarding.page3.title" = "Professional Tools";
+"onboarding.page3.subtitle" = "Calculators and tracking tools";
+"onboarding.page3.description" = "Professional-grade calculators and tools to perfect every aspect of your brew.";
+"onboarding.page3.feature1.title" = "ABV Calculator";
+"onboarding.page3.feature1.description" = "Precise alcohol content";
+"onboarding.page3.feature2.title" = "IBU Calculator";
+"onboarding.page3.feature2.description" = "Hop bitterness levels";
+"onboarding.page3.feature3.title" = "Brew Timers";
+"onboarding.page3.feature3.description" = "Never miss a step";
+
+// Page 4 - Community
+"onboarding.page4.title" = "Join the Community";
+"onboarding.page4.subtitle" = "Share and learn from fellow brewers";
+"onboarding.page4.description" = "Join thousands of brewers sharing knowledge, recipes, and brewing experiences.";
+"onboarding.page4.feature1.title" = "Photo Documentation";
+"onboarding.page4.feature1.description" = "Share your brewing process";
+"onboarding.page4.feature2.title" = "Rate Recipes";
+"onboarding.page4.feature2.description" = "Help others find great brews";
+"onboarding.page4.feature3.title" = "Export & Share";
+"onboarding.page4.feature3.description" = "BeerXML compatibility";
+
+// MARK: - Language Settings
+"language.nederlands.description" = "Dutch language";
+"language.english.description" = "English language";
+
+// MARK: - About View
+"about.acknowledgments" = "Acknowledgments";
+"about.made.with" = "• Made with SwiftUI and Core Data";
+"about.thanks.community" = "• Thanks to the homebrewing community";
+"about.based.bjcp" = "• Based on BJCP guidelines";
+"about.close" = "Close";
+
+
+// MARK: - Splash Screen
+"splash.app.title" = "HomeBrewAssistant";
+"splash.app.subtitle" = "Your Complete Brewing Companion";
+"splash.app.tagline" = "Professional Homebrewing Made Simple";
+
+// MARK: - Recipe Builder
+"recipe.builder.details" = "Recipe Details";
+"recipe.builder.type" = "Type:";
+"recipe.builder.brew.type" = "Brewing Type";
+"recipe.builder.ingredients" = "Ingredients";
+"recipe.builder.no.ingredients" = "No ingredients added";
+"recipe.builder.add.ingredients" = "Tap + to add ingredients";
+"recipe.builder.instructions" = "Instructions";
+"recipe.builder.add.instructions" = "Add brewing instructions...";
+"recipe.builder.enter.name" = "Enter a recipe name";
+
+// MARK: - Recipe Detail
+"recipe.detail.created.on" = "Created on";
+"recipe.detail.scaling.not.implemented" = "Recipe Scaling - Not yet implemented";
+"recipe.detail.recipe.data" = "Recipe Data";
+"recipe.detail.ingredients.count" = "Ingredients (%d)";
+"recipe.detail.notes" = "Notes";
+"recipe.detail.fermentation.steps" = "Fermentation Steps (%d)";
+"recipe.detail.temperature" = "%d°C";
+"recipe.detail.days" = "%d days";
+
+// MARK: - AI Recipe Generator Extended
+"ai.generator.brewing.recipe" = "Brewing the Perfect Recipe...";
+"ai.generator.progress.complete" = "% Complete";
+"ai.generator.beer.style" = "Beer Style";
+"ai.generator.complexity" = "Recipe Complexity";
+"ai.generator.batch.size" = "Batch Size";
+"ai.generator.generate" = "Generate AI Recipe";
+"ai.generator.generated" = "Generated Recipe";
+"ai.generator.abv.range" = "ABV: %.1f-%.1f%%";
+
+// MARK: - Recipe List Extended  
+"recipe.list.my.recipes" = "My Recipes";
+"recipe.list.count" = "%d of %d recipes";
+"recipe.list.filter.category" = "Filter by Category";
+"recipe.list.abv" = "%.1f%% ABV";
+"recipe.list.ingredients.count" = "%d ingredients";
+"recipe.list.scale" = "Scale";
+
+// MARK: - Photo Gallery
+"photo.gallery.count" = "%d photos";
+
+// MARK: - Version History Extended
+"version.history.version" = "v%@";
+"version.history.build" = "(%@)";
+
+// MARK: - Calculators Extended
+"calculator.ibu.coming.soon" = "IBU Calculator - Coming Soon";
+"calculator.srm.coming.soon" = "SRM Calculator - Coming Soon";
+"calculator.carbonation.coming.soon" = "Carbonation Calculator - Coming Soon";
+"calculator.water.coming.soon" = "Water Calculator - Coming Soon";
+"calculator.hydrometer.correction" = "Hydrometer Correction";
+"calculator.hydrometer.description" = "Correct gravity readings for temperature";
+"calculator.hydrometer.reading" = "Reading from hydrometer";
+"calculator.sample.temperature" = "Sample temperature during measurement";  
+"calculator.calibration.temperature" = "Calibration temperature (usually 20°C)";
+"calculator.corrected.gravity" = "Corrected Gravity";
+"calculator.correction.amount" = "Correction: %+.3f";
+"calculator.temperature.info" = "Temperature Correction Info";
+"calculator.temp.info.warm" = "• Warm samples read lower than actual gravity";
+"calculator.temp.info.cold" = "• Cold samples read higher than actual gravity";
+"calculator.temp.info.accurate" = "• Most accurate at calibration temperature";
+"calculator.temp.info.compensation" = "• Automatic thermal expansion compensation";
+"calculator.strike.water" = "Strike Water Calculator";
+"calculator.strike.description" = "Calculate correct water temperature for your mash";
+"calculator.grain.temperature" = "Grain temperature (usually room temperature)";
+"calculator.target.temperature" = "Target temperature after mixing";
+"calculator.strike.temperature" = "Strike Water Temperature";
+"calculator.strike.result" = "%d°C";
+"calculator.strike.instruction" = "Heat your water to this temperature";
+"calculator.mash.temperature.guide" = "Mash Temperature Guide";
+"calculator.mash.guide.63" = "• 63-65°C: Dry, fermentable beers";
+"calculator.mash.guide.65" = "• 65-67°C: Balanced body and fermentation";
+"calculator.mash.guide.67" = "• 67-69°C: More body, less fermentable";
+"calculator.mash.guide.69" = "• 69-72°C: Full body, sweet beers";
+"calculator.yeast.pitch" = "Yeast Pitch Rate Calculator";
+"calculator.yeast.description" = "Calculate how much yeast needed for optimal fermentation";
+"calculator.total.cells.needed" = "Total Yeast Cells Needed";
+"calculator.cells.billion" = "%.0f billion";
+"calculator.dry.yeast.packets" = "Dry Yeast Packets";
+"calculator.packets.needed" = "%.1f";
+"calculator.packets.rounded" = "≈ %d packets";
+"calculator.starter.volume" = "Starter Volume";
+"calculator.starter.size" = "%.1fL";
+"calculator.starter.with.packet" = "with 1 packet of yeast";
+"calculator.pitch.rate.info" = "Pitch Rate Information";
+"calculator.pitch.ale" = "• Ale yeast: 0.75M cells/mL/°P";
+"calculator.pitch.lager" = "• Lager yeast: 1.5M cells/mL/°P (double pitch rate)";
+"calculator.pitch.under" = "• Underpitching → slow start, stress flavors";
+"calculator.pitch.over" = "• Overpitching → less ester production";
+"calculator.pitch.packet" = "• 1 dry yeast packet ≈ 200 billion cells";
+"calculator.brew.timers" = "Brew Timers";
+"calculator.timers.description" = "Multi-timer for brewing processes";
+"calculator.timers.coming.soon" = "Coming Soon";
+"calculator.timers.available.soon" = "Advanced timer functionality coming in future update.";
+"calculator.timers.use.phone" = "For now, you can use your phone's standard timer.";
+"calculator.water.chemistry" = "Water Chemistry Calculator";
+"calculator.water.description" = "Optimize your brewing water for perfect beer styles";
+"calculator.batch.size" = "Batch Size";
+"calculator.target.water.profile" = "Target Water Profile";
+"calculator.calculate.additions" = "Calculate Mineral Additions";
+"calculator.ph" = "pH: %.1f";
+"calculator.chloride.sulfate.ratio" = "Cl⁻/SO₄²⁻ Ratio: %.2f";

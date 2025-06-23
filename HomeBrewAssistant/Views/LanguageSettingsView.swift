@@ -83,7 +83,7 @@ struct LanguageOptionCard: View {
                             .font(.headline)
                             .foregroundColor(.labelPrimary)
                         
-                        Text(language == .dutch ? "Nederlandse taal" : "English language")
+                        Text(language == .dutch ? "language.nederlands.description".localized : "language.english.description".localized)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }

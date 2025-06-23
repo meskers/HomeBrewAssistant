@@ -1,0 +1,25 @@
+# HomeBrewAssistant Development Aliases
+# Add these to your ~/.zshrc or ~/.bash_profile for quick access
+
+# Version management shortcuts
+alias version-patch='Scripts/increment_version.sh patch'
+alias version-minor='Scripts/increment_version.sh minor'
+alias version-major='Scripts/increment_version.sh major'
+alias version-test='Scripts/increment_version.sh patch --dry-run'
+alias version-help='Scripts/increment_version.sh --help'
+
+# Development shortcuts
+alias build-app='xcodebuild -project HomeBrewAssistant.xcodeproj -scheme HomeBrewAssistant build'
+alias clean-build='xcodebuild clean && xcodebuild -project HomeBrewAssistant.xcodeproj -scheme HomeBrewAssistant build'
+alias open-app='open HomeBrewAssistant.xcodeproj'
+
+# Git shortcuts for releases
+alias git-push-tags='git push origin main --tags'
+alias git-latest-tag='git describe --tags --abbrev=0'
+alias git-log-since-tag='git log $(git describe --tags --abbrev=0)..HEAD --oneline'
+
+# Usage examples:
+# version-patch      # Increment patch version automatically  
+# version-test       # See what patch increment would do
+# build-app          # Quick build to test after version update
+# git-push-tags      # Push with tags after version increment

@@ -174,20 +174,20 @@ struct AboutView: View {
                     
                     // Acknowledgments
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Dankbetuigingen")
+                        Text("about.acknowledgments".localized)
                             .font(.headline)
                             .foregroundColor(.aboutBrewTheme)
                         
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("• Gemaakt met SwiftUI en Core Data")
+                            Text("about.made.with".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             
-                            Text("• Dank aan de homebrewing gemeenschap")
+                            Text("about.thanks.community".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             
-                            Text("• Gebaseerd op BJCP richtlijnen")
+                            Text("about.based.bjcp".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -200,7 +200,7 @@ struct AboutView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Sluiten") {
+                    Button("about.close".localized) {
                         dismiss()
                     }
                 }

@@ -100,6 +100,23 @@ update_project_version() {
     fi
 }
 
+# Function to update Info.plist file
+update_plist_version() {
+    local new_version=$1
+    local new_build=$2
+    
+    if [ -f "$PLIST_FILE" ]; then
+        # Update CFBundleShortVersionString
+        /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $new_version" "$PLIST_FILE"
+        # Update CFBundleVersion
+        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $new_build" "$PLIST_FILE"
+        print_success "Updated Info.plist with version $new_version ($new_build)"
+    else
+        print_error "Info.plist file not found: $PLIST_FILE"
+        exit 1
+    fi
+}
+
 # Function to create git tag
 create_git_tag() {
     local version=$1
@@ -213,7 +230,7 @@ main() {
     # Make changes
     print_status "Updating version..."
     update_project_version "$new_version" "$new_build"
-    
+    update_plist_version "$new_version" "$new_build"    
     if [ "$create_tag" = true ]; then
         create_git_tag "$new_version" "$new_build"
     fi

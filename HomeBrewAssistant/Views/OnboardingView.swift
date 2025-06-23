@@ -25,7 +25,7 @@ struct OnboardingView: View {
                 // Skip button
                 HStack {
                     Spacer()
-                    Button("Skip") {
+                    Button("onboarding.skip".localized) {
                         completeOnboarding()
                     }
                     .font(.subheadline)
@@ -38,13 +38,13 @@ struct OnboardingView: View {
                     // Page 1: Welcome
                     OnboardingPageView(
                         image: "flask.fill",
-                        title: "Welcome to HomeBrewAssistant",
-                        subtitle: "Your complete brewing companion",
-                        description: "Start your brewing journey with the most comprehensive homebrew assistant app.",
+                        title: "onboarding.page1.title".localized,
+                        subtitle: "onboarding.page1.subtitle".localized,
+                        description: "onboarding.page1.description".localized,
                         features: [
-                            OnboardingFeature(icon: "book.fill", title: "50+ Expert Recipes", description: "Award-winning formulas"),
-                            OnboardingFeature(icon: "calculator.fill", title: "Professional Tools", description: "ABV, IBU, SRM calculators"),
-                            OnboardingFeature(icon: "chart.bar.fill", title: "Analytics", description: "Track your brewing progress")
+                            OnboardingFeature(icon: "book.fill", title: "onboarding.page1.feature1.title".localized, description: "onboarding.page1.feature1.description".localized),
+                            OnboardingFeature(icon: "calculator.fill", title: "onboarding.page1.feature2.title".localized, description: "onboarding.page1.feature2.description".localized),
+                            OnboardingFeature(icon: "chart.bar.fill", title: "onboarding.page1.feature3.title".localized, description: "onboarding.page1.feature3.description".localized)
                         ]
                     )
                     .tag(0)
@@ -52,13 +52,13 @@ struct OnboardingView: View {
                     // Page 2: Recipe Collection
                     OnboardingPageView(
                         image: "trophy.fill",
-                        title: "Discover Amazing Recipes",
-                        subtitle: "Start with our curated collection",
-                        description: "Discover our curated collection of award-winning recipes from master brewers worldwide.",
+                        title: "onboarding.page2.title".localized,
+                        subtitle: "onboarding.page2.subtitle".localized,
+                        description: "onboarding.page2.description".localized,
                         features: [
-                            OnboardingFeature(icon: "graduationcap.fill", title: "Beginner Friendly", description: "97% success rate recipes"),
-                            OnboardingFeature(icon: "flag.fill", title: "Dutch Classics", description: "Authentic local styles"),
-                            OnboardingFeature(icon: "globe", title: "World Favorites", description: "International beer styles")
+                            OnboardingFeature(icon: "graduationcap.fill", title: "onboarding.page2.feature1.title".localized, description: "onboarding.page2.feature1.description".localized),
+                            OnboardingFeature(icon: "flag.fill", title: "onboarding.page2.feature2.title".localized, description: "onboarding.page2.feature2.description".localized),
+                            OnboardingFeature(icon: "globe", title: "onboarding.page2.feature3.title".localized, description: "onboarding.page2.feature3.description".localized)
                         ]
                     )
                     .tag(1)
@@ -66,13 +66,13 @@ struct OnboardingView: View {
                     // Page 3: Professional Tools
                     OnboardingPageView(
                         image: "wrench.and.screwdriver.fill",
-                        title: "Professional Tools",
-                        subtitle: "Calculators and tracking tools",
-                        description: "Professional-grade calculators and tools to perfect every aspect of your brew.",
+                        title: "onboarding.page3.title".localized,
+                        subtitle: "onboarding.page3.subtitle".localized,
+                        description: "onboarding.page3.description".localized,
                         features: [
-                            OnboardingFeature(icon: "percent", title: "ABV Calculator", description: "Precise alcohol content"),
-                            OnboardingFeature(icon: "drop.fill", title: "IBU Calculator", description: "Hop bitterness levels"),
-                            OnboardingFeature(icon: "timer", title: "Brew Timers", description: "Never miss a step")
+                            OnboardingFeature(icon: "percent", title: "onboarding.page3.feature1.title".localized, description: "onboarding.page3.feature1.description".localized),
+                            OnboardingFeature(icon: "drop.fill", title: "onboarding.page3.feature2.title".localized, description: "onboarding.page3.feature2.description".localized),
+                            OnboardingFeature(icon: "timer", title: "onboarding.page3.feature3.title".localized, description: "onboarding.page3.feature3.description".localized)
                         ]
                     )
                     .tag(2)
@@ -80,13 +80,13 @@ struct OnboardingView: View {
                     // Page 4: Community
                     OnboardingPageView(
                         image: "person.3.fill",
-                        title: "Join the Community",
-                        subtitle: "Share and learn from fellow brewers",
-                        description: "Join thousands of brewers sharing knowledge, recipes, and brewing experiences.",
+                        title: "onboarding.page4.title".localized,
+                        subtitle: "onboarding.page4.subtitle".localized,
+                        description: "onboarding.page4.description".localized,
                         features: [
-                            OnboardingFeature(icon: "camera.fill", title: "Photo Documentation", description: "Share your brewing process"),
-                            OnboardingFeature(icon: "star.fill", title: "Rate Recipes", description: "Help others find great brews"),
-                            OnboardingFeature(icon: "square.and.arrow.up", title: "Export & Share", description: "BeerXML compatibility")
+                            OnboardingFeature(icon: "camera.fill", title: "onboarding.page4.feature1.title".localized, description: "onboarding.page4.feature1.description".localized),
+                            OnboardingFeature(icon: "star.fill", title: "onboarding.page4.feature2.title".localized, description: "onboarding.page4.feature2.description".localized),
+                            OnboardingFeature(icon: "square.and.arrow.up", title: "onboarding.page4.feature3.title".localized, description: "onboarding.page4.feature3.description".localized)
                         ]
                     )
                     .tag(3)
@@ -108,7 +108,7 @@ struct OnboardingView: View {
                     // Navigation buttons
                     HStack(spacing: 20) {
                         if currentPage > 0 {
-                            Button("Previous") {
+                            Button("onboarding.previous".localized) {
                                 withAnimation(.easeInOut(duration: 0.5)) {
                                     currentPage -= 1
                                 }
@@ -120,7 +120,7 @@ struct OnboardingView: View {
                         Spacer()
                         
                         if currentPage < totalPages - 1 {
-                            Button("Next") {
+                            Button("onboarding.next".localized) {
                                 withAnimation(.easeInOut(duration: 0.5)) {
                                     currentPage += 1
                                 }
@@ -133,7 +133,7 @@ struct OnboardingView: View {
                             .background(Color("BrewTheme"))
                             .cornerRadius(25)
                         } else {
-                            Button("Get Started") {
+                            Button("onboarding.get.started".localized) {
                                 completeOnboarding()
                             }
                             .font(.headline)
@@ -308,7 +308,7 @@ struct LaunchView: View {
     }
     
     private func checkOnboardingStatus() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
             let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
             showingOnboarding = !hasCompletedOnboarding
             isLoading = false
@@ -319,10 +319,15 @@ struct LaunchView: View {
 struct SplashScreenView: View {
     @State private var scale = 0.8
     @State private var opacity = 0.5
+    @State private var logoRotation = 0.0
+    @State private var showText = false
+    @State private var titleOpacity = 0.0
+    @State private var subtitleOpacity = 0.0
+    @State private var taglineOpacity = 0.0
     
     var body: some View {
         ZStack {
-            // Background
+            // Professional gradient background
             LinearGradient(
                 gradient: Gradient(colors: [
                     Color("BrewTheme"),
@@ -334,30 +339,82 @@ struct SplashScreenView: View {
             )
             .ignoresSafeArea()
             
-            VStack(spacing: 20) {
-                // App logo/icon
-                Image(systemName: "flask.fill")
-                    .font(.system(size: 80, weight: .light))
-                    .foregroundColor(.white)
-                    .scaleEffect(scale)
-                    .opacity(opacity)
+            VStack(spacing: 30) {
+                Spacer()
                 
-                Text("HomeBrewAssistant")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .opacity(opacity)
+                // Professional beer glass logo with animation
+                ZStack {
+                    // Subtle glow effect
+                    Circle()
+                        .fill(Color.white.opacity(0.1))
+                        .frame(width: 180, height: 180)
+                        .scaleEffect(scale * 1.2)
+                        .opacity(opacity * 0.3)
+                    
+                    // Main logo
+                    Image("BeerGlassLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 140, height: 140)
+                        .scaleEffect(scale)
+                        .opacity(opacity)
+                        .rotationEffect(.degrees(logoRotation))
+                }
                 
-                Text("Your Complete Brewing Companion")
-                    .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.8))
-                    .opacity(opacity)
+                // App name and tagline with staggered animation
+                VStack(spacing: 8) {
+                    Text("splash.app.title".localized)
+                        .font(.title.bold())
+                        .foregroundColor(.white)
+                        .opacity(titleOpacity)
+                        .animation(.easeInOut(duration: 0.8).delay(1.5), value: titleOpacity)
+                    
+                    Text("splash.app.subtitle".localized)
+                        .font(.title3)
+                        .foregroundColor(.white.opacity(0.9))
+                        .opacity(subtitleOpacity)
+                        .animation(.easeInOut(duration: 0.8).delay(2.0), value: subtitleOpacity)
+                    
+                    Text("splash.app.tagline".localized)
+                        .font(.subheadline)
+                        .foregroundColor(.white.opacity(0.8))
+                        .opacity(taglineOpacity)
+                        .animation(.easeInOut(duration: 0.8).delay(2.5), value: taglineOpacity)
+                }
+                
+                Spacer()
+                
+                // Loading indicator
+                HStack(spacing: 8) {
+                    ForEach(0..<3) { index in
+                        Circle()
+                            .fill(Color.white.opacity(0.8))
+                            .frame(width: 8, height: 8)
+                            .scaleEffect(scale)
+                            .animation(
+                                .easeInOut(duration: 0.6)
+                                .repeatForever(autoreverses: true)
+                                .delay(Double(index) * 0.2),
+                                value: scale
+                            )
+                    }
+                }
+                .padding(.bottom, 50)
             }
         }
         .onAppear {
-            withAnimation(.easeInOut(duration: 1.5)) {
+            // Staggered animations for professional effect
+            withAnimation(.easeInOut(duration: 1.2)) {
                 scale = 1.0
                 opacity = 1.0
+            }
+            
+            withAnimation(.linear(duration: 2.0).repeatForever(autoreverses: false)) {
+                logoRotation = 360
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                showText = true
             }
         }
     }

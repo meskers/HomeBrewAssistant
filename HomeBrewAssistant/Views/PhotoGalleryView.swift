@@ -101,7 +101,7 @@ struct PhotoGalleryView: View {
                 
                 Spacer()
                 
-                Text("\(filteredPhotos.count) photos")
+                                        Text("photo.gallery.count".localized(with: filteredPhotos.count))
                     .font(.caption)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)

@@ -11,12 +11,18 @@ import UniformTypeIdentifiers
 
 // MARK: - Color Extensions for Dark Mode Support
 extension Color {
-    // Semantic colors for brewing app
-    static let primaryCard = Color(UIColor.secondarySystemBackground)
+    // Premium brewing app semantic colors
+    static let primaryCard = Color("CardBackground")
     static let secondaryCard = Color(UIColor.tertiarySystemBackground)
     static let labelPrimary = Color(UIColor.label)
     static let labelSecondary = Color(UIColor.secondaryLabel)
     static let separatorColor = Color(UIColor.separator)
+    
+    // Premium brewing theme colors - now using auto-generated asset symbols
+    
+    // Enhanced UI colors for premium feel
+    static let premiumBackground = Color("CardBackground")
+    static let accentPrimary = Color("AccentColor")
 }
 
 struct MainTabView: View {
@@ -66,34 +72,6 @@ struct MainTabView: View {
         }
         .sheet(isPresented: $showingLanguageSettings) {
             LanguageSettingsView()
-        }
-        .overlay(alignment: .topTrailing) {
-            // Quick language switcher (floating)
-            Button(action: {
-                // Toggle between Dutch and English
-                if localizationManager.currentLanguage == .dutch {
-                    localizationManager.changeLanguage(to: .english)
-                } else {
-                    localizationManager.changeLanguage(to: .dutch)
-                }
-            }) {
-                HStack(spacing: 4) {
-                    Text(localizationManager.currentLanguage.flag)
-                        .font(.system(size: 14))
-                    Text(localizationManager.currentLanguage.rawValue.uppercased())
-                        .font(.caption2.bold())
-                    Image(systemName: "arrow.triangle.2.circlepath")
-                        .font(.caption2)
-                }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Color.brewTheme.opacity(0.95))
-                .foregroundColor(.white)
-                .cornerRadius(15)
-                .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 1)
-            }
-            .padding(.trailing, 16)
-            .padding(.top, 32) // Moved even higher, closer to status bar
         }
     }
 }

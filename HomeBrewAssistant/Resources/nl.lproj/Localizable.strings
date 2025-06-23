@@ -704,3 +704,173 @@
 • Standaard recepten behouden
 • Klaar voor 5-sterren reviews";
 "factory.reset.perfect" = "Perfect!";
+
+// MARK: - Onboarding Additions
+"onboarding.skip" = "Overslaan";
+"onboarding.previous" = "Vorige";
+"onboarding.next" = "Volgende";
+
+// Page 1 - Welcome
+"onboarding.page1.title" = "Welkom bij HomeBrewAssistant";
+"onboarding.page1.subtitle" = "Je complete brouw begeleider";
+"onboarding.page1.description" = "Start je brouwavontuur met de meest uitgebreide thuisbrouw assistent app.";
+"onboarding.page1.feature1.title" = "50+ Expert Recepten";
+"onboarding.page1.feature1.description" = "Prijswinnende formules";
+"onboarding.page1.feature2.title" = "Professionele Tools";
+"onboarding.page1.feature2.description" = "ABV, IBU, SRM calculators";
+"onboarding.page1.feature3.title" = "Analytics";
+"onboarding.page1.feature3.description" = "Volg je brouwvoortgang";
+
+// Page 2 - Recipes  
+"onboarding.page2.title" = "Ontdek Geweldige Recepten";
+"onboarding.page2.subtitle" = "Begin met onze gecureerde collectie";
+"onboarding.page2.description" = "Ontdek onze gecureerde collectie van prijswinnende recepten van meesterbrouwers wereldwijd.";
+"onboarding.page2.feature1.title" = "Beginnersvriendelijk";
+"onboarding.page2.feature1.description" = "97% slagingspercentage recepten";
+"onboarding.page2.feature2.title" = "Nederlandse Klassiekers";
+"onboarding.page2.feature2.description" = "Authentieke lokale stijlen";
+"onboarding.page2.feature3.title" = "Wereldwijde Favorieten";
+"onboarding.page2.feature3.description" = "Internationale bierstijlen";
+
+// Page 3 - Tools
+"onboarding.page3.title" = "Professionele Tools";
+"onboarding.page3.subtitle" = "Calculators en tracking tools";
+"onboarding.page3.description" = "Professionele calculators en tools om elk aspect van je brouwsel te perfectioneren.";
+"onboarding.page3.feature1.title" = "ABV Calculator";
+"onboarding.page3.feature1.description" = "Precieze alcoholinhoud";
+"onboarding.page3.feature2.title" = "IBU Calculator";
+"onboarding.page3.feature2.description" = "Hopbitterheid niveaus";
+"onboarding.page3.feature3.title" = "Brouw Timers";
+"onboarding.page3.feature3.description" = "Mis nooit een stap";
+
+// Page 4 - Community
+"onboarding.page4.title" = "Word Lid van de Community";
+"onboarding.page4.subtitle" = "Deel en leer van mede-brouwers";
+"onboarding.page4.description" = "Sluit je aan bij duizenden brouwers die kennis, recepten en brouwervaringen delen.";
+"onboarding.page4.feature1.title" = "Foto Documentatie";
+"onboarding.page4.feature1.description" = "Deel je brouwproces";
+"onboarding.page4.feature2.title" = "Beoordeel Recepten";
+"onboarding.page4.feature2.description" = "Help anderen geweldige brouwsels vinden";
+"onboarding.page4.feature3.title" = "Export & Delen";
+"onboarding.page4.feature3.description" = "BeerXML compatibiliteit";
+
+// MARK: - Language Settings
+"language.nederlands.description" = "Nederlandse taal";
+"language.english.description" = "English language";
+
+// MARK: - About View
+"about.acknowledgments" = "Dankbetuigingen";
+"about.made.with" = "• Gemaakt met SwiftUI en Core Data";
+"about.thanks.community" = "• Dank aan de homebrewing gemeenschap";
+"about.based.bjcp" = "• Gebaseerd op BJCP richtlijnen";
+"about.close" = "Sluiten";
+
+
+// MARK: - Splash Screen
+"splash.app.title" = "HomeBrewAssistant";
+"splash.app.subtitle" = "Jouw Volledige Brouwcompagnon";
+"splash.app.tagline" = "Professioneel Thuisbrouwen Gemakkelijk Gemaakt";
+
+// MARK: - Recipe Builder
+"recipe.builder.details" = "📝 Receptdetails";
+"recipe.builder.type" = "Type:";
+"recipe.builder.brew.type" = "🍺 Brouwtype";
+"recipe.builder.ingredients" = "🌾 Ingrediënten";
+"recipe.builder.no.ingredients" = "Geen ingrediënten toegevoegd";
+"recipe.builder.add.ingredients" = "Tik op + om ingrediënten toe te voegen";
+"recipe.builder.instructions" = "📋 Instructies";
+"recipe.builder.add.instructions" = "Voeg brouwinstructies toe...";
+"recipe.builder.enter.name" = "⚠️ Voer een receptnaam in";
+
+// MARK: - Recipe Detail
+"recipe.detail.created.on" = "Aangemaakt op";
+"recipe.detail.scaling.not.implemented" = "Recipe Scaling - Nog niet geïmplementeerd";
+"recipe.detail.recipe.data" = "Receptgegevens";
+"recipe.detail.ingredients.count" = "Ingrediënten (%d)";
+"recipe.detail.notes" = "Notities";
+"recipe.detail.fermentation.steps" = "Fermentatiestappen (%d)";
+"recipe.detail.temperature" = "%d°C";
+"recipe.detail.days" = "%d dagen";
+
+// MARK: - AI Recipe Generator Extended
+"ai.generator.brewing.recipe" = "🧠 Het Perfecte Recept Brouwen...";
+"ai.generator.progress.complete" = "% Voltooid";
+"ai.generator.beer.style" = "🍺 Bierstijl";
+"ai.generator.complexity" = "⚗️ Recept Complexiteit";
+"ai.generator.batch.size" = "🪣 Batch Grootte";
+"ai.generator.generate" = "Genereer AI Recept";
+"ai.generator.generated" = "🎉 Gegenereerd Recept";
+"ai.generator.abv.range" = "ABV: %.1f-%.1f%%";
+
+// MARK: - Recipe List Extended
+"recipe.list.my.recipes" = "Mijn Recepten";
+"recipe.list.count" = "%d van %d recepten";
+"recipe.list.filter.category" = "Filter op Categorie";
+"recipe.list.abv" = "%.1f%% ABV";
+"recipe.list.ingredients.count" = "%d ingrediënten";
+"recipe.list.scale" = "Schaal";
+
+// MARK: - Photo Gallery
+"photo.gallery.count" = "%d foto's";
+
+// MARK: - Version History Extended
+"version.history.version" = "v%@";
+"version.history.build" = "(%@)";
+
+// MARK: - Calculators Extended
+"calculator.ibu.coming.soon" = "IBU Calculator - Binnenkort";
+"calculator.srm.coming.soon" = "SRM Calculator - Binnenkort";
+"calculator.carbonation.coming.soon" = "Carbonatie Calculator - Binnenkort";
+"calculator.water.coming.soon" = "Water Calculator - Binnenkort";
+"calculator.hydrometer.correction" = "Hydrometer Correctie";
+"calculator.hydrometer.description" = "Corrigeer gravity metingen voor temperatuur";
+"calculator.hydrometer.reading" = "Waarde afgelezen van hydrometer";
+"calculator.sample.temperature" = "Temperatuur van de sample tijdens meting";
+"calculator.calibration.temperature" = "Temperatuur waarvoor hydrometer gekalibreerd is (meestal 20°C)";
+"calculator.corrected.gravity" = "Gecorrigeerde Gravity";
+"calculator.correction.amount" = "Correctie: %+.3f";
+"calculator.temperature.info" = "💡 Temperatuur Correctie Info";
+"calculator.temp.info.warm" = "• Warme samples lezen lager dan werkelijke gravity";
+"calculator.temp.info.cold" = "• Koude samples lezen hoger dan werkelijke gravity";
+"calculator.temp.info.accurate" = "• Grootste nauwkeurigheid bij kalibratie temperatuur";
+"calculator.temp.info.compensation" = "• Automatische compensatie voor thermische uitzetting";
+"calculator.strike.water" = "Strike Water Calculator";
+"calculator.strike.description" = "Bereken de juiste water temperatuur voor je mash";
+"calculator.grain.temperature" = "Temperatuur van de mout (meestal kamertemperatuur)";
+"calculator.target.temperature" = "Gewenste temperatuur na mengen";
+"calculator.strike.temperature" = "Strike Water Temperatuur";
+"calculator.strike.result" = "%d°C";
+"calculator.strike.instruction" = "Verwarm je water tot deze temperatuur";
+"calculator.mash.temperature.guide" = "🌡️ Mash Temperatuur Gids";
+"calculator.mash.guide.63" = "• 63-65°C: Droge, vergistbare bieren";
+"calculator.mash.guide.65" = "• 65-67°C: Gebalanceerde body en vergisting";
+"calculator.mash.guide.67" = "• 67-69°C: Meer body, minder vergistbaar";
+"calculator.mash.guide.69" = "• 69-72°C: Volle body, zoete bieren";
+"calculator.yeast.pitch" = "Yeast Pitch Rate Calculator";
+"calculator.yeast.description" = "Bereken hoeveel gist je nodig hebt voor optimale fermentatie";
+"calculator.total.cells.needed" = "Totaal Gist Cellen Nodig";
+"calculator.cells.billion" = "%.0f miljard";
+"calculator.dry.yeast.packets" = "Dry Yeast Pakjes";
+"calculator.packets.needed" = "%.1f";
+"calculator.packets.rounded" = "≈ %d pakjes";
+"calculator.starter.volume" = "Starter Volume";
+"calculator.starter.size" = "%.1fL";
+"calculator.starter.with.packet" = "met 1 pakje gist";
+"calculator.pitch.rate.info" = "📊 Pitch Rate Informatie";
+"calculator.pitch.ale" = "• Ale gist: 0.75M cellen/mL/°P";
+"calculator.pitch.lager" = "• Lager gist: 1.5M cellen/mL/°P (dubbele pitch rate)";
+"calculator.pitch.under" = "• Onderpitching → trage start, stress flavors";
+"calculator.pitch.over" = "• Overpitching → minder ester productie";
+"calculator.pitch.packet" = "• 1 pakje dry yeast ≈ 200 miljard cellen";
+"calculator.brew.timers" = "Brouw Timers";
+"calculator.timers.description" = "Multi-timer voor brouwprocessen";
+"calculator.timers.coming.soon" = "🚧 Binnenkort Beschikbaar";
+"calculator.timers.available.soon" = "De geavanceerde timer functionaliteit komt beschikbaar in een toekomstige update.";
+"calculator.timers.use.phone" = "Voor nu kunt u de standaard timer van uw telefoon gebruiken.";
+"calculator.water.chemistry" = "Water Chemistry Calculator";
+"calculator.water.description" = "Optimaliseer je brouwwater voor perfecte bierstijlen";
+"calculator.batch.size" = "Batch Grootte";
+"calculator.target.water.profile" = "Doel Water Profiel";
+"calculator.calculate.additions" = "Bereken Mineraal Toevoegingen";
+"calculator.ph" = "pH: %.1f";
+"calculator.chloride.sulfate.ratio" = "Cl⁻/SO₄²⁻ Ratio: %.2f";
