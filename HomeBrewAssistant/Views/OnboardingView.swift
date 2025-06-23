@@ -164,6 +164,13 @@ struct OnboardingView: View {
     
     private func completeOnboarding() {
         UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+        
+        // Install default recipes for new users (App Store ready)
+        let context = PersistenceController.shared.backgroundContext
+        context.perform {
+            DefaultRecipeInstaller.installDefaultRecipesToCoreData(context: context)
+        }
+        
         showingMainApp = true
     }
 }

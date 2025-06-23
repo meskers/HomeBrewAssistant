@@ -89,6 +89,9 @@ class FactoryResetManager: ObservableObject {
             // Reset onboarding to show for new users
             userDefaults.set(false, forKey: "hasCompletedOnboarding")
             
+            // Reset default recipes installation flag so they get installed again after onboarding
+            DefaultRecipeInstaller.resetInstallationFlag()
+            
             userDefaults.synchronize()
             print("🗑️ UserDefaults completely reset to fresh state")
         }
