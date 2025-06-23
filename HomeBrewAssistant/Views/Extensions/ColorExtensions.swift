@@ -1,0 +1,15 @@
+import SwiftUI
+
+// MARK: - Color Extensions for Dark Mode Support
+extension Color {
+    // Premium brewing app semantic colors
+    static let primaryCard = Color("CardBackground")
+    static let secondaryCard = Color(UIColor.tertiarySystemBackground)
+    static let labelPrimary = Color(UIColor.label)
+    static let labelSecondary = Color(UIColor.secondaryLabel)
+    static let separatorColor = Color(UIColor.separator)
+    
+    // Enhanced UI colors for premium feel
+    static let premiumBackground = Color("CardBackground")
+    static let accentPrimary = Color("AccentColor")
+}

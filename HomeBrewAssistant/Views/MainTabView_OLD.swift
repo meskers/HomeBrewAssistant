@@ -3,111 +3,63 @@
 //  HomeBrewAssistant
 //
 //  Created by Cor Meskers on 09/06/2025.
-//
-
+//  Refactored for better architecture and accessibility
 
 import SwiftUI
-import UniformTypeIdentifiers
 
-// MARK: - Color Extensions for Dark Mode Support
-extension Color {
-    // Semantic colors for brewing app
-    static let primaryCard = Color(UIColor.secondarySystemBackground)
-    static let secondaryCard = Color(UIColor.tertiarySystemBackground)
-    static let labelPrimary = Color(UIColor.label)
-    static let labelSecondary = Color(UIColor.secondaryLabel)
-    static let separatorColor = Color(UIColor.separator)
-}
-
+// MARK: - Main Tab View (Refactored)
 struct MainTabView: View {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @State private var selectedRecipeForBrewing: DetailedRecipe?
-    @State private var showingLanguageSettings = false
-    @State private var recipes: [DetailedRecipe] = []  // Start empty - recipes come from CoreData only
-    @State private var selectedRecipe: DetailedRecipe?
-    @State private var showingNewRecipe = false
-    @State private var searchText = ""
-    @State private var showingXMLImport = false
-    @State private var showingAbout = false
-    @State private var showingBeerXMLImportExport = false
-    @State private var showingAIGenerator = false
+    @State private var recipes: [DetailedRecipe] = DefaultRecipesDatabase.getAllDefaultRecipes()
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         TabView {
-            // 1. RECEPTEN - Main recipe management
-            SimpleRecipeListView(selectedRecipeForBrewing: $selectedRecipeForBrewing, recipes: $recipes)
-                .tabItem {
-                    Label("tab.recipes".localized, systemImage: "book.closed.fill")
-                }
+            // 1. RECEPTEN - Recipe management
+            RecipesTabView(
+                selectedRecipeForBrewing: $selectedRecipeForBrewing,
+                recipes: $recipes
+            )
+            .tabItem {
+                Label("tab.recipes".localized, systemImage: "book.closed.fill")
+            }
+            .accessibilityLabel("Recipes tab")
             
-            // 2. BROUWEN - Enhanced brewing with simple and advanced modes
+            // 2. BROUWEN - Brewing process
             EnhancedBrewingView(selectedRecipe: selectedRecipeForBrewing)
                 .tabItem {
                     Label("tab.brewing".localized, systemImage: "timer.circle.fill")
                 }
+                .accessibilityLabel("Brewing tab")
             
-            // 3. CALCULATORS - All brewing calculators combined
+            // 3. CALCULATORS - Brewing calculators
             CalculatorsView()
                 .tabItem {
                     Label("tab.calculators".localized, systemImage: "function")
                 }
+                .accessibilityLabel("Calculators tab")
             
-            // 4. INGREDIËNTEN - Inventory management  
-            SmartIngredientsView(selectedRecipe: selectedRecipeForBrewing, allRecipes: $recipes)
-                .tabItem {
-                    Label("tab.inventory".localized, systemImage: "list.clipboard.fill")
-                }
-            
-            // 5. MEER - Analytics, Photos, Settings, More tools
-            MoreView(selectedRecipeForBrewing: $selectedRecipeForBrewing, recipes: $recipes)
-                .tabItem {
-                    Label("tab.more".localized, systemImage: "ellipsis.circle.fill")
-                }
-        }
-        .sheet(isPresented: $showingLanguageSettings) {
-        .onAppear {
-            loadDefaultRecipesIfNeeded()
-        }            LanguageSettingsView()
-        }
-        .onAppear {
-            // Load default recipes immediately for better user experience
-            // This ensures users always have recipes to start with
-            loadDefaultRecipesIfNeeded()
-        }
-        .overlay(alignment: .topTrailing) {
-            // Quick language switcher (floating)
-            Button(action: {
-                // Toggle between Dutch and English
-                if localizationManager.currentLanguage == .dutch {
-                    localizationManager.changeLanguage(to: .english)
-                } else {
-                    localizationManager.changeLanguage(to: .dutch)
-                }
-            }) {
-                HStack(spacing: 4) {
-                    Text(localizationManager.currentLanguage.flag)
-                        .font(.system(size: 14))
-                    Text(localizationManager.currentLanguage.rawValue.uppercased())
-                        .font(.caption2.bold())
-                    Image(systemName: "arrow.triangle.2.circlepath")
-                        .font(.caption2)
-                }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Color.brewTheme.opacity(0.95))
-                .foregroundColor(.white)
-                .cornerRadius(15)
-                .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 1)
+            // 4. INGREDIËNTEN - Inventory management
+            SmartIngredientsView(
+                selectedRecipe: selectedRecipeForBrewing,
+                allRecipes: $recipes
+            )
+            .tabItem {
+                Label("tab.inventory".localized, systemImage: "list.clipboard.fill")
             }
-            .padding(.trailing, 16)
-            .padding(.top, 32) // Moved even higher, closer to status bar
+            .accessibilityLabel("Ingredients tab")
+            
+            // 5. MEER - Additional tools and settings
+            MoreView(
+                selectedRecipeForBrewing: $selectedRecipeForBrewing,
+                recipes: $recipes
+            )
+            .tabItem {
+                Label("tab.more".localized, systemImage: "ellipsis.circle.fill")
+            }
+            .accessibilityLabel("More tab")
         }
+        .accessibilityElement(children: .contain)
     }
 }
 
@@ -135,12 +87,6 @@ struct SimpleRecipeListView: View {
         }
     }
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -198,7 +144,7 @@ struct SimpleRecipeListView: View {
                                 }
                             
                             HStack {
-                                Button("�� \("recipes.details".localized)") {
+                                Button("📖 \("recipes.details".localized)") {
                                     selectedRecipe = recipe
                                 }
                                 .buttonStyle(.bordered)
@@ -321,12 +267,6 @@ struct SimpleRecipeListView: View {
 struct InfoSheetView: View {
     @Environment(\.dismiss) private var dismiss
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         NavigationView {
             ScrollView {
@@ -401,12 +341,6 @@ struct InfoSheetView: View {
 struct SimpleRecipeRowView: View {
     let recipe: DetailedRecipe
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -437,12 +371,6 @@ struct SimpleRecipeRowView: View {
 struct DifficultyBadge: View {
     let difficulty: RecipeDifficulty
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         Text(difficulty.rawValue)
             .font(.caption)
@@ -460,12 +388,6 @@ struct SimpleRecipeDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedTab = 0
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -537,12 +459,6 @@ struct StatView: View {
     let value: String
     let color: Color
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         VStack(spacing: 4) {
             Text(value)
@@ -576,12 +492,6 @@ struct IngredientsTabView: View {
         ingredients.filter { $0.type == .other }
     }
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             if !grainIngredients.isEmpty {
@@ -609,12 +519,6 @@ struct IngredientSection: View {
     let icon: String
     let color: Color
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
@@ -652,12 +556,6 @@ struct IngredientSection: View {
 struct InstructionsTabView: View {
     let instructions: [String]
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Text("Brouwinstructies")
@@ -688,12 +586,6 @@ struct InstructionsTabView: View {
 struct NotesTabView: View {
     let notes: String
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Text("Brouwnotities")
@@ -722,12 +614,6 @@ struct AddRecipeView: View {
     @State private var brewTime = ""
     @State private var notes = ""
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         NavigationView {
             Form {
@@ -840,12 +726,6 @@ struct SmartIngredientsView: View {
     
     private let categories = ["Graan", "Hop", "Gist", "Overig"]
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -928,12 +808,6 @@ struct InventoryView: View {
     @Binding var selectedCategory: String
     let categories: [String]
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         VStack(spacing: 0) {
             List {
@@ -1006,12 +880,6 @@ struct SmartShoppingListView: View {
     @State private var showingRecipeSelector = false
     @State private var estimatedTotal: Double = 0.0
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         VStack(spacing: 0) {
             // Recipe Selection Section
@@ -1265,12 +1133,6 @@ struct ShoppingItemRow: View {
     @Binding var item: ShoppingItem
     let onToggle: () -> Void
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         HStack(spacing: 12) {
             Button(action: {
@@ -1329,12 +1191,6 @@ struct RecipeSelectorView: View {
     let onSelectionChange: () -> Void
     @Environment(\.dismiss) private var dismiss
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         NavigationView {
             List {
@@ -1439,12 +1295,6 @@ struct SimpleBrewTrackerView: View {
         BrewStep(name: "Bottelen", duration: 30, description: "Bottelen met priming sugar", tips: "Saniteer alles, vermijd oxidatie", requiresTemperature: false, targetTemperature: "")
     ]
     
-    private func loadDefaultRecipesIfNeeded() {
-        // Ensure users always have default recipes available immediately
-        if recipes.isEmpty {
-            recipes = DefaultRecipesDatabase.getAllDefaultRecipes()
-        }
-    }
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
