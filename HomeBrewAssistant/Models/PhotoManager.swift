@@ -67,10 +67,8 @@ class PhotoManager: NSObject, ObservableObject {
         
         // Schedule periodic cleanup of old cached files
         Timer.scheduledTimer(withTimeInterval: 24 * 60 * 60, repeats: true) { [weak self] _ in
-            Task.detached { [weak self] in
-                await MainActor.run {
-                    self?.cleanupOldCachedFiles()
-                }
+            Task { [weak self] in
+                await self?.cleanupOldCachedFiles()
             }
         }
     }
@@ -126,7 +124,7 @@ class PhotoManager: NSObject, ObservableObject {
         let cache = thumbnail ? thumbnailCache : imageCache
         cache.setObject(image, forKey: id.uuidString as NSString)
         
-        Task.detached(priority: .background) { [weak self] in
+        Task(priority: .background) { [weak self] in
             self?.saveImageToDisk(image, for: id, thumbnail: thumbnail)
         }
     }
@@ -160,9 +158,9 @@ class PhotoManager: NSObject, ObservableObject {
     
     /// Request camera permission
     func requestCameraPermission() {
-        AVCaptureDevice.requestAccess(for: .video) { granted in
+        AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
             DispatchQueue.main.async {
-                self.cameraAuthStatus = AVCaptureDevice.authorizationStatus(for: .video)
+                self?.cameraAuthStatus = AVCaptureDevice.authorizationStatus(for: .video)
             }
         }
     }
@@ -291,7 +289,7 @@ class PhotoManager: NSObject, ObservableObject {
     }
     
     /// Cleanup old cached files
-    private func cleanupOldCachedFiles() {
+    private func cleanupOldCachedFiles() async {
         let calendar = Calendar.current
         let oldDate = calendar.date(byAdding: .day, value: -7, to: Date()) ?? Date()
         

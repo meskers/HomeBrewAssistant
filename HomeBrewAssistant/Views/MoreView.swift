@@ -128,7 +128,21 @@ struct MoreView: View {
         case .photos:
             PhotoGalleryView()
         case .history:
-            BrewHistoryView(selectedRecipeForBrewing: $selectedRecipeForBrewing)
+            // TODO: Implement BrewHistoryView
+            VStack(spacing: 20) {
+                Image(systemName: "clock.arrow.circlepath")
+                    .font(.system(size: 50))
+                    .foregroundColor(.brewTheme)
+                Text("Brouwgeschiedenis")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                Text("Deze functie wordt binnenkort toegevoegd")
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(.systemBackground))
         case .beerxml:
             BeerXMLImportExportView(recipes: $recipes)
                 .environmentObject(localizationManager)

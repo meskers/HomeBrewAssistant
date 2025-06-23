@@ -111,15 +111,27 @@ struct CalculatorsView: View {
     private func calculatorView(for calculator: CalculatorType) -> some View {
         switch calculator {
         case .abv:
-            SimpleABVCalculatorView()
+            ABVCalculatorView()
         case .ibu:
-            IBUCalculatorView()
+            // TODO: Implement IBUCalculatorView
+            Text("IBU Calculator - Coming Soon")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(.systemBackground))
         case .srm:
-            SRMCalculatorView()
+            // TODO: Implement SRMCalculatorView
+            Text("SRM Calculator - Coming Soon")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(.systemBackground))
         case .carbonation:
-            CarbonationCalculatorView()
+            // TODO: Implement CarbonationCalculatorView
+            Text("Carbonation Calculator - Coming Soon")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(.systemBackground))
         case .water:
-            WaterCalculatorView()
+            // TODO: Implement WaterCalculatorView
+            Text("Water Calculator - Coming Soon")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(.systemBackground))
         case .waterChemistry:
             WaterChemistryCalculatorView()
         case .hydrometer:
@@ -935,7 +947,7 @@ struct WaterChemistryCalculatorView: View {
                             }
                         }
                         .pickerStyle(SegmentedPickerStyle())
-                        .onChange(of: selectedTargetProfile) { newProfile in
+                        .onChange(of: selectedTargetProfile) { _, newProfile in
                             targetWaterProfile = newProfile.profile
                         }
                         

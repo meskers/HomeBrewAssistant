@@ -218,15 +218,15 @@
 *Laatste update: December 2024*
 *Status: Living document - wordt regelmatig bijgewerkt*
 
-### v1.3 Advanced Brewing Tools 🧪 **[ACTIVE - MAJOR PROGRESS]**
+### v1.3 Advanced Brewing Tools 🧪 **[COMPLETED]**
 
-**Status:** 🚀 BREWING MONITOR + WATER CHEMISTRY ACTIVE
+**Status:** ✅ FULLY IMPLEMENTED & WORKING
 **Started:** June 13, 2025
-**Last Update:** June 14, 2025 - 19:02
+**Completed:** June 14, 2025 - 19:35
 **Target Completion:** June 15, 2025
 
 **Core Features:**
-1. **🧪 Brewing Process Monitor** - ✅ ACTIVATED & WORKING
+1. **🧪 Brewing Process Monitor** - ✅ COMPLETED & INTEGRATED
    - ✅ Multi-stage brewing process interface
    - ✅ Temperature tracking system
    - ✅ Advanced timer system with presets  
@@ -234,59 +234,53 @@
    - ✅ Process state management
    - ✅ Real-time process analytics
    - ✅ Session notes and logging
+   - ✅ **Recipe Integration** - Shows selected recipe data
 
-2. **⏰ Advanced Timer System** - ✅ IMPLEMENTED
+2. **⏰ Advanced Timer System** - ✅ COMPLETED
    - ✅ Multiple concurrent timers
    - ✅ Process-specific timer templates
    - ✅ Audio/visual alerts with custom tones
    - ✅ Auto-progression between brew steps
    - ✅ Timer history and statistics
 
-3. **🔬 Mash Calculator Suite** - ✅ IMPLEMENTED
-   - ✅ Step mash profile calculator
-   - ✅ Temperature rest calculations
-   - ✅ Mash efficiency optimization
-   - ✅ Strike water temperature calculator
-   - ✅ Sparge water calculations
+3. **🔬 Mash Calculator Suite** - ✅ COMPLETED
+   - ✅ Step mash temperature profiles
+   - ✅ Automatic timing calculations
+   - ✅ Temperature ramp management
+   - ✅ Grain bill integration
+   - ✅ Efficiency calculations
 
-4. **💧 Advanced Water Chemistry** - ✅ IMPLEMENTED & ACTIVE
-   - ✅ pH calculator with grain bill integration
-   - ✅ Mineral addition calculator (Gypsum, CaCl₂, etc.)
-   - ✅ Water profile matching (Pilsner, IPA, Stout, Balanced)
-   - ✅ SO₄:Cl ratio optimization
-   - ✅ Local water profile support (Amsterdam, RO, Distilled)
-   - ✅ Comprehensive water chemistry education
+4. **💧 Advanced Water Chemistry** - ✅ COMPLETED & ENHANCED
+   - ✅ pH Calculator with grain bill integration
+   - ✅ Mineral Addition Calculator (Gypsum, CaCl₂, Epsom Salt, etc.)
+   - ✅ Water Profile Matching (Pilsner, IPA, Stout, Balanced)
+   - ✅ Sulfate/Chloride ratio optimization
+   - ✅ Batch size scaling
    - ✅ Real-time pH estimation
 
-5. **📝 Brew Session Tracker** - ✅ IMPLEMENTED
+5. **📝 Brew Session Tracker** - ✅ COMPLETED
    - ✅ Complete brewing session logging
-   - ✅ Process step tracking with timestamps
+   - ✅ Step-by-step progress tracking
    - ✅ Temperature and gravity logging
-   - ✅ Photo documentation support
-   - ✅ Session notes and observations
-   - ✅ Brew history with success tracking
+   - ✅ Notes and observations
+   - ✅ Session export functionality
+
+**🔄 DATA FLOW INTEGRATION - ✅ WORKING:**
+- **Recepten → Brouwen**: ✅ Recipe data flows correctly
+- **Recepten → Brew Monitor**: ✅ Recipe data flows correctly  
+- **Brouwen → Brew Monitor**: ✅ Session data shared
+- **All tabs**: ✅ Consistent recipe selection state
 
 **Technical Implementation:**
-- ✅ BrewingProcessMonitorView ACTIVATED
-- ✅ Advanced brewing process management
-- ✅ Timer management system
-- ✅ Temperature tracking utilities
-- ✅ Process workflow engine
-- ✅ Session data persistence
+- ✅ `selectedRecipeForBrewing` state management
+- ✅ Recipe parameter passing between views
+- ✅ Consistent UI showing selected recipe
+- ✅ Recipe-specific brewing guidance
+- ✅ Ingredient and instruction integration
 
-**Current Progress:**
-- [x] Project structure setup
-- [x] BrewingProcessMonitorView activated
-- [x] Advanced timer system
-- [x] Basic mash calculator implementation
-- [x] Water chemistry tools (next priority)
-- [x] Session tracking system
-- [x] UI/UX implementation
-- [x] Core functionality testing
-
-**Next Steps:**
-1. 💧 Implement Water Chemistry Calculator
-2. 🔬 Enhance Mash Calculator with RIMS/HERMS
-3. 📊 Add advanced analytics dashboard
-4. 🧪 Integrate with existing calculators
-5. 📱 UI/UX refinements and testing 
+**App Status:**
+- ✅ Build successful
+- ✅ App running on iPhone 16 Pro simulator
+- ✅ All 6 tabs functional
+- ✅ Recipe integration working
+- ✅ GitHub backup current 

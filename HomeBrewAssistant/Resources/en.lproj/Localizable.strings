@@ -360,6 +360,8 @@
 "language.english" = "English";
 "language.current" = "Current language";
 "language.change" = "Change language";
+"language.select.subtitle" = "Select your preferred language";
+"language.update.info" = "App will update immediately";
 
 // MARK: - Photo Documentation
 "photo.gallery.title" = "Photo Gallery";
@@ -505,3 +507,140 @@
 "chart.monthly_production" = "Monthly Production";
 "chart.efficiency_over_time" = "Efficiency Over Time";
 "chart.cost_per_batch" = "Cost per Batch"; 
+// MARK: - Brew Monitor Placeholder
+"brew.monitor.title" = "🧪 Brew Monitor";
+"brew.monitor.subtitle" = "Advanced Brewing Process Monitoring";
+"brew.monitor.coming.soon" = "Coming in v1.3:";
+"brew.monitor.feature.temperature" = "🌡️ Temperature Tracking";
+"brew.monitor.feature.timers" = "⏱️ Advanced Timer System";
+"brew.monitor.feature.guidance" = "📋 Step-by-Step Guidance";
+"brew.monitor.feature.analytics" = "📊 Process Analytics";
+"brew.monitor.feature.notes" = "📝 Brew Session Notes";
+"brew.monitor.stay.tuned" = "Stay tuned for advanced brewing tools!";
+"brew.monitor.nav.title" = "Brew Monitor";
+
+// MARK: - Disclaimer
+"disclaimer.title" = "Disclaimer";
+"disclaimer.introduction" = "HomeBrewAssistant is designed to help you with your home brewing journey. However, please note the following:";
+"disclaimer.safety.title" = "Safety First";
+"disclaimer.safety.description" = "Always follow proper brewing safety guidelines and local regulations.";
+"disclaimer.quality.title" = "Quality Control";
+"disclaimer.quality.description" = "While we provide tools and calculations, final quality control is your responsibility.";
+"disclaimer.accuracy.title" = "Accuracy";
+"disclaimer.accuracy.description" = "Calculations and recommendations are based on standard brewing practices but may need adjustment for your specific setup.";
+"disclaimer.legal.title" = "Legal Compliance";
+"disclaimer.legal.description" = "Ensure you comply with all local laws and regulations regarding home brewing.";
+
+// MARK: - ABV Calculator Additions
+"abv.og.description" = "Measure before fermentation begins";
+"abv.fg.description" = "Measure after fermentation";
+"abv.result.title" = "Result";
+"abv.result.subtitle" = "Alcohol by Volume";
+"abv.alcohol.yield" = "Alcohol Yield:";
+"abv.usage.tips" = "Usage Tips";
+"abv.tip.1" = "• Use a hydrometer or refractometer for accurate measurements";
+"abv.tip.2" = "• OG must always be higher than FG";
+"abv.tip.3" = "• Typical values: OG 1.040-1.080, FG 1.008-1.020";
+"abv.tip.4" = "• Formula: ABV = (OG - FG) × 131.25";
+"abv.reset" = "Reset";
+
+// MARK: - BeerXML Import/Export
+"beerxml.title" = "BeerXML Import & Export";
+"beerxml.subtitle" = "Exchange recipes with other brewing apps";
+"beerxml.import.title" = "Import Recipes";
+"beerxml.import.description" = "Import BeerXML files from other brewing software like BeerSmith, Brewfather, or BrewTarget.";
+"beerxml.import.button" = "Select BeerXML file";
+"beerxml.import.importing" = "Importing...";
+"beerxml.import.tips.title" = "💡 Import Tips:";
+"beerxml.import.tip.1" = "• Supports .xml and .beerxml files";
+"beerxml.import.tip.2" = "• Imports ingredients, timings and basic recipe info";
+"beerxml.import.tip.3" = "• Always verify imported recipes";
+"beerxml.export.title" = "Export Recipes";
+"beerxml.export.description" = "Export your recipes to BeerXML format to share with other brewers or software.";
+"beerxml.export.select.button" = "Select recipe to export";
+"beerxml.export.selected" = "Selected: %@";
+"beerxml.export.button" = "Export";
+"beerxml.export.info.title" = "📤 Export Info:";
+"beerxml.export.info.1" = "• Standard BeerXML 1.0 format";
+"beerxml.export.info.2" = "• Compatible with most brewing software";
+"beerxml.export.info.3" = "• Contains ingredients, timings and basic data";
+"beerxml.about.title" = "About BeerXML";
+"beerxml.about.description" = "BeerXML is the industry standard for exchanging brewing recipes. It is supported by virtually all professional brewing software.";
+"beerxml.compatible.title" = "🔗 Compatible with:";
+"beerxml.compatible.beersmith" = "• BeerSmith";
+"beerxml.compatible.brewfather" = "• Brewfather";
+"beerxml.compatible.brewtarget" = "• BrewTarget";
+"beerxml.compatible.recipedb" = "• Recipe DB";
+"beerxml.compatible.others" = "• And many others...";
+
+// MARK: - AI Recipe Generator
+"ai.recipe.title" = "AI Recipe Generator";
+"ai.recipe.subtitle" = "Let artificial intelligence create the perfect brew recipe based on BJCP guidelines and brewing science";
+"ai.recipe.nav.title" = "🤖 AI Recipe Generator";
+"ai.recipe.brewing.progress" = "�� Brewing the Perfect Recipe...";
+"ai.recipe.progress.complete" = "% Complete";
+"ai.recipe.step.calculating" = "📊 Calculating specifications";
+"ai.recipe.step.grain" = "🌾 Selecting grain bill";
+"ai.recipe.step.hops" = "🌿 Calculating hop schedule";
+"ai.recipe.step.yeast" = "🦠 Choosing yeast strain";
+"ai.recipe.step.optimizing" = "⚗️ Optimizing recipe";
+"ai.recipe.style.title" = "🍺 Beer Style";
+"ai.recipe.style.select" = "Select a Style";
+"ai.recipe.complexity.title" = "⚗️ Recipe Complexity";
+"ai.recipe.batch.title" = "🪣 Batch Size";
+"ai.recipe.generate.button" = "Generate AI Recipe";
+"ai.recipe.generated.title" = "🎉 Generated Recipe";
+"ai.recipe.save.button" = "Save Recipe";
+"ai.recipe.view.details" = "View Details";
+
+// MARK: - Enhanced Brewing View
+"brewing.choose.experience" = "Choose your brewing experience";
+"brewing.go.to.recipes" = "Go to Recipes tab";
+"brewing.confirm.end.session" = "Are you sure you want to end the brewing session?";
+"brewing.step.progress" = "Step %d of %d";
+"brewing.target.temperature" = "Target temperature: %@";
+"brewing.selected.recipe" = "Selected Recipe";
+"brewing.no.recipe.selected" = "No Recipe Selected";
+"brewing.no.recipe.message" = "Go to the Recipes tab to select a recipe, or start with the default brewing steps.";
+"brewing.steps.overview" = "Brewing Steps Overview";
+"brewing.session.started" = "Started: %@";
+"brewing.active.timers" = "Active Timers: %d";
+"brewing.completed.processes" = "Completed: %d";
+"brewing.advanced.recipe" = "Recipe for Advanced Session";
+"brewing.target.short" = "Target: %@";
+
+// MARK: - Settings
+"settings.title" = "Settings";
+"settings.units" = "Units";
+"settings.appearance" = "Appearance";
+"settings.notifications" = "Notifications";
+"settings.default.values" = "Default Values";
+"settings.use.metric" = "Use Metric System";
+"settings.dark.mode" = "Dark Mode";
+"settings.enable.notifications" = "Enable Notifications";
+"settings.default.batch.size" = "Default Batch Size";
+"settings.default.efficiency" = "Default Efficiency";
+"settings.disclaimer" = "Disclaimer";
+"settings.about" = "About";
+
+// MARK: - Factory Reset
+"factory.reset.section" = "App Reset";
+"factory.reset.title" = "Factory Reset";
+"factory.reset.subtitle" = "Prepare for App Store";
+"factory.reset.description" = "Reset app to clean state perfect for new App Store downloads. Preserves default recipes but removes all user data, analytics, photos, and preferences.";
+"factory.reset.button" = "Factory Reset";
+"factory.reset.alert.title" = "Factory Reset";
+"factory.reset.alert.message" = "This will prepare the app for a fresh App Store download by removing all user data, analytics, photos, and preferences. Default recipes will be preserved. This action cannot be undone.";
+"factory.reset.cancel" = "Cancel";
+"factory.reset.confirm" = "Reset";
+"factory.reset.progress.title" = "Preparing App Store State...";
+"factory.reset.progress.complete" = "% Complete";
+"factory.reset.progress.subtitle" = "Creating perfect first-download experience";
+"factory.reset.progress.almost" = "✨ Almost ready for 5-star reviews!";
+"factory.reset.complete.title" = "Reset Complete! 🎉";
+"factory.reset.complete.message" = "App has been reset to perfect App Store download state! ✨
+
+• All user data cleared
+• Default recipes preserved
+• Ready for 5-star reviews";
+"factory.reset.perfect" = "Perfect!";

@@ -230,6 +230,8 @@
 "language.english" = "English";
 "language.current" = "Huidige taal";
 "language.change" = "Taal wijzigen";
+"language.select.subtitle" = "Selecteer je voorkeurstaal";
+"language.update.info" = "App wordt onmiddellijk bijgewerkt";
 
 // MARK: - Photo Documentation
 "photo.gallery.title" = "Foto Galerij";
@@ -505,3 +507,200 @@
 "version.type.major" = "Grote Release";
 "version.type.minor" = "Feature Update";
 "version.type.patch" = "Bugfix"; 
+// MARK: - Brew Monitor Placeholder
+"brew.monitor.title" = "🧪 Brouw Monitor";
+"brew.monitor.subtitle" = "Geavanceerde Brouwproces Monitoring";
+"brew.monitor.coming.soon" = "Komt in v1.3:";
+"brew.monitor.feature.temperature" = "🌡️ Temperatuur Tracking";
+"brew.monitor.feature.timers" = "⏱️ Geavanceerd Timer Systeem";
+"brew.monitor.feature.guidance" = "📋 Stap-voor-Stap Begeleiding";
+"brew.monitor.feature.analytics" = "📊 Proces Analytics";
+"brew.monitor.feature.notes" = "📝 Brouwsessie Notities";
+"brew.monitor.stay.tuned" = "Blijf op de hoogte voor geavanceerde brouwtools!";
+"brew.monitor.nav.title" = "Brouw Monitor";
+
+// MARK: - Disclaimer
+"disclaimer.title" = "Disclaimer";
+"disclaimer.introduction" = "HomeBrewAssistant is ontworpen om je te helpen bij je thuisbrouw avontuur. Let echter op het volgende:";
+"disclaimer.safety.title" = "Veiligheid Eerst";
+"disclaimer.safety.description" = "Volg altijd de juiste brouwveiligheidsrichtlijnen en lokale regelgeving.";
+"disclaimer.quality.title" = "Kwaliteitscontrole";
+"disclaimer.quality.description" = "Hoewel we tools en berekeningen bieden, ligt de uiteindelijke kwaliteitscontrole bij jou.";
+"disclaimer.accuracy.title" = "Nauwkeurigheid";
+"disclaimer.accuracy.description" = "Berekeningen en aanbevelingen zijn gebaseerd op standaard brouwpraktijken, maar kunnen aanpassing nodig hebben voor jouw specifieke opstelling.";
+"disclaimer.legal.title" = "Wettelijke Naleving";
+"disclaimer.legal.description" = "Zorg ervoor dat je voldoet aan alle lokale wetten en regelgeving betreffende thuisbrouwen.";
+
+// MARK: - ABV Calculator Additions
+"abv.og.description" = "Meet voor de fermentatie begint";
+"abv.fg.description" = "Meet na de fermentatie";
+"abv.result.title" = "Resultaat";
+"abv.result.subtitle" = "Alcohol by Volume";
+"abv.alcohol.yield" = "Alcohol Opbrengst:";
+"abv.usage.tips" = "Gebruikstips";
+"abv.tip.1" = "• Gebruik een hydrometer of refractometer voor nauwkeurige metingen";
+"abv.tip.2" = "• OG moet altijd hoger zijn dan FG";
+"abv.tip.3" = "• Typische waarden: OG 1.040-1.080, FG 1.008-1.020";
+"abv.tip.4" = "• Formule: ABV = (OG - FG) × 131.25";
+"abv.reset" = "Reset";
+
+// MARK: - BeerXML Import/Export
+"beerxml.title" = "BeerXML Import & Export";
+"beerxml.subtitle" = "Uitwisselen van recepten met andere brouw apps";
+"beerxml.import.title" = "Import Recepten";
+"beerxml.import.description" = "Importeer BeerXML bestanden van andere brouw software zoals BeerSmith, Brewfather, of BrewTarget.";
+"beerxml.import.button" = "Selecteer BeerXML bestand";
+"beerxml.import.importing" = "Importeren...";
+"beerxml.import.tips.title" = "💡 Import Tips:";
+"beerxml.import.tip.1" = "• Ondersteunt .xml en .beerxml bestanden";
+"beerxml.import.tip.2" = "• Importeert ingrediënten, timings en basis receptinfo";
+"beerxml.import.tip.3" = "• Controleer altijd geïmporteerde recepten";
+"beerxml.export.title" = "Export Recepten";
+"beerxml.export.description" = "Exporteer je recepten naar BeerXML formaat om te delen met andere brouwers of software.";
+"beerxml.export.select.button" = "Selecteer recept om te exporteren";
+"beerxml.export.selected" = "Geselecteerd: %@";
+"beerxml.export.button" = "Export";
+"beerxml.export.info.title" = "📤 Export Info:";
+"beerxml.export.info.1" = "• Standaard BeerXML 1.0 formaat";
+"beerxml.export.info.2" = "• Compatibel met de meeste brouw software";
+"beerxml.export.info.3" = "• Bevat ingrediënten, timings en basis gegevens";
+"beerxml.about.title" = "Over BeerXML";
+"beerxml.about.description" = "BeerXML is de industriestandaard voor het uitwisselen van brouwrecepten. Het wordt ondersteund door vrijwel alle professionele brouw software.";
+"beerxml.compatible.title" = "🔗 Compatibel met:";
+"beerxml.compatible.beersmith" = "• BeerSmith";
+"beerxml.compatible.brewfather" = "• Brewfather";
+"beerxml.compatible.brewtarget" = "• BrewTarget";
+"beerxml.compatible.recipedb" = "• Recipe DB";
+"beerxml.compatible.others" = "• En vele andere...";
+
+// MARK: - AI Recipe Generator
+"ai.recipe.title" = "AI Receptgenerator";
+"ai.recipe.subtitle" = "Laat kunstmatige intelligentie het perfecte brouwrecept maken op basis van BJCP richtlijnen en brouwwetenschap";
+"ai.recipe.nav.title" = "🤖 AI Receptgenerator";
+"ai.recipe.brewing.progress" = "🧠 Perfecte Recept Brouwen...";
+"ai.recipe.progress.complete" = "% Voltooid";
+"ai.recipe.step.calculating" = "📊 Specificaties berekenen";
+"ai.recipe.step.grain" = "🌾 Mout samenstelling selecteren";
+"ai.recipe.step.hops" = "🌿 Hop schema berekenen";
+"ai.recipe.step.yeast" = "🦠 Gist stam kiezen";
+"ai.recipe.step.optimizing" = "⚗️ Recept optimaliseren";
+"ai.recipe.style.title" = "🍺 Bierstijl";
+"ai.recipe.style.select" = "Selecteer een Stijl";
+"ai.recipe.complexity.title" = "⚗️ Recept Complexiteit";
+"ai.recipe.batch.title" = "🪣 Batch Grootte";
+"ai.recipe.generate.button" = "Genereer AI Recept";
+"ai.recipe.generated.title" = "🎉 Gegenereerd Recept";
+"ai.recipe.save.button" = "Bewaar Recept";
+"ai.recipe.view.details" = "Bekijk Details";
+
+// MARK: - Enhanced Brewing View
+"brewing.choose.experience" = "Kies je brouwervaring";
+"brewing.go.to.recipes" = "Ga naar Recepten tab";
+"brewing.confirm.end.session" = "Weet je zeker dat je de brouwsessie wilt beëindigen?";
+"brewing.step.progress" = "Stap %d van %d";
+"brewing.target.temperature" = "Doel temperatuur: %@";
+"brewing.selected.recipe" = "Geselecteerd Recept";
+"brewing.no.recipe.selected" = "Geen Recept Geselecteerd";
+"brewing.no.recipe.message" = "Ga naar de Recepten tab om een recept te selecteren, of start met de standaard brouwstappen.";
+"brewing.steps.overview" = "Brouwstappen Overzicht";
+"brewing.session.started" = "Gestart: %@";
+"brewing.active.timers" = "Actieve Timers: %d";
+"brewing.completed.processes" = "Voltooid: %d";
+"brewing.advanced.recipe" = "Recept voor Geavanceerde Sessie";
+"brewing.target.short" = "Doel: %@";
+
+// MARK: - Onboarding & Recipe Categories
+"recipe.categories.title" = "Recept Categorieën";
+"recipe.collection.title" = "Wereldklasse Recept Collectie";
+"recipe.collection.subtitle" = "Gecureerde prijswinnende recepten van meesterbrouwers";
+"recipe.stats.total" = "Recepten";
+"recipe.stats.categories" = "Categorieën";
+"recipe.stats.success" = "Gem Succes";
+"recipe.list.title" = "Alle Recepten";
+
+// Recipe Categories
+"category.beginner.name" = "Perfect voor Beginners";
+"category.beginner.description" = "Makkelijke recepten met gegarandeerd succes. Ideaal voor je eerste brouwervaringen.";
+"category.dutch.name" = "Nederlandse Klassiekers";
+"category.dutch.description" = "Authentieke Nederlandse bierstijlen die perfect passen bij onze smaak.";
+"category.world.name" = "Wereldwijde Favorieten";
+"category.world.description" = "De meest populaire bierstijlen van over de hele wereld.";
+"category.seasonal.name" = "Seizoen Specials";
+"category.seasonal.description" = "Perfecte bierstijlen voor elk seizoen van het jaar.";
+"category.clones.name" = "Beroemde Brouwerijen";
+"category.clones.description" = "Homebrew versies van wereldberoemde bieren.";
+"category.awards.name" = "Award Winners";
+"category.awards.description" = "Goud medaille winnende recepten van internationale competities.";
+
+// Recipe Details
+"recipe.difficulty.beginner" = "Beginner";
+"recipe.difficulty.intermediate" = "Gevorderd";
+"recipe.difficulty.advanced" = "Expert";
+"recipe.success.rate" = "Slaagkans";
+"recipe.brew.time" = "Brouwtijd";
+"recipe.popularity" = "Beoordeling";
+
+// Onboarding
+"onboarding.welcome.title" = "Welkom bij HomeBrewAssistant";
+"onboarding.welcome.subtitle" = "Je complete brouw begeleider";
+"onboarding.recipes.title" = "Ontdek Geweldige Recepten";
+"onboarding.recipes.subtitle" = "Begin met onze gecureerde collectie van prijswinnende recepten";
+"onboarding.tools.title" = "Professionele Tools";
+"onboarding.tools.subtitle" = "Calculators, timers en tracking tools voor perfecte brouwsels";
+"onboarding.community.title" = "Word Lid van de Community";
+"onboarding.community.subtitle" = "Deel je brouwsels en leer van mede-brouwers";
+"onboarding.get.started" = "Aan de Slag";
+
+// Recipe Success Indicators
+"recipe.badge.high.success" = "Hoge Slaagkans";
+"recipe.badge.gold.medal" = "Gouden Medaille Winnaar";
+"recipe.badge.clone" = "Commerciële Kloon";
+"recipe.badge.trending" = "Trending";
+
+// Search and Filters
+"search.recipes.placeholder" = "Zoek recepten...";
+"filter.all.levels" = "Alle Niveaus";
+"filter.clear.all" = "Wis Filters";
+"categories.back" = "Categorieën";
+
+// Empty States
+"empty.recipes.title" = "Geen Recepten Gevonden";
+"empty.recipes.subtitle" = "Probeer je filters of zoektermen aan te passen";
+"empty.first.time.title" = "Start je Brouwavontuur";
+"empty.first.time.subtitle" = "Verken onze gecureerde receptcollectie om je eerste brouwsel te vinden";
+
+// MARK: - Settings
+"settings.title" = "Instellingen";
+"settings.units" = "Eenheden";
+"settings.appearance" = "Uiterlijk";
+"settings.notifications" = "Meldingen";
+"settings.default.values" = "Standaardwaarden";
+"settings.use.metric" = "Gebruik metrisch systeem";
+"settings.dark.mode" = "Donkere modus";
+"settings.enable.notifications" = "Meldingen inschakelen";
+"settings.default.batch.size" = "Standaard batch grootte";
+"settings.default.efficiency" = "Standaard efficiency";
+"settings.disclaimer" = "Disclaimer";
+"settings.about" = "Over";
+
+// MARK: - Factory Reset
+"factory.reset.section" = "App Opschonen";
+"factory.reset.title" = "Factory Reset";
+"factory.reset.subtitle" = "Voorbereiden voor App Store";
+"factory.reset.description" = "Reset app naar schone staat, perfect voor nieuwe App Store downloads. Behoudt standaard recepten maar verwijdert alle gebruikersdata, analytics, fotos en voorkeuren.";
+"factory.reset.button" = "Factory Reset";
+"factory.reset.alert.title" = "Factory Reset";
+"factory.reset.alert.message" = "Dit bereidt de app voor op een verse App Store download door alle gebruikersdata, analytics, fotos en voorkeuren te verwijderen. Standaard recepten blijven behouden. Deze actie kan niet ongedaan worden gemaakt.";
+"factory.reset.cancel" = "Annuleren";
+"factory.reset.confirm" = "Reset";
+"factory.reset.progress.title" = "App Store Status Voorbereiden...";
+"factory.reset.progress.complete" = "% Voltooid";
+"factory.reset.progress.subtitle" = "Perfecte eerste-download ervaring creëren";
+"factory.reset.progress.almost" = "✨ Bijna klaar voor 5-sterren reviews!";
+"factory.reset.complete.title" = "Reset Voltooid! 🎉";
+"factory.reset.complete.message" = "App is gereset naar perfecte App Store download status! ✨
+
+• Alle gebruikersdata gewist
+• Standaard recepten behouden
+• Klaar voor 5-sterren reviews";
+"factory.reset.perfect" = "Perfect!";

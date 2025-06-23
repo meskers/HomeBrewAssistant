@@ -10,7 +10,7 @@ struct HomeBrewAssistantApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            LaunchView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(localizationManager)
         }

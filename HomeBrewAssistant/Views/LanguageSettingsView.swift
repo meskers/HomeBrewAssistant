@@ -17,7 +17,7 @@ struct LanguageSettingsView: View {
                         .font(.title2)
                         .fontWeight(.bold)
                     
-                    Text("Select your preferred language")
+                    Text("language.select.subtitle".localized)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -42,7 +42,7 @@ struct LanguageSettingsView: View {
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(.secondary)
-                        Text("App will update immediately")
+                        Text("language.update.info".localized)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }

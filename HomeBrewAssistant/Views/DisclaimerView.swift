@@ -7,38 +7,38 @@ struct DisclaimerView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Disclaimer")
+                    Text("disclaimer.title".localized)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.bottom)
                     
                     Group {
-                        Text("HomeBrewAssistant is designed to help you with your home brewing journey. However, please note the following:")
+                        Text("disclaimer.introduction".localized)
                             .font(.headline)
                         
                         VStack(alignment: .leading, spacing: 12) {
                             DisclaimerItem(
                                 icon: "exclamationmark.triangle.fill",
-                                title: "Safety First",
-                                description: "Always follow proper brewing safety guidelines and local regulations."
+                                title: "disclaimer.safety.title".localized,
+                                description: "disclaimer.safety.description".localized
                             )
                             
                             DisclaimerItem(
                                 icon: "checkmark.shield.fill",
-                                title: "Quality Control",
-                                description: "While we provide tools and calculations, final quality control is your responsibility."
+                                title: "disclaimer.quality.title".localized,
+                                description: "disclaimer.quality.description".localized
                             )
                             
                             DisclaimerItem(
                                 icon: "info.circle.fill",
-                                title: "Accuracy",
-                                description: "Calculations and recommendations are based on standard brewing practices but may need adjustment for your specific setup."
+                                title: "disclaimer.accuracy.title".localized,
+                                description: "disclaimer.accuracy.description".localized
                             )
                             
                             DisclaimerItem(
                                 icon: "hand.raised.fill",
-                                title: "Legal Compliance",
-                                description: "Ensure you comply with all local laws and regulations regarding home brewing."
+                                title: "disclaimer.legal.title".localized,
+                                description: "disclaimer.legal.description".localized
                             )
                         }
                     }
@@ -49,7 +49,7 @@ struct DisclaimerView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button("action.done".localized) {
                         dismiss()
                     }
                 }

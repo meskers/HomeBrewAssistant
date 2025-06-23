@@ -30,3 +30,33 @@ enum RecipeType: String, CaseIterable {
         }
     }
 }
+
+enum BrewingDifficulty: String, CaseIterable {
+    case beginner = "Beginner"
+    case intermediate = "Intermediate"
+    case advanced = "Advanced"
+    
+    var localizedName: String {
+        switch self {
+        case .beginner: return "recipe.difficulty.beginner".localized
+        case .intermediate: return "recipe.difficulty.intermediate".localized
+        case .advanced: return "recipe.difficulty.advanced".localized
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .beginner: return .green
+        case .intermediate: return .orange
+        case .advanced: return .red
+        }
+    }
+    
+    var icon: String {
+        switch self {
+        case .beginner: return "🌱"
+        case .intermediate: return "🔧"
+        case .advanced: return "⚗️"
+        }
+    }
+}

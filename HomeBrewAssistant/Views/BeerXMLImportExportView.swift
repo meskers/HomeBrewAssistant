@@ -86,11 +86,11 @@ struct BeerXMLImportExportView: View {
                 .font(.system(size: 50))
                 .foregroundColor(.brewTheme)
             
-            Text("BeerXML Import & Export")
+            Text("beerxml.title".localized)
                 .font(.title2)
                 .fontWeight(.bold)
             
-            Text("Uitwisselen van recepten met andere brouw apps")
+            Text("beerxml.subtitle".localized)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -103,12 +103,12 @@ struct BeerXMLImportExportView: View {
             HStack {
                 Image(systemName: "square.and.arrow.down")
                     .foregroundColor(.green)
-                Text("Import Recepten")
+                Text("beerxml.import.title".localized)
                     .font(.headline)
                     .foregroundColor(.primary)
             }
             
-            Text("Importeer BeerXML bestanden van andere brouw software zoals BeerSmith, Brewfather, of BrewTarget.")
+            Text("beerxml.import.description".localized)
                 .font(.body)
                 .foregroundColor(.secondary)
             
@@ -122,7 +122,7 @@ struct BeerXMLImportExportView: View {
                     } else {
                         Image(systemName: "doc.badge.plus")
                     }
-                    Text(isImporting ? "Importeren..." : "Selecteer BeerXML bestand")
+                    Text(isImporting ? "beerxml.import.importing".localized : "beerxml.import.button".localized)
                 }
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
@@ -134,20 +134,20 @@ struct BeerXMLImportExportView: View {
             
             // Import tips
             VStack(alignment: .leading, spacing: 8) {
-                Text("💡 Import Tips:")
+                Text("beerxml.import.tips.title".localized)
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundColor(.orange)
                 
-                Text("• Ondersteunt .xml en .beerxml bestanden")
+                Text("beerxml.import.tip.1".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("• Importeert ingrediënten, timings en basis receptinfo")
+                Text("beerxml.import.tip.2".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("• Controleer altijd geïmporteerde recepten")
+                Text("beerxml.import.tip.3".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -166,12 +166,12 @@ struct BeerXMLImportExportView: View {
             HStack {
                 Image(systemName: "square.and.arrow.up")
                     .foregroundColor(.blue)
-                Text("Export Recepten")
+                Text("beerxml.export.title".localized)
                     .font(.headline)
                     .foregroundColor(.primary)
             }
             
-            Text("Exporteer je recepten naar BeerXML formaat om te delen met andere brouwers of software.")
+            Text("beerxml.export.description".localized)
                 .font(.body)
                 .foregroundColor(.secondary)
             
@@ -181,7 +181,7 @@ struct BeerXMLImportExportView: View {
                 }) {
                     HStack {
                         Image(systemName: "doc.on.doc")
-                        Text("Selecteer recept om te exporteren")
+                        Text("beerxml.export.select.button".localized)
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -194,10 +194,10 @@ struct BeerXMLImportExportView: View {
                     HStack {
                         Image(systemName: "checkmark.circle.fill")
                             .foregroundColor(.green)
-                        Text("Geselecteerd: \(selectedRecipe.name)")
+                        Text("beerxml.export.selected".localized(with: selectedRecipe.name))
                             .font(.subheadline)
                         Spacer()
-                        Button("Export") {
+                        Button("beerxml.export.button".localized) {
                             showingExportPicker = true
                         }
                         .buttonStyle(.borderedProminent)
@@ -211,20 +211,20 @@ struct BeerXMLImportExportView: View {
             
             // Export info
             VStack(alignment: .leading, spacing: 8) {
-                Text("📤 Export Info:")
+                Text("beerxml.export.info.title".localized)
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundColor(.blue)
                 
-                Text("• Standaard BeerXML 1.0 formaat")
+                Text("beerxml.export.info.1".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("• Compatibel met de meeste brouw software")
+                Text("beerxml.export.info.2".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("• Bevat ingrediënten, timings en basis gegevens")
+                Text("beerxml.export.info.3".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -243,36 +243,36 @@ struct BeerXMLImportExportView: View {
             HStack {
                 Image(systemName: "info.circle")
                     .foregroundColor(.orange)
-                Text("Over BeerXML")
+                Text("beerxml.about.title".localized)
                     .font(.headline)
             }
             
-            Text("BeerXML is de industriestandaard voor het uitwisselen van brouwrecepten. Het wordt ondersteund door vrijwel alle professionele brouw software.")
+            Text("beerxml.about.description".localized)
                 .font(.body)
                 .foregroundColor(.secondary)
             
             VStack(alignment: .leading, spacing: 6) {
-                Text("🔗 Compatibel met:")
+                Text("beerxml.compatible.title".localized)
                     .font(.subheadline)
                     .fontWeight(.semibold)
                 
-                Text("• BeerSmith")
+                Text("beerxml.compatible.beersmith".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("• Brewfather")
+                Text("beerxml.compatible.brewfather".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("• BrewTarget")
+                Text("beerxml.compatible.brewtarget".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("• Recipe DB")
+                Text("beerxml.compatible.recipedb".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text("• En vele andere...")
+                Text("beerxml.compatible.others".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

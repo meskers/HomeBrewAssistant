@@ -24,11 +24,11 @@ struct ABVCalculatorView: View {
                             .font(.system(size: 60))
                             .foregroundColor(.blue)
                         
-                        Text("ABV Calculator")
+                        Text("abv.title".localized)
                             .font(.title2)
                             .fontWeight(.bold)
                         
-                        Text("Bereken het alcoholpercentage van je brouwsel")
+                        Text("abv.subtitle".localized)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.secondary)
                     }
@@ -37,29 +37,29 @@ struct ABVCalculatorView: View {
                     // Input Fields
                     VStack(spacing: 20) {
                         VStack(alignment: .leading, spacing: 8) {
-                            Label("Oorspronkelijke Dichtheid (OG)", systemImage: "drop.fill")
+                            Label("abv.og.label".localized, systemImage: "drop.fill")
                                 .font(.headline)
                             
-                            TextField("Bijv. 1.050", text: $originalGravity)
+                            TextField("abv.og.placeholder".localized, text: $originalGravity)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .keyboardType(.decimalPad)
                                 .focused($isInputFocused)
                             
-                            Text("Meet voor de fermentatie begint")
+                            Text("abv.og.description".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
                         
                         VStack(alignment: .leading, spacing: 8) {
-                            Label("Eind Dichtheid (FG)", systemImage: "drop")
+                            Label("abv.fg.label".localized, systemImage: "drop")
                                 .font(.headline)
                             
-                            TextField("Bijv. 1.010", text: $finalGravity)
+                            TextField("abv.fg.placeholder".localized, text: $finalGravity)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .keyboardType(.decimalPad)
                                 .focused($isInputFocused)
                             
-                            Text("Meet na de fermentatie")
+                            Text("abv.fg.description".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -70,7 +70,7 @@ struct ABVCalculatorView: View {
                     Button(action: calculateABV) {
                         HStack {
                             Image(systemName: "function")
-                            Text("Bereken ABV")
+                            Text("abv.calculate".localized)
                         }
                         .font(.headline)
                         .foregroundColor(.white)
@@ -88,14 +88,14 @@ struct ABVCalculatorView: View {
                             Divider()
                             
                             VStack(spacing: 8) {
-                                Text("Resultaat")
+                                Text("abv.result.title".localized)
                                     .font(.headline)
                                 
                                 Text("\(calculatedABV, specifier: "%.2f")%")
                                     .font(.system(size: 36, weight: .bold, design: .rounded))
                                     .foregroundColor(.green)
                                 
-                                Text("Alcohol by Volume")
+                                Text("abv.result.subtitle".localized)
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                             }
@@ -106,14 +106,14 @@ struct ABVCalculatorView: View {
                             // Additional Info
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack {
-                                    Text("Attenuation:")
+                                    Text("abv.attenuation".localized)
                                         .fontWeight(.medium)
                                     Spacer()
                                     Text("\(calculateAttenuation(), specifier: "%.1f")%")
                                 }
                                 
                                 HStack {
-                                    Text("Alcohol Yield:")
+                                    Text("abv.alcohol.yield".localized)
                                         .fontWeight(.medium)
                                     Spacer()
                                     Text("\(calculateAlcoholYield(), specifier: "%.2f") g/L")
@@ -130,14 +130,14 @@ struct ABVCalculatorView: View {
                     
                     // Info Section
                     VStack(alignment: .leading, spacing: 10) {
-                        Label("Gebruikstips", systemImage: "info.circle")
+                        Label("abv.usage.tips".localized, systemImage: "info.circle")
                             .font(.headline)
                         
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("• Gebruik een hydrometer of refractometer voor nauwkeurige metingen")
-                            Text("• OG moet altijd hoger zijn dan FG")
-                            Text("• Typische waarden: OG 1.040-1.080, FG 1.008-1.020")
-                            Text("• Formule: ABV = (OG - FG) × 131.25")
+                            Text("abv.tip.1".localized)
+                            Text("abv.tip.2".localized)
+                            Text("abv.tip.3".localized)
+                            Text("abv.tip.4".localized)
                         }
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -148,11 +148,11 @@ struct ABVCalculatorView: View {
                     .padding(.horizontal)
                 }
             }
-            .navigationTitle("ABV Calculator")
+            .navigationTitle("abv.title".localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Reset") {
+                    Button("abv.reset".localized) {
                         resetCalculator()
                     }
                     .disabled(originalGravity.isEmpty && finalGravity.isEmpty)
@@ -160,7 +160,7 @@ struct ABVCalculatorView: View {
                 
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
-                    Button("Klaar") {
+                    Button("action.done".localized) {
                         isInputFocused = false
                     }
                 }

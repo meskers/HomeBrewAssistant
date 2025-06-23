@@ -83,11 +83,11 @@ struct AIRecipeGeneratorView: View {
             }
             
             VStack(spacing: 8) {
-                Text("AI Recipe Generator")
+                Text("ai.recipe.title".localized)
                     .font(.title2.bold())
                     .foregroundColor(.primary)
                 
-                Text("Let artificial intelligence create the perfect brew recipe based on BJCP guidelines and brewing science")
+                Text("ai.recipe.subtitle".localized)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)

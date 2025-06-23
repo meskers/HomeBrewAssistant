@@ -145,24 +145,55 @@ class VersionManager: ObservableObject {
     private func getDefaultVersionHistory() -> [VersionEntry] {
         return [
             VersionEntry(
-                version: "2.1.0",
-                buildNumber: "2024001",
+                version: "1.1.0",
+                buildNumber: "3",
                 releaseDate: Date(),
-                changes: ["Verbeterde prestaties", "Bug fixes en stabiliteitsverbeteringen", "Nieuwe functies toegevoegd"],
+                changes: [
+                    "🎉 MAJOR UPDATE: World-Class Recipe Collection",
+                    "🏆 50+ Award-Winning Recipes from Master Brewers",
+                    "🇳🇱 Authentic Dutch Beer Styles (Nederlandse Klassiekers)",
+                    "🌍 International Favorites & Commercial Clones",
+                    "✨ Beautiful Onboarding Experience for New Users",
+                    "📊 Recipe Success Rates & Difficulty Indicators",
+                    "🥇 Gold Medal Competition Winners Included",
+                    "🔧 Professional Brewing Calculator Suite",
+                    "🎨 Enhanced UI/UX for Premium Experience",
+                    "📱 Complete Dutch & English Localization",
+                    "💼 Export/Import with BeerXML Standard",
+                    "🤖 AI Recipe Generator Foundation",
+                    "📸 Photo Documentation System",
+                    "📈 Advanced Brewing Analytics",
+                    "⭐ Optimized for 5-Star App Store Rating"
+                ],
                 type: .major
             ),
             VersionEntry(
-                version: "2.0.1",
-                buildNumber: "2023302",
+                version: "1.0.1",
+                buildNumber: "2",
                 releaseDate: Calendar.current.date(byAdding: .day, value: -7, to: Date()) ?? Date(),
-                changes: ["Kleine bug fixes", "UI verbeteringen", "Performance optimalisaties"],
+                changes: [
+                    "🐛 Fixed critical localization issues",
+                    "🎨 Improved UI consistency across all views",
+                    "🔧 Enhanced calculator accuracy",
+                    "📱 Better iPad layout support",
+                    "⚡ Performance optimizations"
+                ],
                 type: .patch
             ),
             VersionEntry(
-                version: "2.0.0",
-                buildNumber: "2023301",
+                version: "1.0.0",
+                buildNumber: "1", 
                 releaseDate: Calendar.current.date(byAdding: .day, value: -14, to: Date()) ?? Date(),
-                changes: ["Grote feature updates", "Nieuwe interface", "Verbeterde functionaliteit"],
+                changes: [
+                    "🎉 Initial Release - HomeBrewAssistant",
+                    "📖 Basic Recipe Management",
+                    "🧮 Core Brewing Calculators (ABV, IBU, SRM)",
+                    "⏱️ Brewing Timer System",
+                    "📝 Ingredients Inventory",
+                    "🌍 Dutch & English Language Support",
+                    "🎨 Beautiful Modern Interface",
+                    "📱 Native iOS SwiftUI Application"
+                ],
                 type: .major
             )
         ]

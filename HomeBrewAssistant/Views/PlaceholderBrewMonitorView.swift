@@ -8,26 +8,26 @@ struct PlaceholderBrewMonitorView: View {
                     .font(.system(size: 80))
                     .foregroundColor(.brewTheme)
                 
-                Text("🧪 Brew Monitor")
+                Text("brew.monitor.title".localized)
                     .font(.title)
                     .fontWeight(.bold)
                 
-                Text("Advanced Brewing Process Monitoring")
+                Text("brew.monitor.subtitle".localized)
                     .font(.title2)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
                 
                 VStack(spacing: 16) {
-                    Text("Coming in v1.3:")
+                    Text("brew.monitor.coming.soon".localized)
                         .font(.headline)
                         .foregroundColor(.brewTheme)
                     
                     VStack(alignment: .leading, spacing: 8) {
-                        Label("🌡️ Temperature Tracking", systemImage: "thermometer")
-                        Label("⏱️ Advanced Timer System", systemImage: "timer")
-                        Label("📋 Step-by-Step Guidance", systemImage: "list.clipboard")
-                        Label("📊 Process Analytics", systemImage: "chart.line.uptrend.xyaxis")
-                        Label("📝 Brew Session Notes", systemImage: "note.text")
+                        Label("brew.monitor.feature.temperature".localized, systemImage: "thermometer")
+                        Label("brew.monitor.feature.timers".localized, systemImage: "timer")
+                        Label("brew.monitor.feature.guidance".localized, systemImage: "list.clipboard")
+                        Label("brew.monitor.feature.analytics".localized, systemImage: "chart.line.uptrend.xyaxis")
+                        Label("brew.monitor.feature.notes".localized, systemImage: "note.text")
                     }
                     .font(.subheadline)
                 }
@@ -37,12 +37,12 @@ struct PlaceholderBrewMonitorView: View {
                 
                 Spacer()
                 
-                Text("Stay tuned for advanced brewing tools!")
+                Text("brew.monitor.stay.tuned".localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
             .padding()
-            .navigationTitle("Brew Monitor")
+            .navigationTitle("brew.monitor.nav.title".localized)
             .navigationBarTitleDisplayMode(.large)
         }
     }
