@@ -27,7 +27,7 @@ class DefaultRecipeInstaller {
             coreDataRecipe.name = recipe.name
             // Note: style is stored in notes field since CoreData model doesn't have style
             coreDataRecipe.type = "beer" // Default type
-            coreDataRecipe.notes = "\(recipe.style)\n\n\(recipe.notes ?? "")"
+            coreDataRecipe.notes = "\(recipe.style)\n\n\(recipe.notes)"
             coreDataRecipe.brewer = "HomeBrewAssistant" // Mark as default recipe
             coreDataRecipe.createdAt = Date()
             coreDataRecipe.updatedAt = Date()
