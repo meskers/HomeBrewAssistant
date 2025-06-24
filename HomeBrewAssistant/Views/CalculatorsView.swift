@@ -126,7 +126,7 @@ struct CalculatorsView: View {
         case .water:
             ComingSoonView(title: "Water Calculator", description: "Water treatment calculator coming soon!")
         case .waterChemistry:
-            ComingSoonView(title: "Water Chemistry", description: "Advanced water chemistry calculator - temporarily unavailable during refactoring")
+            WaterChemistryCalculatorView()
         case .hydrometer:
             HydrometerCalculatorView()
         case .strikeWater:
