@@ -2,7 +2,7 @@ import SwiftUI
 import Foundation
 
 class IngredientsViewModel: ObservableObject {
-    @Published var ingredients: [InventoryItem] = [] // CLEAN APP STORE: No mock ingredients]
+    @Published var ingredients: [InventoryItem] = []
     // CLEAN APP STORE EXPERIENCE: No mock ingredients
     // Users should start with empty ingredient inventory
     
@@ -14,7 +14,7 @@ class IngredientsViewModel: ObservableObject {
         
         // Filter by category
         if let selectedCategory = selectedCategory {
-            filtered = filtered.filter { $0.category == selectedCategory }
+            filtered = filtered.filter { $0.category == selectedCategory.rawValue }
         }
         
         // Filter by search text
@@ -46,5 +46,3 @@ class IngredientsViewModel: ObservableObject {
         }
     }
 }
-
- 

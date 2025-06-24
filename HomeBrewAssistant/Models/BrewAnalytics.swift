@@ -692,7 +692,9 @@ enum BrewStatus: String, CaseIterable, Codable {
     case conditioning = "Rijping"
     case completed = "Voltooid"
     case failed = "Mislukt"
-    
+    var displayName: String {
+        return self.rawValue
+    }    
     var color: Color {
         switch self {
         case .planned: return .gray

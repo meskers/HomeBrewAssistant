@@ -232,12 +232,11 @@ class SmartInventoryManager: ObservableObject {
     }
     
     func removeFromShoppingList(at offsets: IndexSet) {
-        shoppingList.remove(atOffsets: offsets)
-        saveShoppingList()
-    }
-    
+
     func removeFromShoppingList(_ item: ShoppingListItem) {
         shoppingList.removeAll { $0.id == item.id }
+        saveShoppingList()
+    }        shoppingList.remove(atOffsets: offsets)
         saveShoppingList()
     }
     

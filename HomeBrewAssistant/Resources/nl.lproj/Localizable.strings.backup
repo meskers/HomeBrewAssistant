@@ -795,3 +795,17 @@
 "calculator.calculate.additions" = "Bereken Mineraal Toevoegingen";
 "calculator.ph" = "pH: %.1f";
 "calculator.chloride.sulfate.ratio" = "Cl⁻/SO₄²⁻ Ratio: %.2f";
+
+// MARK: - Auto-synchronized keys (2025-06-24)
+"recipe.scaling.original_batch" = "Original Batch";
+"recipe.scaling.original_batch" = "Original Batch";
+"recipe.scaling.save_scaled" = "Save Scaled Recipe";
+"recipe.scaling.save_scaled" = "Save Scaled Recipe";
+"recipe.scaling.scale_factor" = "Scale Factor";
+"recipe.scaling.scale_factor" = "Scale Factor";
+"recipe.scaling.scale_recipe" = "Scale Recipe";
+"recipe.scaling.scale_recipe" = "Scale Recipe";
+"recipe.scaling.scaled_ingredients" = "Scaled Ingredients";
+"recipe.scaling.scaled_ingredients" = "Scaled Ingredients";
+"recipe.scaling.title" = "Scale Recipe";
+"recipe.scaling.title" = "Recipe Scaling";

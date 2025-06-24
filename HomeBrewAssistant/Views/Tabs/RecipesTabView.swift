@@ -71,7 +71,7 @@ struct RecipesTabView: View {
                     HStack {
                         // AI Recipe Generator Button
                         Button(action: {
-                            showingAIGenerator = true
+                            print("🤖 AI Generator button tapped!"); showingAIGenerator = true; print("🤖 State set to: \(showingAIGenerator)")
                         }) {
                             Image(systemName: "brain.head.profile")
                                 .foregroundColor(.purple)
@@ -105,10 +105,14 @@ struct RecipesTabView: View {
             }
             .sheet(item: $selectedRecipeForScaling) { recipe in
                 RecipeScalingView(recipe: recipe, originalBatchSize: 23.0)
-                    .environmentObject(localizationManager)
-            }
             .sheet(isPresented: $showingAIGenerator) {
                 AIRecipeGeneratorView(recipes: $recipes)
+            }
+            .sheet(isPresented: $showingAddRecipe) {
+                RecipeBuilderView()
+            }            }
+            .sheet(isPresented: $showingAddRecipe) {
+                RecipeBuilderView()
             }
         }
         .accessibilityElement(children: .contain)
@@ -259,7 +263,7 @@ struct RecipeActionButtons: View {
         VStack(spacing: 12) {
             HStack(spacing: 15) {
                 Button("🤖 AI Generator") {
-                    showingAIGenerator = true
+                    print("🤖 AI Generator button tapped!"); showingAIGenerator = true; print("🤖 State set to: \(showingAIGenerator)")
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)

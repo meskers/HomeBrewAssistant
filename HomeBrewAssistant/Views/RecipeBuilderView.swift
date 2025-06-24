@@ -321,8 +321,8 @@ struct IngredientPickerView: View {
     private func addIngredient() {
         let ingredient = IngredientModel(
             name: ingredientName,
-            type: selectedType,
             amount: ingredientAmount,
+            type: selectedType,
             timing: selectedTiming
         )
         viewModel.ingredients.append(ingredient)

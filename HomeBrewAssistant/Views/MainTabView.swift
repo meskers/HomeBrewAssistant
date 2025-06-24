@@ -39,16 +39,20 @@ struct MainTabView: View {
                 .accessibilityLabel("Calculators tab")
             
             // 4. INGREDIËNTEN - Inventory management
-            SmartIngredientsView(
-                selectedRecipe: selectedRecipeForBrewing,
-                allRecipes: $recipes
-            )
+            IngredientsView(selectedRecipeForBrewing: $selectedRecipeForBrewing)
             .tabItem {
                 Label("tab.inventory".localized, systemImage: "list.clipboard.fill")
             }
             .accessibilityLabel("Ingredients tab")
             
-            // 5. MEER - Additional tools and settings
+            // 5. FOTO'S - Photo Gallery
+            PhotoGalleryView()
+            .tabItem {
+                Label("tab.photos".localized, systemImage: "photo.stack.fill")
+            }
+            .accessibilityLabel("Photos tab")
+            
+            // 6. MEER - Additional tools and settings
             MoreView(
                 selectedRecipeForBrewing: $selectedRecipeForBrewing,
                 recipes: $recipes

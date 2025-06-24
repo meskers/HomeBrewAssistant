@@ -3,7 +3,11 @@ import SwiftUI
 struct DetailedRecipeView: View {
     let recipe: DetailedRecipe
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
+    @StateObject private var photoManager = PhotoManager.shared
     @State private var showingScalingView = false
+    @State private var showingBrewingView = false
+    @State private var showingInventoryCheck = false
     
     var body: some View {
         NavigationView {
@@ -53,6 +57,12 @@ struct DetailedRecipeView: View {
             .sheet(isPresented: $showingScalingView) {
                 RecipeScalingView(recipe: recipe)
                     .environmentObject(LocalizationManager.shared)
+            }
+            .sheet(isPresented: $showingBrewingView) {
+                EnhancedBrewingView(selectedRecipe: recipe)
+            }
+            .sheet(isPresented: $showingInventoryCheck) {
+                InventoryCheckView(recipe: recipe)
             }
         }
     }
@@ -130,7 +140,10 @@ struct DetailedRecipeView: View {
                 
                 // Start Brewing Button
                 Button(action: {
-                    // TODO: Implement start brewing functionality
+                    HapticManager.shared.success()
+                    withAnimation(.premiumSlide) {
+                        showingInventoryCheck = true
+                    }
                 }) {
                     HStack(spacing: 8) {
                         Image(systemName: "play.circle.fill")
@@ -169,7 +182,7 @@ struct DetailedRecipeView: View {
     // MARK: - Recipe Stats Section
     private var recipeStatsSection: some View {
         VStack(spacing: 12) {
-            Text("📊 Receptspecificaties")
+            Text("�� Receptspecificaties")
                 .font(.headline)
                 .foregroundColor(.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -407,4 +420,4 @@ struct DetailedRecipeView: View {
     )
     
     DetailedRecipeView(recipe: sampleRecipe)
-} 
+}

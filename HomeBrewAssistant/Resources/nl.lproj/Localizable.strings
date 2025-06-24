@@ -183,6 +183,38 @@
 // MARK: - Ingredients
 "ingredient.malt" = "Mout";
 "ingredient.hops" = "Hop";
+
+// MARK: - Settings
+"settings.title" = "Instellingen";
+"settings.units" = "Eenheden";
+"settings.appearance" = "Uiterlijk";
+"settings.notifications" = "Meldingen";
+"settings.default.values" = "Standaardwaarden";
+"settings.use.metric" = "Gebruik metrisch systeem";
+"settings.dark.mode" = "Donkere modus";
+"settings.enable.notifications" = "Meldingen inschakelen";
+"settings.default.batch.size" = "Standaard batch grootte";
+"settings.default.efficiency" = "Standaard efficiency";
+"settings.disclaimer" = "Disclaimer";
+"settings.about" = "Over";
+
+// MARK: - Factory Reset
+"factory.reset.section" = "🧹 App Opschonen";
+"factory.reset.title" = "Factory Reset";
+"factory.reset.subtitle" = "Voorbereiden voor App Store";
+"factory.reset.description" = "Reset app naar schone staat, perfect voor nieuwe App Store downloads. Behoudt standaard recepten maar verwijdert alle gebruikersdata, analytics, foto's en voorkeuren.";
+"factory.reset.button" = "Factory Reset";
+"factory.reset.alert.title" = "Factory Reset";
+"factory.reset.alert.message" = "Dit bereidt de app voor op een verse App Store download door alle gebruikersdata, analytics, foto's en voorkeuren te verwijderen. Standaard recepten blijven behouden. Deze actie kan niet ongedaan worden gemaakt.";
+"factory.reset.cancel" = "Annuleren";
+"factory.reset.confirm" = "Reset";
+"factory.reset.progress.title" = "App Store Status Voorbereiden...";
+"factory.reset.progress.complete" = "% Voltooid";
+"factory.reset.progress.subtitle" = "Perfecte eerste-download ervaring creëren";
+"factory.reset.progress.almost" = "✨ Bijna klaar voor 5-sterren reviews!";
+"factory.reset.complete.title" = "Reset Voltooid! 🎉";
+"factory.reset.complete.message" = "App is gereset naar perfecte App Store download status! ✨\n\n• Alle gebruikersdata gewist\n• Standaard recepten behouden\n• Klaar voor 5-sterren reviews";
+"factory.reset.perfect" = "Perfect!";
 "ingredient.yeast" = "Gist";
 "ingredient.other" = "Overig";
 "ingredient.grains" = "Graan";

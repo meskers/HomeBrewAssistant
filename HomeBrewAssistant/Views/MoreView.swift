@@ -51,6 +51,7 @@ struct MoreView: View {
                         Image(systemName: "ellipsis.circle.fill")
                             .font(.title2)
                             .foregroundColor(.brewTheme)
+                            .accessibilityHidden(true)
                         
                         VStack(alignment: .leading) {
                             Text("more.title".localized)
@@ -68,6 +69,8 @@ struct MoreView: View {
                 .cornerRadius(12)
                 .padding(.horizontal)
                 .padding(.top)
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel("more.title".localized + ", " + "more.subtitle".localized)
                 
                 List {
                     // Features Section
@@ -128,21 +131,8 @@ struct MoreView: View {
         case .photos:
             PhotoGalleryView()
         case .history:
-            // TODO: Implement BrewHistoryView
-            VStack(spacing: 20) {
-                Image(systemName: "clock.arrow.circlepath")
-                    .font(.system(size: 50))
-                    .foregroundColor(.brewTheme)
-                Text("Brouwgeschiedenis")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                Text("Deze functie wordt binnenkort toegevoegd")
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.systemBackground))
+            BrewHistoryView()
+                .environmentObject(localizationManager)
         case .beerxml:
             BeerXMLImportExportView(recipes: $recipes)
                 .environmentObject(localizationManager)
@@ -160,6 +150,7 @@ struct MoreFeatureRow: View {
                 .font(.title2)
                 .foregroundColor(.brewTheme)
                 .frame(width: 30)
+                .accessibilityHidden(true)
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(feature.title)
@@ -177,8 +168,13 @@ struct MoreFeatureRow: View {
             Image(systemName: "chevron.right")
                 .font(.caption)
                 .foregroundColor(.secondary)
+                .accessibilityHidden(true)
         }
         .padding(.vertical, 4)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(feature.title)")
+        .accessibilityHint("\(feature.description). Tik om te openen.")
+        .accessibilityAddTraits(.isButton)
     }
 }
 
@@ -194,6 +190,7 @@ struct SettingsRow: View {
                 .font(.title2)
                 .foregroundColor(.brewTheme)
                 .frame(width: 30)
+                .accessibilityHidden(true)
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
@@ -210,8 +207,13 @@ struct SettingsRow: View {
             Image(systemName: "chevron.right")
                 .font(.caption)
                 .foregroundColor(.secondary)
+                .accessibilityHidden(true)
         }
         .padding(.vertical, 4)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(title), \(subtitle)")
+        .accessibilityHint("Tik om \(title.lowercased()) te openen")
+        .accessibilityAddTraits(.isButton)
     }
 }
 

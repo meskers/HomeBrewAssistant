@@ -4,32 +4,32 @@ import SwiftUI
 extension Animation {
     /// Smooth and professional button press animation
     static var premiumTap: Animation {
-        .easeInOut(duration: 0.15)
+        .easeInOut(duration: 0.2)
     }
     
     /// Gentle bounce animation for success states
     static var successBounce: Animation {
-        .interpolatingSpring(stiffness: 300, damping: 15)
+        .interpolatingSpring(stiffness: 200, damping: 10)
     }
     
     /// Smooth slide animation for sheet presentations
     static var premiumSlide: Animation {
-        .timingCurve(0.25, 0.1, 0.25, 1, duration: 0.35)
+        .timingCurve(0.25, 0.1, 0.25, 1, duration: 0.5)
     }
     
-    /// Subtle wobble animation for error states
+    /// Dramatic wobble animation for error states
     static var errorWobble: Animation {
-        .easeInOut(duration: 0.1).repeatCount(3, autoreverses: true)
+        .easeInOut(duration: 0.15).repeatCount(4, autoreverses: true)
     }
     
     /// Premium loading animation
     static var loadingPulse: Animation {
-        .easeInOut(duration: 1.5).repeatForever(autoreverses: true)
+        .easeInOut(duration: 1.2).repeatForever(autoreverses: true)
     }
     
     /// High-end card flip animation
     static var cardFlip: Animation {
-        .timingCurve(0.6, 0, 0.4, 1, duration: 0.8)
+        .timingCurve(0.6, 0, 0.4, 1, duration: 1.0)
     }
 }
 
@@ -93,27 +93,36 @@ struct PremiumButtonStyle: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .scaleEffect(isPressed ? 0.95 : 1.0)
-            .animation(.premiumTap, value: isPressed)
-            .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
-                isPressed = pressing
-                if pressing {
-                    switch hapticStyle {
-                    case .light:
-                        HapticManager.shared.lightTap()
-                    case .medium:
-                        HapticManager.shared.mediumTap()
-                    case .heavy:
-                        HapticManager.shared.heavyTap()
-                    case .rigid:
-                        HapticManager.shared.heavyTap()
-                    case .soft:
-                        HapticManager.shared.lightTap()
-                    @unknown default:
-                        HapticManager.shared.lightTap()
+            .scaleEffect(isPressed ? 0.85 : 1.0)
+            .rotationEffect(isPressed ? .degrees(2) : .degrees(0))
+            .brightness(isPressed ? 0.2 : 0.0)
+            .animation(.easeInOut(duration: 0.15), value: isPressed)
+            .simultaneousGesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { _ in
+                        if !isPressed {
+                            isPressed = true
+                            print("🎯 HAPTIC TRIGGERED: \(hapticStyle)")
+                            switch hapticStyle {
+                            case .light:
+                                HapticManager.shared.lightTap()
+                            case .medium:
+                                HapticManager.shared.mediumTap()
+                            case .heavy:
+                                HapticManager.shared.heavyTap()
+                            case .rigid:
+                                HapticManager.shared.heavyTap()
+                            case .soft:
+                                HapticManager.shared.lightTap()
+                            @unknown default:
+                                HapticManager.shared.lightTap()
+                            }
+                        }
                     }
-                }
-            }, perform: {})
+                    .onEnded { _ in
+                        isPressed = false
+                    }
+            )
     }
 }
 
@@ -236,6 +245,44 @@ extension View {
             }
         }
     }
+    
+    /// Adds comprehensive accessibility for button-like elements
+    func accessibleButton(label: String, hint: String? = nil) -> some View {
+        self
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(label)
+            .accessibilityHint(hint ?? "Tik om te activeren")
+            .accessibilityAddTraits(.isButton)
+    }
+    
+    /// Adds accessibility for informational elements
+    func accessibleInfo(label: String, value: String? = nil) -> some View {
+        self
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(value != nil ? "\(label): \(value!)" : label)
+    }
+    
+    /// Hides decorative elements from accessibility
+    func accessibleDecorative() -> some View {
+        self.accessibilityHidden(true)
+    }
+    
+    /// Adds accessibility for input fields
+    func accessibleInput(label: String, hint: String, value: String? = nil) -> some View {
+        self
+            .accessibilityLabel(label)
+            .accessibilityHint(hint)
+            .accessibilityValue(value ?? "")
+    }
+    
+    /// Adds accessibility for navigation elements
+    func accessibleNavigation(label: String) -> some View {
+        self
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(label)
+            .accessibilityHint("Navigeer naar \(label)")
+            .accessibilityAddTraits(.isButton)
+    }
 }
 
 // MARK: - Custom Transition Effects
@@ -280,5 +327,25 @@ struct FlipModifier: ViewModifier {
                 axis: axis,
                 perspective: 0.5
             )
+    }
+}
+
+// MARK: - 5-Star Voice Over Support
+struct AccessibilityHelper {
+    /// Announces important app state changes
+    static func announce(_ message: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            UIAccessibility.post(notification: .announcement, argument: message)
+        }
+    }
+    
+    /// Announces layout changes
+    static func announceLayoutChange() {
+        UIAccessibility.post(notification: .layoutChanged, argument: nil)
+    }
+    
+    /// Announces screen changes
+    static func announceScreenChange() {
+        UIAccessibility.post(notification: .screenChanged, argument: nil)
     }
 } 

@@ -54,8 +54,8 @@ class RecipeViewModel: ObservableObject {
         ingredients = recipe.ingredientsArray.map { ingredient in
             IngredientModel(
                 name: ingredient.wrappedName,
-                type: ingredient.wrappedType,
                 amount: ingredient.wrappedAmount,
+                type: ingredient.wrappedType,
                 timing: ingredient.wrappedTiming
             )
         }
@@ -67,8 +67,8 @@ class RecipeViewModel: ObservableObject {
         
         let newIngredient = IngredientModel(
             name: newIngredientName,
-            type: "Mout",
             amount: newIngredientAmount,
+            type: "Mout",
             timing: "Mashing"
         )
         
@@ -151,8 +151,8 @@ class RecipeViewModel: ObservableObject {
     func addDefaultIngredient() {
         let newIngredient = IngredientModel(
             name: "Nieuwe ingrediënt",
-            type: "Mout",
             amount: "0 kg",
+            type: "Mout",
             timing: "Mashing"
         )
         ingredients.append(newIngredient)
@@ -161,8 +161,8 @@ class RecipeViewModel: ObservableObject {
     func addIngredient(name: String, amount: String) {
         let newIngredient = IngredientModel(
             name: name,
-            type: "Mout",
             amount: amount,
+            type: "Mout",
             timing: "Mashing"
         )
         ingredients.append(newIngredient)
