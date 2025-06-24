@@ -15,7 +15,6 @@
 "tab.photos" = "Foto's";
 "tab.analytics" = "Analytics";
 "tab.history" = "Geschiedenis";
-
 // MARK: - Recipe Management
 "recipes.title" = "Mijn Recepten";
 "recipes.search.placeholder" = "Zoek recepten...";
@@ -30,7 +29,6 @@
 "recipes.select.instruction" = "Kies een recept om te brouwen";
 "recipes.details" = "Details";
 "recipes.use.for.brewing" = "Gebruik voor Brouwen";
-
 // MARK: - Recipe Details
 "recipe.details.title" = "Recept Details";
 "recipe.details.style" = "Stijl: %@";
@@ -44,7 +42,6 @@
 "recipe.details.brew" = "Start Brouwen";
 "recipe.details.edit" = "Bewerk";
 "recipe.details.delete" = "Verwijder";
-
 // MARK: - Inventory
 "inventory.title" = "Voorraad & Boodschappen";
 "inventory.tab" = "Voorraad";
@@ -55,7 +52,6 @@
 "shopping.add.to.list" = "Voeg toe aan lijst";
 "shopping.total.cost" = "Totale kosten: €%.2f";
 "shopping.item.purchased" = "Gekocht";
-
 // MARK: - Brewing Process
 "brewing.title" = "Brouw Tracker";
 "brewing.select.recipe" = "Selecteer een recept om te beginnen";
@@ -69,7 +65,6 @@
 "brewing.complete" = "Brouw Voltooid!";
 "brewing.save.session" = "Sessie Opslaan";
 "brewing.notes.placeholder" = "Voeg notities toe...";
-
 // MARK: - Brewing Steps
 "step.preparation" = "Voorbereiding";
 "step.mashing" = "Maischen";
@@ -81,7 +76,6 @@
 "step.carbonation" = "Carbonatie";
 "step.bottling" = "Bottelen";
 "step.completion" = "Voltooid";
-
 // MARK: - ABV Calculator
 "abv.title" = "ABV Calculator";
 "abv.subtitle" = "Bereken alcohol percentage";
@@ -95,7 +89,6 @@
 "abv.attenuation" = "Vergisting: %.1f%%";
 "abv.calories" = "~%.0f cal/355ml";
 "abv.ready" = "Klaar voor berekening";
-
 // MARK: - IBU Calculator
 "ibu.title" = "IBU Calculator";
 "ibu.subtitle" = "Bereken hop bitterheid";
@@ -108,7 +101,6 @@
 "ibu.result" = "%.1f IBU";
 "ibu.per.hop" = "%.1f IBU";
 "ibu.total" = "Totaal: %.1f IBU";
-
 // MARK: - SRM Calculator  
 "srm.title" = "SRM Calculator";
 "srm.subtitle" = "Bereken bierkleur";
@@ -118,7 +110,6 @@
 "srm.calculate" = "Bereken SRM";
 "srm.result" = "%.1f SRM";
 "srm.color.preview" = "Kleur Preview";
-
 // MARK: - CO2 Calculator
 "co2.title" = "CO₂ Calculator";
 "co2.subtitle" = "Bereken priming sugar voor carbonatie";
@@ -132,7 +123,6 @@
 "co2.calculate" = "Bereken CO₂";
 "co2.result" = "%.1f g";
 "co2.per.batch" = "Voor %@ liter bier";
-
 // MARK: - Water Calculator
 "water.title" = "Water Calculator";
 "water.subtitle" = "Optimaliseer water profiel voor je bierstijl";
@@ -147,7 +137,6 @@
 "water.salt.additions" = "Zout Toevoegingen";
 "water.comparison" = "Voor vs Na Behandeling";
 "water.recommendations" = "Brouw Aanbevelingen";
-
 // MARK: - History
 "history.title" = "Brouw Geschiedenis";
 "history.empty" = "Nog geen brouw sessies";
@@ -156,7 +145,6 @@
 "history.duration" = "Duur: %@";
 "history.rating" = "Beoordeling";
 "history.notes" = "Notities";
-
 // MARK: - Common Actions
 "action.save" = "Opslaan";
 "action.cancel" = "Annuleren";
@@ -174,7 +162,6 @@
 "action.previous" = "Vorige";
 "action.done" = "Klaar";
 "action.close" = "Sluiten";
-
 // MARK: - Units
 "unit.grams" = "g";
 "unit.kilograms" = "kg";
@@ -185,7 +172,6 @@
 "unit.hours" = "uur";
 "unit.percent" = "%";
 "unit.ppm" = "ppm";
-
 // MARK: - Beer Styles
 "style.lager" = "Lager";
 "style.ale" = "Ale";
@@ -194,7 +180,6 @@
 "style.stout" = "Stout";
 "style.ipa" = "IPA";
 "style.pilsner" = "Pilsner";
-
 // MARK: - Ingredients
 "ingredient.malt" = "Mout";
 "ingredient.hops" = "Hop";
@@ -204,7 +189,6 @@
 "ingredient.extracts" = "Extract";
 "ingredient.sugars" = "Suikers";
 "ingredient.spices" = "Kruiden";
-
 // MARK: - Errors
 "error.title" = "Fout";
 "error.generic" = "Er is een fout opgetreden";
@@ -213,18 +197,15 @@
 "error.file.write" = "Kan bestand niet schrijven";
 "error.invalid.input" = "Ongeldige invoer";
 "error.calculation" = "Berekeningsfout";
-
 // MARK: - Success Messages
 "success.saved" = "Succesvol opgeslagen";
 "success.imported" = "Succesvol geïmporteerd";
 "success.calculated" = "Berekening voltooid";
-
 // MARK: - Info
 "info.more" = "Meer Info";
 "info.about" = "Over";
 "info.help" = "Help";
 "info.settings" = "Instellingen";
-
 // MARK: - Language
 "language.dutch" = "Nederlands";
 "language.english" = "English";
@@ -232,7 +213,6 @@
 "language.change" = "Taal wijzigen";
 "language.select.subtitle" = "Selecteer je voorkeurstaal";
 "language.update.info" = "App wordt onmiddellijk bijgewerkt";
-
 // MARK: - Photo Documentation
 "photo.gallery.title" = "Foto Galerij";
 "photo.gallery.subtitle" = "Documenteer je brouwproces";
@@ -254,7 +234,6 @@
 "photo.detail.title" = "Foto Details";
 "photo.delete.confirm" = "Foto Verwijderen";
 "photo.delete.message" = "Weet je zeker dat je deze foto wilt verwijderen?";
-
 // MARK: - Photo Contexts
 "context.recipe" = "Recept";
 "context.ingredients" = "Ingrediënten";
@@ -266,7 +245,6 @@
 "context.final.product" = "Eindproduct";
 "context.equipment" = "Apparatuur";
 "context.process" = "Proces";
-
 // Recipe Scaling
 "recipe.scaling.title" = "Recept Schalen";
 "recipe.scaling.original_batch" = "Originele Batch";
@@ -282,14 +260,12 @@
 "recipe.scaling.new_recipe" = "Geschaald Recept";
 "recipe.scaling.save_scaled" = "Bewaar Geschaald Recept";
 "recipe.scaling.preview" = "Voorvertoning";
-
 // Brew Analytics
 "analytics.title" = "Brouw Analytics";
 "analytics.overview" = "Overzicht";
 "analytics.statistics" = "Statistieken";
 "analytics.trends" = "Trends";
 "analytics.costs" = "Kosten";
-
 // Statistics
 "analytics.total_brews" = "Totaal Brouwsels";
 "analytics.completed_brews" = "Voltooide Brouwsels";
@@ -304,7 +280,6 @@
 "analytics.brews_per_week" = "brouwsels per week";
 "analytics.minutes" = "minuten";
 "analytics.liters_short" = "L";
-
 // Trends
 "analytics.monthly_trends" = "Maandelijkse Trends";
 "analytics.efficiency_trend" = "Efficiëntie Trend";
@@ -312,7 +287,6 @@
 "analytics.brew_count" = "Aantal Brouwsels";
 "analytics.efficiency" = "Efficiëntie";
 "analytics.brew_number" = "Brouwsel Nummer";
-
 // Cost Analysis
 "analytics.cost_analysis" = "Kosten Analyse";
 "analytics.total_investment" = "Totale Investering";
@@ -321,7 +295,6 @@
 "analytics.most_expensive_style" = "Duurste Stijl";
 "analytics.cost_trend" = "Kosten Trend";
 "analytics.euros" = "€";
-
 // Brew Status
 "brew_status.planned" = "Gepland";
 "brew_status.inProgress" = "Bezig";
@@ -329,7 +302,6 @@
 "brew_status.conditioning" = "Rijping";
 "brew_status.completed" = "Voltooid";
 "brew_status.failed" = "Mislukt";
-
 // Batch Size Presets
 "batch_preset.mini_batch" = "Mini Batch";
 "batch_preset.test_batch" = "Test Batch";
@@ -339,7 +311,6 @@
 "batch_preset.large_batch" = "Large Batch";
 "batch_preset.party_batch" = "Party Batch";
 "batch_preset.commercial" = "Commercial";
-
 "batch_preset.mini_batch_desc" = "Klein proefbrouwsel";
 "batch_preset.test_batch_desc" = "Experimenteel brouwen";
 "batch_preset.small_batch_desc" = "Kleine hoeveelheid";
@@ -348,28 +319,24 @@
 "batch_preset.large_batch_desc" = "Grote hoeveelheid";
 "batch_preset.party_batch_desc" = "Voor feesten";
 "batch_preset.commercial_desc" = "Semi-commercieel";
-
 // Recipe actions
 "recipe.scale" = "Schaal";
 "recipe.duplicate" = "Dupliceer";
 "recipe.edit" = "Bewerk";
 "recipe.delete" = "Verwijder";
 "recipe.export" = "Exporteer";
-
 // Scaling alerts
 "scaling.error.invalid_size" = "Ongeldige batch grootte";
 "scaling.error.too_small" = "Batch grootte moet minimaal 1 liter zijn";
 "scaling.error.too_large" = "Batch grootte mag maximaal 100 liter zijn";
 "scaling.success.title" = "Recept Geschaald";
 "scaling.success.message" = "Recept succesvol geschaald naar %@ liter";
-
 // Analytics periods
 "analytics.period.week" = "Week";
 "analytics.period.month" = "Maand";
 "analytics.period.quarter" = "Kwartaal";
 "analytics.period.year" = "Jaar";
 "analytics.period.all_time" = "Alle Tijd";
-
 // Charts
 "chart.no_data" = "Geen data beschikbaar";
 "chart.loading" = "Laden...";
@@ -377,11 +344,9 @@
 "chart.monthly_production" = "Maandelijkse Productie";
 "chart.efficiency_over_time" = "Efficiëntie in de Tijd";
 "chart.cost_per_batch" = "Kosten per Batch";
-
 // MARK: - New Tab System
 "tab.calculators" = "Calculators";
 "tab.more" = "Meer";
-
 // MARK: - Calculators View
 "calculators.title" = "Brouw Calculators";
 "calculators.subtitle" = "Essentiële brouwberekeningen";
@@ -395,7 +360,6 @@
 "calculator.co2.description" = "Bereken koolzuur";
 "calculator.water.title" = "Water Calculator";
 "calculator.water.description" = "Optimaliseer waterprofiel";
-
 // MARK: - More View
 "more.title" = "Meer";
 "more.subtitle" = "Analytics, Foto's, Instellingen & Tools";
@@ -412,25 +376,17 @@
 "more.language.title" = "Taal";
 "more.about.title" = "Over";
 "more.about.subtitle" = "App informatie en credits";
-
 // MARK: - Recipe Scaling
-"recipe.scaling.title" = "Recept Schalen";
-"recipe.scaling.original_batch" = "Originele Batch";
 "recipe.scaling.target_batch" = "Gewenste Batch Grootte";
 "recipe.scaling.custom_size" = "Aangepaste grootte";
 "recipe.scaling.liters" = "liter";
-"recipe.scaling.scale_factor" = "Schaalfactor";
 "recipe.scaling.preset_sizes" = "Standaard Groottes";
-"recipe.scaling.scale_recipe" = "Schaal Recept";
-"recipe.scaling.save_scaled" = "Bewaar Geschaald Recept";
 "recipe.scaling.preview" = "Geschaald Recept Voorbeeld";
-"recipe.scaling.scaled_ingredients" = "Geschaalde Ingrediënten";
 "recipe.scaling.scaled_instructions" = "Aangepaste Instructies";
 "scaling.success.title" = "Recept Succesvol Geschaald";
 "scaling.success.message" = "Recept geschaald naar %@ liter";
 "scaling.error.too_small" = "Batch te klein (minimum 1L)";
 "scaling.error.too_large" = "Batch te groot (maximum 100L)";
-
 // MARK: - Brewing Timers
 "timer.sound.default" = "Standaard";
 "timer.sound.chime" = "Chime";
@@ -456,7 +412,6 @@
 "timer.resume_all" = "Hervat Alles";
 "timer.previous" = "Vorige";
 "timer.next" = "Volgende";
-
 // MARK: - Enhanced Analytics
 "analytics.achievements" = "Prestaties";
 "analytics.personal_bests" = "Persoonlijke Records";
@@ -480,7 +435,6 @@
 "analytics.no_records" = "Nog geen persoonlijke records";
 "analytics.start_brewing" = "Start met brouwen om je eerste prestatie te behalen!";
 "analytics.complete_first" = "Voltooi je eerste brouwsel om records bij te houden!";
-
 // MARK: - Achievement Categories
 "achievement.milestone" = "Mijlpaal";
 "achievement.quality" = "Kwaliteit";
@@ -490,14 +444,12 @@
 "achievement.consistency" = "Consistentie";
 "achievement.speed" = "Snelheid";
 "achievement.innovation" = "Innovatie";
-
 // MARK: - Achievement Rarities
 "rarity.common" = "Gewoon";
 "rarity.uncommon" = "Ongewoon";
 "rarity.rare" = "Zeldzaam";
 "rarity.epic" = "Episch";
 "rarity.legendary" = "Legendarisch";
-
 // MARK: - Version Management
 "version.history.title" = "Versiegeschiedenis";
 "version.current" = "Huidige Versie: %@";
@@ -518,7 +470,6 @@
 "brew.monitor.feature.notes" = "📝 Brouwsessie Notities";
 "brew.monitor.stay.tuned" = "Blijf op de hoogte voor geavanceerde brouwtools!";
 "brew.monitor.nav.title" = "Brouw Monitor";
-
 // MARK: - Disclaimer
 "disclaimer.title" = "Disclaimer";
 "disclaimer.introduction" = "HomeBrewAssistant is ontworpen om je te helpen bij je thuisbrouw avontuur. Let echter op het volgende:";
@@ -530,7 +481,6 @@
 "disclaimer.accuracy.description" = "Berekeningen en aanbevelingen zijn gebaseerd op standaard brouwpraktijken, maar kunnen aanpassing nodig hebben voor jouw specifieke opstelling.";
 "disclaimer.legal.title" = "Wettelijke Naleving";
 "disclaimer.legal.description" = "Zorg ervoor dat je voldoet aan alle lokale wetten en regelgeving betreffende thuisbrouwen.";
-
 // MARK: - ABV Calculator Additions
 "abv.og.description" = "Meet voor de fermentatie begint";
 "abv.fg.description" = "Meet na de fermentatie";
@@ -543,7 +493,6 @@
 "abv.tip.3" = "• Typische waarden: OG 1.040-1.080, FG 1.008-1.020";
 "abv.tip.4" = "• Formule: ABV = (OG - FG) × 131.25";
 "abv.reset" = "Reset";
-
 // MARK: - BeerXML Import/Export
 "beerxml.title" = "BeerXML Import & Export";
 "beerxml.subtitle" = "Uitwisselen van recepten met andere brouw apps";
@@ -572,7 +521,6 @@
 "beerxml.compatible.brewtarget" = "• BrewTarget";
 "beerxml.compatible.recipedb" = "• Recipe DB";
 "beerxml.compatible.others" = "• En vele andere...";
-
 // MARK: - AI Recipe Generator
 "ai.recipe.title" = "AI Receptgenerator";
 "ai.recipe.subtitle" = "Laat kunstmatige intelligentie het perfecte brouwrecept maken op basis van BJCP richtlijnen en brouwwetenschap";
@@ -592,7 +540,6 @@
 "ai.recipe.generated.title" = "🎉 Gegenereerd Recept";
 "ai.recipe.save.button" = "Bewaar Recept";
 "ai.recipe.view.details" = "Bekijk Details";
-
 // MARK: - Enhanced Brewing View
 "brewing.choose.experience" = "Kies je brouwervaring";
 "brewing.go.to.recipes" = "Ga naar Recepten tab";
@@ -608,7 +555,6 @@
 "brewing.completed.processes" = "Voltooid: %d";
 "brewing.advanced.recipe" = "Recept voor Geavanceerde Sessie";
 "brewing.target.short" = "Doel: %@";
-
 // MARK: - Onboarding & Recipe Categories
 "recipe.categories.title" = "Recept Categorieën";
 "recipe.collection.title" = "Wereldklasse Recept Collectie";
@@ -617,7 +563,6 @@
 "recipe.stats.categories" = "Categorieën";
 "recipe.stats.success" = "Gem Succes";
 "recipe.list.title" = "Alle Recepten";
-
 // Recipe Categories
 "category.beginner.name" = "Perfect voor Beginners";
 "category.beginner.description" = "Makkelijke recepten met gegarandeerd succes. Ideaal voor je eerste brouwervaringen.";
@@ -631,7 +576,6 @@
 "category.clones.description" = "Homebrew versies van wereldberoemde bieren.";
 "category.awards.name" = "Award Winners";
 "category.awards.description" = "Goud medaille winnende recepten van internationale competities.";
-
 // Recipe Details
 "recipe.difficulty.beginner" = "Beginner";
 "recipe.difficulty.intermediate" = "Gevorderd";
@@ -639,7 +583,6 @@
 "recipe.success.rate" = "Slaagkans";
 "recipe.brew.time" = "Brouwtijd";
 "recipe.popularity" = "Beoordeling";
-
 // Onboarding
 "onboarding.welcome.title" = "Welkom bij HomeBrewAssistant";
 "onboarding.welcome.subtitle" = "Je complete brouw begeleider";
@@ -650,25 +593,21 @@
 "onboarding.community.title" = "Word Lid van de Community";
 "onboarding.community.subtitle" = "Deel je brouwsels en leer van mede-brouwers";
 "onboarding.get.started" = "Aan de Slag";
-
 // Recipe Success Indicators
 "recipe.badge.high.success" = "Hoge Slaagkans";
 "recipe.badge.gold.medal" = "Gouden Medaille Winnaar";
 "recipe.badge.clone" = "Commerciële Kloon";
 "recipe.badge.trending" = "Trending";
-
 // Search and Filters
 "search.recipes.placeholder" = "Zoek recepten...";
 "filter.all.levels" = "Alle Niveaus";
 "filter.clear.all" = "Wis Filters";
 "categories.back" = "Categorieën";
-
 // Empty States
 "empty.recipes.title" = "Geen Recepten Gevonden";
 "empty.recipes.subtitle" = "Probeer je filters of zoektermen aan te passen";
 "empty.first.time.title" = "Start je Brouwavontuur";
 "empty.first.time.subtitle" = "Verken onze gecureerde receptcollectie om je eerste brouwsel te vinden";
-
 // MARK: - Settings
 "settings.title" = "Instellingen";
 "settings.units" = "Eenheden";
@@ -682,7 +621,6 @@
 "settings.default.efficiency" = "Standaard efficiency";
 "settings.disclaimer" = "Disclaimer";
 "settings.about" = "Over";
-
 // MARK: - Factory Reset
 "factory.reset.section" = "App Opschonen";
 "factory.reset.title" = "Factory Reset";
@@ -699,17 +637,14 @@
 "factory.reset.progress.almost" = "✨ Bijna klaar voor 5-sterren reviews!";
 "factory.reset.complete.title" = "Reset Voltooid! 🎉";
 "factory.reset.complete.message" = "App is gereset naar perfecte App Store download status! ✨
-
 • Alle gebruikersdata gewist
 • Standaard recepten behouden
 • Klaar voor 5-sterren reviews";
 "factory.reset.perfect" = "Perfect!";
-
 // MARK: - Onboarding Additions
 "onboarding.skip" = "Overslaan";
 "onboarding.previous" = "Vorige";
 "onboarding.next" = "Volgende";
-
 // Page 1 - Welcome
 "onboarding.page1.title" = "Welkom bij HomeBrewAssistant";
 "onboarding.page1.subtitle" = "Je complete brouw begeleider";
@@ -720,7 +655,6 @@
 "onboarding.page1.feature2.description" = "ABV, IBU, SRM calculators";
 "onboarding.page1.feature3.title" = "Analytics";
 "onboarding.page1.feature3.description" = "Volg je brouwvoortgang";
-
 // Page 2 - Recipes  
 "onboarding.page2.title" = "Ontdek Geweldige Recepten";
 "onboarding.page2.subtitle" = "Begin met onze gecureerde collectie";
@@ -731,7 +665,6 @@
 "onboarding.page2.feature2.description" = "Authentieke lokale stijlen";
 "onboarding.page2.feature3.title" = "Wereldwijde Favorieten";
 "onboarding.page2.feature3.description" = "Internationale bierstijlen";
-
 // Page 3 - Tools
 "onboarding.page3.title" = "Professionele Tools";
 "onboarding.page3.subtitle" = "Calculators en tracking tools";
@@ -742,7 +675,6 @@
 "onboarding.page3.feature2.description" = "Hopbitterheid niveaus";
 "onboarding.page3.feature3.title" = "Brouw Timers";
 "onboarding.page3.feature3.description" = "Mis nooit een stap";
-
 // Page 4 - Community
 "onboarding.page4.title" = "Word Lid van de Community";
 "onboarding.page4.subtitle" = "Deel en leer van mede-brouwers";
@@ -753,24 +685,19 @@
 "onboarding.page4.feature2.description" = "Help anderen geweldige brouwsels vinden";
 "onboarding.page4.feature3.title" = "Export & Delen";
 "onboarding.page4.feature3.description" = "BeerXML compatibiliteit";
-
 // MARK: - Language Settings
 "language.nederlands.description" = "Nederlandse taal";
 "language.english.description" = "English language";
-
 // MARK: - About View
 "about.acknowledgments" = "Dankbetuigingen";
 "about.made.with" = "• Gemaakt met SwiftUI en Core Data";
 "about.thanks.community" = "• Dank aan de homebrewing gemeenschap";
 "about.based.bjcp" = "• Gebaseerd op BJCP richtlijnen";
 "about.close" = "Sluiten";
-
-
 // MARK: - Splash Screen
 "splash.app.title" = "HomeBrewAssistant";
 "splash.app.subtitle" = "Jouw Volledige Brouwcompagnon";
 "splash.app.tagline" = "Professioneel Thuisbrouwen Gemakkelijk Gemaakt";
-
 // MARK: - Recipe Builder
 "recipe.builder.details" = "📝 Receptdetails";
 "recipe.builder.type" = "Type:";
@@ -781,7 +708,6 @@
 "recipe.builder.instructions" = "📋 Instructies";
 "recipe.builder.add.instructions" = "Voeg brouwinstructies toe...";
 "recipe.builder.enter.name" = "⚠️ Voer een receptnaam in";
-
 // MARK: - Recipe Detail
 "recipe.detail.created.on" = "Aangemaakt op";
 "recipe.detail.scaling.not.implemented" = "Recipe Scaling - Nog niet geïmplementeerd";
@@ -791,7 +717,6 @@
 "recipe.detail.fermentation.steps" = "Fermentatiestappen (%d)";
 "recipe.detail.temperature" = "%d°C";
 "recipe.detail.days" = "%d dagen";
-
 // MARK: - AI Recipe Generator Extended
 "ai.generator.brewing.recipe" = "🧠 Het Perfecte Recept Brouwen...";
 "ai.generator.progress.complete" = "% Voltooid";
@@ -801,7 +726,6 @@
 "ai.generator.generate" = "Genereer AI Recept";
 "ai.generator.generated" = "🎉 Gegenereerd Recept";
 "ai.generator.abv.range" = "ABV: %.1f-%.1f%%";
-
 // MARK: - Recipe List Extended
 "recipe.list.my.recipes" = "Mijn Recepten";
 "recipe.list.count" = "%d van %d recepten";
@@ -809,14 +733,11 @@
 "recipe.list.abv" = "%.1f%% ABV";
 "recipe.list.ingredients.count" = "%d ingrediënten";
 "recipe.list.scale" = "Schaal";
-
 // MARK: - Photo Gallery
 "photo.gallery.count" = "%d foto's";
-
 // MARK: - Version History Extended
 "version.history.version" = "v%@";
 "version.history.build" = "(%@)";
-
 // MARK: - Calculators Extended
 "calculator.ibu.coming.soon" = "IBU Calculator - Binnenkort";
 "calculator.srm.coming.soon" = "SRM Calculator - Binnenkort";

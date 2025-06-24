@@ -93,8 +93,13 @@ struct CalculatorsView: View {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 15), count: 2), spacing: 15) {
                         ForEach(CalculatorType.allCases, id: \.rawValue) { calculator in
                             CalculatorCard(calculator: calculator)
+                                .premiumCard()
+                                .premiumButton(hapticStyle: .medium)
                                 .onTapGesture {
-                                    selectedCalculator = calculator
+                                    HapticManager.shared.mediumTap()
+                                    withAnimation(.premiumSlide) {
+                                        selectedCalculator = calculator
+                                    }
                                 }
                                 .accessibilityLabel("Open \(calculator.title) calculator")
                                 .accessibilityHint(calculator.description)
@@ -118,11 +123,11 @@ struct CalculatorsView: View {
         case .abv:
             ABVCalculatorView()
         case .ibu:
-            ComingSoonView(title: "IBU Calculator", description: "International Bitterness Units calculator coming soon!")
+            IBUCalculatorView()
         case .srm:
-            ComingSoonView(title: "SRM Calculator", description: "Standard Reference Method color calculator coming soon!")
+            SRMCalculatorView()
         case .carbonation:
-            ComingSoonView(title: "Carbonation Calculator", description: "CO₂ volumes and pressure calculator coming soon!")
+            CarbonationCalculatorView()
         case .water:
             ComingSoonView(title: "Water Calculator", description: "Water treatment calculator coming soon!")
         case .waterChemistry:

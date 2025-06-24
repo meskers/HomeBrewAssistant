@@ -233,11 +233,15 @@ struct SimpleBrewingModeView: View {
                                 toggleTimer()
                             }
                             .buttonStyle(.borderedProminent)
+                            .accessibilityLabel(isTimerRunning ? "Pauzeer timer" : "Start timer")
+                            .accessibilityHint("Start of pauzeer de timer voor deze brouwstap")
                             
                             Button("🔄 Reset") {
                                 resetTimer()
                             }
                             .buttonStyle(.bordered)
+                            .accessibilityLabel("Reset timer")
+                            .accessibilityHint("Zet de timer terug naar nul")
                             
                             Spacer()
                             
@@ -245,6 +249,8 @@ struct SimpleBrewingModeView: View {
                                 showingStepDetail = true
                             }
                             .buttonStyle(.bordered)
+                            .accessibilityLabel("Bekijk stap details")
+                            .accessibilityHint("Toon gedetailleerde informatie over deze brouwstap")
                         }
                     }
                 } else {

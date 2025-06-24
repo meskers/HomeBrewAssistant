@@ -317,104 +317,196 @@ struct LaunchView: View {
 }
 
 struct SplashScreenView: View {
-    @State private var scale = 0.8
-    @State private var opacity = 0.5
-    @State private var logoRotation = 0.0
-    @State private var showText = false
-    @State private var titleOpacity = 0.0
-    @State private var subtitleOpacity = 0.0
-    @State private var taglineOpacity = 0.0
+    @State private var isAnimating = false
+    @State private var logoScale: CGFloat = 0.6
+    @State private var logoRotation: Double = 0
+    @State private var textOpacity: Double = 0
+    @State private var glowIntensity: Double = 0
+    @State private var showingDots = false
+    @State private var dotAnimations: [Bool] = [false, false, false]
+    @State private var backgroundGradientPhase: Double = 0
     
     var body: some View {
         ZStack {
-            // Professional gradient background
+            // Premium animated background gradient
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color("BrewTheme"),
-                    Color("HopGreen"),
-                    Color("MaltGold")
+                    Color.brewTheme.opacity(0.15),
+                    Color.maltGold.opacity(0.10),
+                    Color.hopGreen.opacity(0.05),
+                    Color.brewTheme.opacity(0.20)
                 ]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
+            .rotationEffect(.degrees(backgroundGradientPhase))
+            .animation(
+                Animation.linear(duration: 8.0)
+                    .repeatForever(autoreverses: false),
+                value: backgroundGradientPhase
+            )
             .ignoresSafeArea()
             
-            VStack(spacing: 30) {
+            VStack(spacing: 40) {
                 Spacer()
                 
-                // Professional beer glass logo with animation
-                ZStack {
-                    // Subtle glow effect
-                    Circle()
-                        .fill(Color.white.opacity(0.1))
-                        .frame(width: 180, height: 180)
-                        .scaleEffect(scale * 1.2)
-                        .opacity(opacity * 0.3)
-                    
-                    // Main logo
-                    Image("BeerGlassLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 140, height: 140)
-                        .scaleEffect(scale)
-                        .opacity(opacity)
+                // Premium logo with glow effect
+                VStack(spacing: 20) {
+                    // Logo container with glow
+                    ZStack {
+                        // Glow effect layers
+                        Circle()
+                            .fill(
+                                RadialGradient(
+                                    gradient: Gradient(colors: [
+                                        Color.brewTheme.opacity(glowIntensity * 0.6),
+                                        Color.maltGold.opacity(glowIntensity * 0.4),
+                                        Color.clear
+                                    ]),
+                                    center: .center,
+                                    startRadius: 10,
+                                    endRadius: 80
+                                )
+                            )
+                            .frame(width: 160, height: 160)
+                            .blur(radius: 20)
+                        
+                        // Beer glass icon with premium styling
+                        ZStack {
+                            // Background circle
+                            Circle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [
+                                            Color.brewTheme,
+                                            Color.maltGold
+                                        ]),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .frame(width: 120, height: 120)
+                                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                            
+                            // Beer glass icon
+                            Image(systemName: "wineglass")
+                                .font(.system(size: 50, weight: .light))
+                                .foregroundColor(.white)
+                                .shadow(color: Color.black.opacity(0.3), radius: 2, x: 0, y: 2)
+                        }
+                        .scaleEffect(logoScale)
                         .rotationEffect(.degrees(logoRotation))
+                    }
+                    
+                    // App name with elegant typography
+                    VStack(spacing: 8) {
+                        Text("splash.app.title".localized)
+                            .font(.system(size: 32, weight: .light, design: .serif))
+                            .foregroundStyle(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [
+                                        Color.brewTheme,
+                                        Color.maltGold
+                                    ]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .opacity(textOpacity)
+                        
+                        Text("splash.app.subtitle".localized)
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.secondary)
+                            .opacity(textOpacity * 0.8)
+                            .tracking(2)
+                    }
                 }
                 
-                // App name and tagline with staggered animation
-                VStack(spacing: 8) {
-                    Text("splash.app.title".localized)
-                        .font(.title.bold())
-                        .foregroundColor(.white)
-                        .opacity(titleOpacity)
-                        .animation(.easeInOut(duration: 0.8).delay(1.5), value: titleOpacity)
-                    
-                    Text("splash.app.subtitle".localized)
-                        .font(.title3)
-                        .foregroundColor(.white.opacity(0.9))
-                        .opacity(subtitleOpacity)
-                        .animation(.easeInOut(duration: 0.8).delay(2.0), value: subtitleOpacity)
+                Spacer()
+                
+                // Premium loading animation
+                VStack(spacing: 16) {
+                    HStack(spacing: 12) {
+                        ForEach(0..<3, id: \.self) { index in
+                            Circle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [
+                                            Color.brewTheme,
+                                            Color.maltGold
+                                        ]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                                .frame(width: 12, height: 12)
+                                .scaleEffect(dotAnimations[index] ? 1.3 : 0.6)
+                                .opacity(dotAnimations[index] ? 1.0 : 0.4)
+                                .animation(
+                                    Animation.easeInOut(duration: 0.6)
+                                        .repeatForever()
+                                        .delay(Double(index) * 0.2),
+                                    value: dotAnimations[index]
+                                )
+                        }
+                    }
+                    .opacity(showingDots ? 1 : 0)
                     
                     Text("splash.app.tagline".localized)
-                        .font(.subheadline)
-                        .foregroundColor(.white.opacity(0.8))
-                        .opacity(taglineOpacity)
-                        .animation(.easeInOut(duration: 0.8).delay(2.5), value: taglineOpacity)
-                }
-                
-                Spacer()
-                
-                // Loading indicator
-                HStack(spacing: 8) {
-                    ForEach(0..<3) { index in
-                        Circle()
-                            .fill(Color.white.opacity(0.8))
-                            .frame(width: 8, height: 8)
-                            .scaleEffect(scale)
-                            .animation(
-                                .easeInOut(duration: 0.6)
-                                .repeatForever(autoreverses: true)
-                                .delay(Double(index) * 0.2),
-                                value: scale
-                            )
-                    }
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.secondary)
+                        .opacity(showingDots ? 0.7 : 0)
+                        .tracking(1)
                 }
                 .padding(.bottom, 50)
             }
+            .padding()
         }
         .onAppear {
-            // Staggered animations for professional effect
-            withAnimation(.easeInOut(duration: 1.2)) {
-                scale = 1.0
-                opacity = 1.0
+            startAnimations()
+        }
+    }
+    
+    private func startAnimations() {
+        // Background gradient rotation
+        withAnimation {
+            backgroundGradientPhase = 360
+        }
+        
+        // Logo scale and glow sequence
+        withAnimation(.easeOut(duration: 1.2).delay(0.3)) {
+            logoScale = 1.0
+            glowIntensity = 1.0
+        }
+        
+        // Logo rotation effect
+        withAnimation(.easeInOut(duration: 2.0).delay(0.8)) {
+            logoRotation = 360
+        }
+        
+        // Text fade in with stagger
+        withAnimation(.easeOut(duration: 0.8).delay(1.2)) {
+            textOpacity = 1.0
+        }
+        
+        // Loading dots sequence
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+            withAnimation(.easeInOut(duration: 0.4)) {
+                showingDots = true
             }
             
-            withAnimation(.linear(duration: 2.0).repeatForever(autoreverses: false)) {
-                logoRotation = 360
+            // Animate dots individually
+            for i in 0..<3 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 0.2) {
+                    dotAnimations[i] = true
+                }
             }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                showText = true
+        }
+        
+        // Reset glow for pulsing effect
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            withAnimation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true)) {
+                glowIntensity = 0.3
             }
         }
     }
