@@ -43,7 +43,7 @@ struct OnboardingView: View {
                         description: "onboarding.page1.description".localized,
                         features: [
                             OnboardingFeature(icon: "book.fill", title: "onboarding.page1.feature1.title".localized, description: "onboarding.page1.feature1.description".localized),
-                            OnboardingFeature(icon: "calculator.fill", title: "onboarding.page1.feature2.title".localized, description: "onboarding.page1.feature2.description".localized),
+                            OnboardingFeature(icon: "function", title: "onboarding.page1.feature2.title".localized, description: "onboarding.page1.feature2.description".localized),
                             OnboardingFeature(icon: "chart.bar.fill", title: "onboarding.page1.feature3.title".localized, description: "onboarding.page1.feature3.description".localized)
                         ]
                     )

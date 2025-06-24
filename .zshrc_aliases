@@ -2,24 +2,46 @@
 # Add these to your ~/.zshrc or ~/.bash_profile for quick access
 
 # Version management shortcuts
-alias version-patch='Scripts/increment_version.sh patch'
-alias version-minor='Scripts/increment_version.sh minor'
-alias version-major='Scripts/increment_version.sh major'
-alias version-test='Scripts/increment_version.sh patch --dry-run'
-alias version-help='Scripts/increment_version.sh --help'
+alias version-patch="./Scripts/increment_version.sh patch"
+alias version-minor="./Scripts/increment_version.sh minor"
+alias version-major="./Scripts/increment_version.sh major"
+alias version-test="./Scripts/increment_version.sh patch --dry-run"
+alias version-help="./Scripts/increment_version.sh --help"
 
-# Development shortcuts
-alias build-app='xcodebuild -project HomeBrewAssistant.xcodeproj -scheme HomeBrewAssistant build'
-alias clean-build='xcodebuild clean && xcodebuild -project HomeBrewAssistant.xcodeproj -scheme HomeBrewAssistant build'
-alias open-app='open HomeBrewAssistant.xcodeproj'
+# Build shortcuts
+alias build-app="xcodebuild -project HomeBrewAssistant.xcodeproj -scheme HomeBrewAssistant build"
+alias build-debug="xcodebuild -project HomeBrewAssistant.xcodeproj -scheme HomeBrewAssistant -configuration Debug"
+alias build-release="xcodebuild -project HomeBrewAssistant.xcodeproj -scheme HomeBrewAssistant -configuration Release"
+alias clean-build="xcodebuild clean && xcodebuild -project HomeBrewAssistant.xcodeproj -scheme HomeBrewAssistant build"
+alias open-app="open HomeBrewAssistant.xcodeproj"
+
+# Testing shortcuts
+alias test-unit="./Scripts/run-tests.sh unit"
+alias test-integration="./Scripts/run-tests.sh integration"
+alias test-ui="./Scripts/run-tests.sh ui"
+alias test-all="./Scripts/run-tests.sh all"
+alias test-coverage="./Scripts/run-tests.sh coverage"
+alias test-performance="./Scripts/run-tests.sh performance"
+alias test-validate="./Scripts/run-tests.sh validate"
+alias test-ci="./Scripts/run-tests.sh ci"
+alias test-open="./Scripts/run-tests.sh open"
+alias test-clean="./Scripts/run-tests.sh clean"
+
+# Development tools
+alias simulator="open -a Simulator"
+alias device-logs="xcrun devicectl list devices"
 
 # Git shortcuts for releases
-alias git-push-tags='git push origin main --tags'
-alias git-latest-tag='git describe --tags --abbrev=0'
-alias git-log-since-tag='git log $(git describe --tags --abbrev=0)..HEAD --oneline'
+alias git-push-tags="git push origin main --tags"
+alias git-latest-tag="git describe --tags --abbrev=0"
+alias git-log-since-tag="git log \$(git describe --tags --abbrev=0)..HEAD --oneline"
 
 # Usage examples:
 # version-patch      # Increment patch version automatically  
 # version-test       # See what patch increment would do
+# test-all           # Run complete test suite
+# test-coverage      # Generate test coverage report
+# test-ci            # Run tests in CI mode
 # build-app          # Quick build to test after version update
 # git-push-tags      # Push with tags after version increment
+test-simple() { ./SimpleTest.swift; }

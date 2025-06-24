@@ -14,7 +14,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 PROJECT_FILE="HomeBrewAssistant.xcodeproj/project.pbxproj"
-PLIST_FILE="HomeBrewAssistant/Info.plist"
+PLIST_FILE="Info.plist"
 
 # Function to print colored output
 print_status() {
