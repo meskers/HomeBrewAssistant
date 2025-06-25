@@ -81,7 +81,7 @@ struct RecipeBuilderView: View {
                     Spacer()
                     Text(viewModel.selectedType.displayName)
                         .font(.subheadline)
-                        .fontWeight(.medium)
+                        .font(.body.weight(.medium))
                         .foregroundColor(.brewTheme)
                 }
             }
@@ -157,7 +157,7 @@ struct RecipeBuilderView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(ingredient.name)
                     .font(.body)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 HStack {
                     Text("\(ingredient.type)")
@@ -181,7 +181,7 @@ struct RecipeBuilderView: View {
             
             Text(ingredient.amount)
                 .font(.body)
-                .fontWeight(.semibold)
+                .font(.body.weight(.semibold))
                 .foregroundColor(.brewTheme)
         }
         .padding()

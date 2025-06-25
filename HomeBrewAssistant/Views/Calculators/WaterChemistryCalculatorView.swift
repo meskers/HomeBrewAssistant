@@ -109,7 +109,7 @@ struct WaterChemistryCalculatorView: View {
                         
                         Text("Water Chemistry")
                             .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .accessibilityLabel("Water Chemistry Calculator")
                         
                         Text("Optimize your water profile for perfect beer")
@@ -271,7 +271,7 @@ struct WaterParameterInput: View {
                     .accessibilityHidden(true)
                 Text(title)
                     .font(.caption)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 Spacer()
             }
             
@@ -393,12 +393,12 @@ struct ParameterAnalysisCard: View {
         VStack(spacing: 8) {
             Text(parameter)
                 .font(.caption)
-                .fontWeight(.medium)
+                .font(.body.weight(.medium))
                 .accessibilityLabel(parameter)
             
             Text(status.0)
                 .font(.title2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
                 .foregroundColor(status.1)
                 .accessibilityHidden(true)
             
@@ -410,7 +410,7 @@ struct ParameterAnalysisCard: View {
             Text(status.2)
                 .font(.caption2)
                 .foregroundColor(status.1)
-                .fontWeight(.medium)
+                .font(.body.weight(.medium))
                 .accessibilityLabel(status.2)
         }
         .frame(maxWidth: .infinity)
@@ -473,7 +473,7 @@ struct SulfateChlorideRatioView: View {
                 VStack(alignment: .leading) {
                     Text("Ratio: \(ratio, specifier: "%.1f"):1")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .accessibilityLabel("Ratio \(ratio, specifier: "%.1f") to 1")
                     
                     Text(ratioAnalysis.2)
@@ -486,7 +486,7 @@ struct SulfateChlorideRatioView: View {
                 
                 Text(ratioAnalysis.0)
                     .font(.headline)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .foregroundColor(ratioAnalysis.1)
                     .accessibilityLabel(ratioAnalysis.0)
             }

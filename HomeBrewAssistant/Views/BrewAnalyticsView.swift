@@ -85,7 +85,7 @@ struct BrewAnalyticsView: View {
                     }
                     Text("\(analytics.currentStreak.currentStreak)")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(analytics.currentStreak.isActive ? .orange : .primary)
                 }
                 
@@ -100,7 +100,7 @@ struct BrewAnalyticsView: View {
                         VStack(spacing: 2) {
                             Text("\(analytics.statistics.thisYearBrews)")
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                                 .foregroundColor(.brewTheme)
                             Text("brouwsels")
                                 .font(.caption2)
@@ -110,7 +110,7 @@ struct BrewAnalyticsView: View {
                         VStack(spacing: 2) {
                             Text("\(String(format: "%.0f", analytics.statistics.thisYearLiters))L")
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                                 .foregroundColor(.brewTheme)
                             Text("liter")
                                 .font(.caption2)
@@ -134,7 +134,7 @@ struct BrewAnalyticsView: View {
                     if let recentAchievement = analytics.achievements.first {
                         Text(recentAchievement.title)
                             .font(.caption)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                             .multilineTextAlignment(.trailing)
                             .lineLimit(2)
                     } else {
@@ -184,7 +184,7 @@ struct BrewAnalyticsView: View {
                 Spacer()
                 Text("\(currentBrews)/\(nextMilestone)")
                     .font(.caption)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
             }
             
             ProgressView(value: progress)
@@ -263,7 +263,7 @@ struct BrewAnalyticsView: View {
             HStack {
                 Text("Recente Brouwsels")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 Spacer()
             }
             
@@ -280,7 +280,7 @@ struct BrewAnalyticsView: View {
         VStack(alignment: .leading, spacing: 15) {
             Text(localizationManager.localized("analytics.style_distribution"))
                 .font(.title2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
             
             if !analytics.statistics.styleDistribution.isEmpty {
                 VStack(spacing: 8) {
@@ -293,7 +293,7 @@ struct BrewAnalyticsView: View {
                             
                             Text("\(style.count)")
                                 .font(.body)
-                                .fontWeight(.medium)
+                                .font(.body.weight(.medium))
                             
                             Text("(\(String(format: "%.1f", style.percentage))%)")
                                 .font(.caption)
@@ -332,26 +332,27 @@ struct BrewAnalyticsView: View {
         VStack(alignment: .leading, spacing: 15) {
             Text(localizationManager.localized("analytics.monthly_trends"))
                 .font(.title2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
             
             if !analytics.statistics.monthlyTrends.isEmpty {
-                Chart(analytics.statistics.monthlyTrends) { trend in
-                    BarMark(
-                        x: .value("Month", trend.month, unit: .month),
-                        y: .value("Brews", trend.brewCount)
-                    )
-                    .foregroundStyle(.blue)
-                }
-                .frame(height: 200)
-                .chartXAxis {
-                    AxisMarks(values: .stride(by: .month)) { _ in
-                        AxisValueLabel(format: .dateTime.month(.abbreviated))
+                if #available(iOS 16.0, *) {
+                    Chart(analytics.statistics.monthlyTrends) { trend in
+                        BarMark(
+                            x: .value("Month", trend.month, unit: .month),
+                            y: .value("Brews", trend.brewCount)
+                        )
+                        .foregroundStyle(.blue)
                     }
-                }
-                .chartYAxis {
-                    AxisMarks { _ in
-                        AxisValueLabel()
-                    }
+                    .frame(height: 200)
+                    .chartAxisStyling()
+                } else {
+                    Text(localizationManager.localized("chart.ios16_required"))
+                        .foregroundColor(.secondary)
+                        .font(.body)
+                        .frame(height: 200)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.systemGray5))
+                        .cornerRadius(8)
                 }
             } else {
                 Text(localizationManager.localized("chart.no_data"))
@@ -368,28 +369,29 @@ struct BrewAnalyticsView: View {
         VStack(alignment: .leading, spacing: 15) {
             Text(localizationManager.localized("analytics.efficiency_trend"))
                 .font(.title2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
             
             if !analytics.statistics.efficiencyTrend.isEmpty {
-                Chart(analytics.statistics.efficiencyTrend) { point in
-                    LineMark(
-                        x: .value("Brew", point.brewNumber),
-                        y: .value("Efficiency", point.efficiency)
-                    )
-                    .foregroundStyle(.orange)
-                    .symbol(.circle)
-                }
-                .frame(height: 200)
-                .chartYScale(domain: 50...100)
-                .chartXAxis {
-                    AxisMarks { _ in
-                        AxisValueLabel()
+                if #available(iOS 16.0, *) {
+                    Chart(analytics.statistics.efficiencyTrend) { point in
+                        LineMark(
+                            x: .value("Brew", point.brewNumber),
+                            y: .value("Efficiency", point.efficiency)
+                        )
+                        .foregroundStyle(.orange)
+                        .symbol(.circle)
                     }
-                }
-                .chartYAxis {
-                    AxisMarks { _ in
-                        AxisValueLabel()
-                    }
+                    .frame(height: 200)
+                    .chartYScale(domain: 50...100)
+                    .chartAxisStyling()
+                } else {
+                    Text(localizationManager.localized("chart.ios16_required"))
+                        .foregroundColor(.secondary)
+                        .font(.body)
+                        .frame(height: 200)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.systemGray5))
+                        .cornerRadius(8)
                 }
             } else {
                 Text(localizationManager.localized("chart.no_data"))
@@ -442,7 +444,7 @@ struct BrewAnalyticsView: View {
         VStack(alignment: .leading, spacing: 15) {
             Text("🏆 Prestatie Overzicht")
                 .font(.title2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 12) {
                 StatCard(
@@ -485,7 +487,7 @@ struct BrewAnalyticsView: View {
             HStack {
                 Text("🎯 Recente Prestaties")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 Spacer()
                 Button("Alle Prestaties") {
                     showingAchievements = true
@@ -525,7 +527,7 @@ struct BrewAnalyticsView: View {
             HStack {
                 Text("⭐ Persoonlijke Records")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 Spacer()
                 Button("Alle Records") {
                     showingPersonalBests = true
@@ -583,17 +585,27 @@ struct BrewAnalyticsView: View {
             VStack(alignment: .leading, spacing: 15) {
                 Text("🌍 Seizoenspatronen")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 
                 if !analytics.statistics.seasonalTrends.isEmpty {
-                    Chart(analytics.statistics.seasonalTrends) { trend in
-                        BarMark(
-                            x: .value("Seizoen", trend.season),
-                            y: .value("Brouwsels", trend.brewCount)
-                        )
-                        .foregroundStyle(.brewTheme)
+                    if #available(iOS 16.0, *) {
+                        Chart(analytics.statistics.seasonalTrends) { trend in
+                            BarMark(
+                                x: .value("Seizoen", trend.season),
+                                y: .value("Brouwsels", trend.brewCount)
+                            )
+                            .foregroundStyle(.brewTheme)
+                        }
+                        .frame(height: 150)
+                    } else {
+                        Text(localizationManager.localized("chart.ios16_required"))
+                            .foregroundColor(.secondary)
+                            .font(.body)
+                            .frame(height: 150)
+                            .frame(maxWidth: .infinity)
+                            .background(Color(.systemGray5))
+                            .cornerRadius(8)
                     }
-                    .frame(height: 150)
                 } else {
                     Text("Geen seizoensdata beschikbaar")
                         .foregroundColor(.secondary)
@@ -608,21 +620,27 @@ struct BrewAnalyticsView: View {
             VStack(alignment: .leading, spacing: 15) {
                 Text("📅 Weekpatroon")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 
                 if !analytics.statistics.weeklyActivity.isEmpty {
-                    Chart(analytics.statistics.weeklyActivity) { activity in
-                        BarMark(
-                            x: .value("Dag", activity.day),
-                            y: .value("Percentage", activity.percentage)
-                        )
-                        .foregroundStyle(.orange)
-                    }
-                    .frame(height: 150)
-                    .chartYAxis {
-                        AxisMarks { _ in
-                            AxisValueLabel()
+                    if #available(iOS 16.0, *) {
+                        Chart(analytics.statistics.weeklyActivity) { activity in
+                            BarMark(
+                                x: .value("Dag", activity.day),
+                                y: .value("Percentage", activity.percentage)
+                            )
+                            .foregroundStyle(.orange)
                         }
+                        .frame(height: 150)
+                        .chartAxisStyling()
+                    } else {
+                        Text(localizationManager.localized("chart.ios16_required"))
+                            .foregroundColor(.secondary)
+                            .font(.body)
+                            .frame(height: 150)
+                            .frame(maxWidth: .infinity)
+                            .background(Color(.systemGray5))
+                            .cornerRadius(8)
                     }
                 } else {
                     Text("Geen weekdata beschikbaar")
@@ -672,27 +690,28 @@ struct BrewAnalyticsView: View {
         VStack(alignment: .leading, spacing: 15) {
             Text(localizationManager.localized("analytics.cost_trend"))
                 .font(.title2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
             
             if !analytics.statistics.costAnalysis.costTrend.isEmpty {
-                Chart(analytics.statistics.costAnalysis.costTrend) { point in
-                    LineMark(
-                        x: .value("Brew", point.brewNumber),
-                        y: .value("Cost per Liter", point.costPerLiter)
-                    )
-                    .foregroundStyle(.green)
-                    .symbol(.circle)
-                }
-                .frame(height: 200)
-                .chartXAxis {
-                    AxisMarks { _ in
-                        AxisValueLabel()
+                if #available(iOS 16.0, *) {
+                    Chart(analytics.statistics.costAnalysis.costTrend) { point in
+                        LineMark(
+                            x: .value("Brew", point.brewNumber),
+                            y: .value("Cost per Liter", point.costPerLiter)
+                        )
+                        .foregroundStyle(.green)
+                        .symbol(.circle)
                     }
-                }
-                .chartYAxis {
-                    AxisMarks { _ in
-                        AxisValueLabel()
-                    }
+                    .frame(height: 200)
+                    .chartAxisStyling()
+                } else {
+                    Text(localizationManager.localized("chart.ios16_required"))
+                        .foregroundColor(.secondary)
+                        .font(.body)
+                        .frame(height: 200)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.systemGray5))
+                        .cornerRadius(8)
                 }
             } else {
                 Text(localizationManager.localized("chart.no_data"))
@@ -727,7 +746,7 @@ struct StatCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(value)
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .foregroundColor(color)
                 
                 Text(title)
@@ -763,7 +782,7 @@ struct BrewSessionRow: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(session.recipeName)
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 Text(session.style)
                     .font(.subheadline)
@@ -779,7 +798,7 @@ struct BrewSessionRow: View {
             VStack(alignment: .trailing, spacing: 4) {
                 Text("\(String(format: "%.0f", session.batchSize))L")
                     .font(.headline)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .foregroundColor(.brewTheme)
                 
                 Text(session.status.rawValue)
@@ -820,7 +839,7 @@ struct AchievementRow: View {
                 HStack {
                     Text(achievement.title)
                         .font(.headline)
-                        .fontWeight(.medium)
+                        .font(.body.weight(.medium))
                     
                     Spacer()
                     
@@ -1054,11 +1073,11 @@ struct PersonalBestCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 Text(value)
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .foregroundColor(color)
                 
                 if let date = date {
@@ -1077,6 +1096,40 @@ struct PersonalBestCard: View {
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(12)
+    }
+}
+
+// MARK: - Chart Axis Modifier
+@available(iOS 16.0, *)
+struct ChartAxisModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .chartXAxis {
+                AxisMarks { _ in
+                    AxisValueLabel()
+                }
+            }
+            .chartYAxis {
+                AxisMarks { _ in
+                    AxisValueLabel()
+                }
+            }
+    }
+}
+
+struct ChartAxisModifierFallback: ViewModifier {
+    func body(content: Content) -> some View {
+        content // No axis customization for iOS < 16
+    }
+}
+
+extension View {
+    func chartAxisStyling() -> some View {
+        if #available(iOS 16.0, *) {
+            return self.modifier(ChartAxisModifier())
+        } else {
+            return self.modifier(ChartAxisModifierFallback())
+        }
     }
 }
 

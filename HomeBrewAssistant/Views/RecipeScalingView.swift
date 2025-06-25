@@ -21,7 +21,7 @@ struct RecipeScalingView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(.vertical, showsIndicators: true) {
                 VStack(spacing: 20) {
                     // Header
                     recipeHeaderView
@@ -48,19 +48,19 @@ struct RecipeScalingView: View {
             .navigationTitle(localizationManager.localized("recipe.scaling.title"))
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button(localizationManager.localized("action.cancel")) {
                         presentationMode.wrappedValue.dismiss()
                     }
                     .foregroundColor(.brewTheme)
                 }
                 
-                if scaledRecipe != nil {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    if scaledRecipe != nil {
                         Button(localizationManager.localized("recipe.scaling.save_scaled")) {
                             saveScaledRecipe()
                         }
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     }
                 }
             }
@@ -84,7 +84,7 @@ struct RecipeScalingView: View {
                 VStack(alignment: .leading) {
                     Text(recipe.name)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     
                     Text(recipe.style)
                         .font(.subheadline)
@@ -96,7 +96,7 @@ struct RecipeScalingView: View {
                 VStack(alignment: .trailing) {
                     Text("\(RecipeScaler.formatBatchSize(originalBatchSize))L")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(.brewTheme)
                     
                     Text(localizationManager.localized("recipe.scaling.original_batch"))
@@ -119,7 +119,7 @@ struct RecipeScalingView: View {
                 TextField(localizationManager.localized("recipe.scaling.custom_size"), text: $customBatchSize)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.decimalPad)
-                    .onChange(of: customBatchSize) { _, newValue in
+                    .onChange(of: customBatchSize) { newValue in
                         if let value = Double(newValue.replacingOccurrences(of: ",", with: ".")),
                            value > 0 {
                             targetBatchSize = value
@@ -151,14 +151,14 @@ struct RecipeScalingView: View {
                 
                 Text("\(RecipeScaler.formatBatchSize(targetBatchSize))L")
                     .font(.title3)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .foregroundColor(.brewTheme)
                 
                 Spacer()
                 
                 Text("×\(String(format: "%.2f", targetBatchSize / originalBatchSize))")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .foregroundColor(.orange)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
@@ -197,7 +197,7 @@ struct RecipeScalingView: View {
                 HStack {
                     Text("\(Int(preset.size))L")
                         .font(.title3)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     Spacer()
                     if selectedPresetIndex == index {
                         Image(systemName: "checkmark.circle.fill")
@@ -208,7 +208,7 @@ struct RecipeScalingView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(preset.name)
                         .font(.subheadline)
-                        .fontWeight(.medium)
+                        .font(.body.weight(.medium))
                     Text(preset.description)
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -237,7 +237,7 @@ struct RecipeScalingView: View {
                             .foregroundColor(.secondary)
                         Text("×\(String(format: "%.2f", targetBatchSize / originalBatchSize))")
                             .font(.title3)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(.brewTheme)
                     }
                     
@@ -249,7 +249,7 @@ struct RecipeScalingView: View {
                             .foregroundColor(.secondary)
                         Text("\(RecipeScaler.formatBatchSize(targetBatchSize))L")
                             .font(.title3)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(.brewTheme)
                     }
                 }
@@ -265,7 +265,7 @@ struct RecipeScalingView: View {
                         .font(.title3)
                     
                     Text(scaledRecipe == nil ? "Schaal Recept" : "Herbereken")
-                        .fontWeight(.semibold)
+                        .font(.body.weight(.semibold))
                     
                     if targetBatchSize != originalBatchSize {
                         Spacer()
@@ -288,7 +288,7 @@ struct RecipeScalingView: View {
             HStack {
                 Text(localizationManager.localized("recipe.scaling.preview"))
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 Spacer()
                 Button(localizationManager.localized("recipe.scaling.save_scaled")) {
                     saveScaledRecipe()
@@ -313,7 +313,7 @@ struct RecipeScalingView: View {
                         Spacer()
                         Text(ingredient.amount)
                             .font(.body)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                             .foregroundColor(.brewTheme)
                     }
                     .padding(.vertical, 4)
@@ -332,7 +332,7 @@ struct RecipeScalingView: View {
                     HStack(alignment: .top) {
                         Text("\(index + 1).")
                             .font(.caption)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(.brewTheme)
                             .frame(width: 20)
                         

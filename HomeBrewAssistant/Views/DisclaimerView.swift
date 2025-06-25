@@ -9,7 +9,7 @@ struct DisclaimerView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("disclaimer.title".localized)
                         .font(.largeTitle)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .padding(.bottom)
                     
                     Group {

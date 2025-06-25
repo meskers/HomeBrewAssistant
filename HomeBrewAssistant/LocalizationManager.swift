@@ -42,8 +42,8 @@ class LocalizationManager: ObservableObject {
            let language = Language(rawValue: savedLanguageCode) {
             self.currentLanguage = language
         } else {
-            // Auto-detect system language
-            let systemLanguage = Locale.current.language.languageCode?.identifier ?? "en"
+            // Auto-detect system language using iOS 15+ compatible API
+            let systemLanguage = Locale.current.languageCode ?? "en"
             self.currentLanguage = Language(rawValue: systemLanguage) ?? .english
         }
         

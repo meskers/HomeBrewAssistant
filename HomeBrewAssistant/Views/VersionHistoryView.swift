@@ -47,7 +47,7 @@ struct VersionHistoryView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(Bundle.main.appName)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     
                     Text("version.current".localized(with: versionManager.fullVersionString))
                         .font(.subheadline)
@@ -107,7 +107,7 @@ struct VersionCard: View {
                         HStack {
                             Text("v\(version.version)")
                                 .font(.headline)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             
                             Text("(\(version.buildNumber))")
                                 .font(.caption)
@@ -148,14 +148,14 @@ struct VersionCard: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("version.changes".localized)
                             .font(.subheadline)
-                            .fontWeight(.semibold)
+                            .font(.body.weight(.semibold))
                             .padding(.horizontal)
                         
                         ForEach(version.changes, id: \.self) { change in
                             HStack(alignment: .top, spacing: 10) {
                                 Text("•")
                                     .foregroundColor(.brewTheme)
-                                    .fontWeight(.bold)
+                                    .font(.body.weight(.bold))
                                 
                                 Text(change)
                                     .font(.caption)
@@ -193,7 +193,7 @@ struct VersionInfoCard: View {
             
             Text(value)
                 .font(.headline)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
             
             Text(title)
                 .font(.caption)

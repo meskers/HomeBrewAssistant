@@ -46,33 +46,27 @@ struct IngredientsView: View {
             }
             .navigationTitle("🌾 Ingrediënten")
             .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showingAddForm = true
-                    }) {
-                        Image(systemName: "plus")
-                    }
-                }
-                
-                if selectedTab == 0 && !inventoryManager.ingredients.isEmpty {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Menu {
-                            Button("Alle categorieën") {
-                                selectedCategory = nil
-                            }
-                            
-                            ForEach(IngredientType.allCases, id: \.self) { category in
-                                Button(category.localizedName) {
-                                    selectedCategory = category
-                                }
-                            }
-                        } label: {
-                            Image(systemName: "line.3.horizontal.decrease.circle")
+            .navigationBarItems(
+                leading: selectedTab == 0 && !inventoryManager.ingredients.isEmpty ? 
+                    AnyView(Menu {
+                        Button("Alle categorieën") {
+                            selectedCategory = nil
                         }
-                    }
+                        
+                        ForEach(IngredientType.allCases, id: \.self) { category in
+                            Button(category.localizedName) {
+                                selectedCategory = category
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                    }) : AnyView(EmptyView()),
+                trailing: Button(action: {
+                    showingAddForm = true
+                }) {
+                    Image(systemName: "plus")
                 }
-            }
+            )
             .sheet(isPresented: $showingAddForm) {
                 AddInventoryItemSheet(isPresented: $showingAddForm, inventoryManager: inventoryManager)
             }
@@ -83,6 +77,8 @@ struct IngredientsView: View {
             }
         }
     }
+    
+
     
     // MARK: - Selected Recipe Header
     private func selectedRecipeHeader(_ recipe: DetailedRecipe) -> some View {
@@ -460,7 +456,7 @@ struct AddInventoryItemSheet: View {
                         Text("milliliter").tag("ml")
                     }
                     
-                    TextField("Opmerkingen (optioneel)", text: $notes, axis: .vertical)
+                    TextField("Opmerkingen (optioneel)", text: $notes)
                         .lineLimit(3)
                     
                     Toggle("Laag in voorraad", isOn: $isLowStock)
@@ -468,32 +464,29 @@ struct AddInventoryItemSheet: View {
             }
             .navigationTitle("Nieuw Ingrediënt")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Annuleer") {
-                        isPresented = false
-                    }
+            .navigationBarItems(
+                leading: Button("Annuleer") {
+                    isPresented = false
+                },
+                trailing: Button("Voeg Toe") {
+                    let newItem = InventoryItem(
+                        name: name,
+                        category: category.rawValue,
+                        amount: amount,
+                        unit: unit,
+                        isLowStock: isLowStock,
+                        inStock: true,
+                        notes: notes
+                    )
+                    inventoryManager.addIngredient(newItem)
+                    isPresented = false
                 }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Voeg Toe") {
-                        let newItem = InventoryItem(
-                            name: name,
-                            category: category.rawValue,
-                            amount: amount,
-                            unit: unit,
-                            isLowStock: isLowStock,
-                            inStock: true,
-                            notes: notes
-                        )
-                        inventoryManager.addIngredient(newItem)
-                        isPresented = false
-                    }
-                    .disabled(name.isEmpty)
-                }
-            }
+                .disabled(name.isEmpty)
+            )
         }
     }
+    
+
 }
 
 #Preview {

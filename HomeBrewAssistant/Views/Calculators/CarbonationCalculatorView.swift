@@ -57,7 +57,7 @@ struct CarbonationCalculatorView: View {
                         
                         Text("CO₂ Calculator")
                             .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                         
                         Text("Calculate priming sugar for carbonation")
                             .font(.subheadline)
@@ -80,7 +80,7 @@ struct CarbonationCalculatorView: View {
                                         VStack(spacing: 4) {
                                             Text(style.rawValue)
                                                 .font(.caption)
-                                                .fontWeight(.medium)
+                                                .font(.body.weight(.medium))
                                             Text("\(style.recommendedCO2, specifier: "%.1f") vol")
                                                 .font(.caption2)
                                                 .foregroundColor(.secondary)
@@ -115,7 +115,7 @@ struct CarbonationCalculatorView: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("Batch Size")
                                         .font(.caption)
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     
                                     HStack {
                                         TextField("20.0", text: $batchSize)
@@ -131,7 +131,7 @@ struct CarbonationCalculatorView: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("Temperature")
                                         .font(.caption)
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     
                                     HStack {
                                         TextField("20.0", text: $beerTemperature)
@@ -148,7 +148,7 @@ struct CarbonationCalculatorView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("Target CO₂")
                                     .font(.caption)
-                                    .fontWeight(.medium)
+                                    .font(.body.weight(.medium))
                                 
                                 HStack {
                                     TextField("2.4", text: $targetCO2)
@@ -223,7 +223,7 @@ struct CarbonationCalculatorView: View {
                                 
                                 Text("\(calculatedSugar, specifier: "%.1f") g")
                                     .font(.largeTitle)
-                                    .fontWeight(.bold)
+                                    .font(.body.weight(.bold))
                                     .foregroundColor(.blue)
                                 
                                 Text("of \(primingSugarType.rawValue)")
@@ -238,7 +238,7 @@ struct CarbonationCalculatorView: View {
                                 VStack(spacing: 4) {
                                     Text("Instructions:")
                                         .font(.caption)
-                                        .fontWeight(.semibold)
+                                        .font(.body.weight(.semibold))
                                     
                                     Text("• Dissolve sugar in small amount of boiling water")
                                         .font(.caption2)

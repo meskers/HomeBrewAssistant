@@ -26,7 +26,7 @@ struct ABVCalculatorView: View {
                         
                         Text("abv.title".localized)
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                         
                         Text("abv.subtitle".localized)
                             .multilineTextAlignment(.center)
@@ -107,14 +107,14 @@ struct ABVCalculatorView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack {
                                     Text("abv.attenuation".localized)
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     Spacer()
                                     Text("\(calculateAttenuation(), specifier: "%.1f")%")
                                 }
                                 
                                 HStack {
                                     Text("abv.alcohol.yield".localized)
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     Spacer()
                                     Text("\(calculateAlcoholYield(), specifier: "%.2f") g/L")
                                 }

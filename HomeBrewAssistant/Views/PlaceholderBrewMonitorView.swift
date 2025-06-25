@@ -10,7 +10,7 @@ struct PlaceholderBrewMonitorView: View {
                 
                 Text("brew.monitor.title".localized)
                     .font(.title)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 
                 Text("brew.monitor.subtitle".localized)
                     .font(.title2)

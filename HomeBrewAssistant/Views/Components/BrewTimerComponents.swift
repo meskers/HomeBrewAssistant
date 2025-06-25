@@ -39,14 +39,14 @@ struct TimerCardView: View {
                 HStack {
                     Text(timer.displayTime)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(timer.urgencyLevel.color)
                     
                     if timer.isOvertime {
                         Text("(Overtime)")
                             .font(.caption)
                             .foregroundColor(.red)
-                            .fontWeight(.semibold)
+                            .font(.body.weight(.semibold))
                     }
                 }
                 

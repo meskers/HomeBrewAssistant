@@ -104,7 +104,7 @@ struct IBUCalculatorView: View {
                         
                         Text("IBU Calculator")
                             .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .accessibilityLabel("International Bitterness Units Calculator")
                         
                         Text("Calculate hop bitterness for your brew")
@@ -124,7 +124,7 @@ struct IBUCalculatorView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("Batch Size")
                                     .font(.caption)
-                                    .fontWeight(.medium)
+                                    .font(.body.weight(.medium))
                                 
                                 HStack {
                                     TextField("20.0", text: $batchSize)
@@ -142,7 +142,7 @@ struct IBUCalculatorView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("Boil Gravity")
                                     .font(.caption)
-                                    .fontWeight(.medium)
+                                    .font(.body.weight(.medium))
                                 
                                 TextField("1.050", text: $boilGravity)
                                     .keyboardType(.decimalPad)
@@ -156,7 +156,7 @@ struct IBUCalculatorView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Utilization Formula")
                                 .font(.caption)
-                                .fontWeight(.medium)
+                                .font(.body.weight(.medium))
                             
                             Picker("Method", selection: $utilizationMethod) {
                                 ForEach(UtilizationMethod.allCases, id: \.self) { method in
@@ -322,7 +322,7 @@ struct HopAdditionCard: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(hop.name)
                         .font(.headline)
-                        .fontWeight(.semibold)
+                        .font(.body.weight(.semibold))
                         .accessibilityLabel("Hop name: \(hop.name)")
                     
                     Text("\(hop.alphaAcids, specifier: "%.1f")% AA • \(hop.form.rawValue)")
@@ -335,7 +335,7 @@ struct HopAdditionCard: View {
                 VStack(alignment: .trailing, spacing: 4) {
                     Text("\(individualIBU, specifier: "%.1f")")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(.hopGreen)
                     
                     Text("IBU")
@@ -410,7 +410,7 @@ struct IBUResultsView: View {
                     
                     Text("\(totalIBU, specifier: "%.1f")")
                         .font(.largeTitle)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(.hopGreen)
                         .accessibilityLabel("\(totalIBU, specifier: "%.1f") International Bitterness Units")
                 }
@@ -420,7 +420,7 @@ struct IBUResultsView: View {
                 VStack(alignment: .trailing) {
                     Text(bitterness.0)
                         .font(.headline)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(bitterness.1)
                     
                     Text(bitterness.2)
@@ -436,7 +436,7 @@ struct IBUResultsView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Individual Contributions")
                         .font(.subheadline)
-                        .fontWeight(.medium)
+                        .font(.body.weight(.medium))
                     
                     ForEach(hopAdditions) { hop in
                         let individualIBU = hop.calculateIBU(batchSize: batchSize, gravity: gravity, method: method)
@@ -507,7 +507,7 @@ struct AddHopView: View {
                         
                         Text("Add Hop Addition")
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                     }
                     .padding(.top)
                     
@@ -537,7 +537,7 @@ struct AddHopView: View {
                                         VStack(alignment: .leading, spacing: 2) {
                                             Text(hop.0)
                                                 .font(.caption)
-                                                .fontWeight(.medium)
+                                                .font(.body.weight(.medium))
                                             Text(hop.1)
                                                 .font(.caption2)
                                                 .foregroundColor(.secondary)
@@ -566,7 +566,7 @@ struct AddHopView: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("Alpha Acids (%)")
                                         .font(.caption)
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     
                                     TextField("6.0", text: $alphaAcids)
                                         .keyboardType(.decimalPad)
@@ -577,7 +577,7 @@ struct AddHopView: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("Amount (g)")
                                         .font(.caption)
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     
                                     TextField("25", text: $amount)
                                         .keyboardType(.decimalPad)
@@ -590,7 +590,7 @@ struct AddHopView: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("Boil Time (min)")
                                         .font(.caption)
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     
                                     TextField("60", text: $time)
                                         .keyboardType(.decimalPad)
@@ -601,7 +601,7 @@ struct AddHopView: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text("Hop Form")
                                         .font(.caption)
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     
                                     Picker("Form", selection: $form) {
                                         ForEach(IBUCalculatorView.HopAddition.HopForm.allCases, id: \.self) { hopForm in

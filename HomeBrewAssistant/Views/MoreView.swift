@@ -56,7 +56,7 @@ struct MoreView: View {
                         VStack(alignment: .leading) {
                             Text("more.title".localized)
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             Text("more.subtitle".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
@@ -129,7 +129,10 @@ struct MoreView: View {
             BrewAnalyticsView()
                 .environmentObject(localizationManager)
         case .photos:
-            PhotoGalleryView()
+            Text("Foto functie tijdelijk uitgeschakeld")
+                .font(.title2)
+                .foregroundColor(.secondary)
+                .padding()
         case .history:
             BrewHistoryView()
                 .environmentObject(localizationManager)
@@ -155,7 +158,7 @@ struct MoreFeatureRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(feature.title)
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 Text(feature.description)
                     .font(.caption)
@@ -195,7 +198,7 @@ struct SettingsRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 Text(subtitle)
                     .font(.caption)

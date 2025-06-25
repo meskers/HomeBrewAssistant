@@ -20,7 +20,7 @@ struct InventoryCheckView: View {
                         VStack(alignment: .leading) {
                             Text("📋 Voorraadcontrole")
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             Text("Recept: \(recipe.name)")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
@@ -31,7 +31,7 @@ struct InventoryCheckView: View {
                         VStack(alignment: .trailing, spacing: 2) {
                             Text("\(availableCount)/\(requirements.count)")
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                                 .foregroundColor(allIngredientsAvailable ? .green : .orange)
                             Text(allIngredientsAvailable ? "✅ Alles op voorraad" : "⚠️ Items ontbreken")
                                 .font(.caption2)
@@ -64,7 +64,7 @@ struct InventoryCheckView: View {
                             HStack {
                                 Image(systemName: "cart.badge.plus")
                                 Text("Genereer Boodschappenlijst (\(missingIngredients.count) items)")
-                                    .fontWeight(.semibold)
+                                    .font(.body.weight(.semibold))
                             }
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -82,7 +82,7 @@ struct InventoryCheckView: View {
                             HStack {
                                 Image(systemName: "play.circle.fill")
                                 Text("Start Brouwen")
-                                    .fontWeight(.semibold)
+                                    .font(.body.weight(.semibold))
                             }
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -143,7 +143,7 @@ struct IngredientRequirementCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(requirement.ingredientName)
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 HStack {
                     Text("Nodig: \(formatAmount(requirement.requiredAmount))")
@@ -203,7 +203,7 @@ struct ShoppingListView: View {
                         VStack(alignment: .leading) {
                             Text("🛒 Boodschappenlijst")
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             Text("Items om te kopen")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
@@ -214,7 +214,7 @@ struct ShoppingListView: View {
                         VStack(alignment: .trailing, spacing: 2) {
                             Text("€\(String(format: "%.2f", totalCost))")
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                                 .foregroundColor(.green)
                             Text("Totale kosten")
                                 .font(.caption2)
@@ -236,7 +236,7 @@ struct ShoppingListView: View {
                             .foregroundColor(.secondary)
                         Text("Geen items om te kopen")
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                         Text("Alle ingrediënten zijn op voorraad")
                             .font(.body)
                             .foregroundColor(.secondary)
@@ -297,7 +297,7 @@ struct ShoppingListItemCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.ingredientName)
                     .font(.headline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 Text("Hoeveelheid: \(formatQuantity(item.requiredAmount))")
                     .font(.caption)
@@ -310,7 +310,7 @@ struct ShoppingListItemCard: View {
             VStack(alignment: .trailing, spacing: 4) {
                 Text("€\(String(format: "%.2f", item.estimatedPrice))")
                     .font(.headline)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .foregroundColor(.green)
                 
                 Button("✓ Gekocht") {

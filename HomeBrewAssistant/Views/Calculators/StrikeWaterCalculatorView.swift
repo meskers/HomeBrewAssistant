@@ -22,7 +22,7 @@ struct StrikeWaterCalculatorView: View {
                         
                         Text("Strike Water Calculator")
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                         
                         Text("Bereken de juiste water temperatuur voor je mash")
                             .multilineTextAlignment(.center)

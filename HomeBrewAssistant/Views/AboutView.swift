@@ -24,7 +24,7 @@ struct AboutView: View {
                         
                         Text("HomeBrewAssistant")
                             .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(.primary)
                         
                         Text("Jouw persoonlijke brouwgids")
@@ -114,7 +114,7 @@ struct AboutView: View {
                                 Image(systemName: "person.circle.fill")
                                     .foregroundColor(.aboutBrewTheme)
                                 Text("Cor Meskers")
-                                    .fontWeight(.medium)
+                                    .font(.body.weight(.medium))
                             }
                             
                             HStack {
@@ -232,7 +232,7 @@ struct InfoRow: View {
                 .foregroundColor(.secondary)
             Spacer()
             Text(value)
-                .fontWeight(.medium)
+                .font(.body.weight(.medium))
         }
         .padding(.vertical, 2)
     }
@@ -251,7 +251,7 @@ struct FeatureCard: View {
             
             Text(title)
                 .font(.caption)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
                 .multilineTextAlignment(.center)
             
             Text(description)

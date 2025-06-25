@@ -31,7 +31,7 @@ struct RecipeDetailView: View {
                             VStack(alignment: .leading) {
                                 Text(recipe.wrappedName)
                                     .font(.title)
-                                    .fontWeight(.bold)
+                                    .font(.body.weight(.bold))
                                 
                                 Text(recipe.wrappedType)
                                     .font(.subheadline)
@@ -129,7 +129,7 @@ struct RecipeStatsView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Receptgegevens")
                 .font(.headline)
-                .fontWeight(.semibold)
+                .font(.body.weight(.semibold))
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 12) {
                 if recipe.originalGravity > 0 {
@@ -175,7 +175,7 @@ struct RecipeStatCard: View {
             
             Text(value)
                 .font(.headline)
-                .fontWeight(.semibold)
+                .font(.body.weight(.semibold))
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 8)
@@ -191,7 +191,7 @@ struct RecipeIngredientsSection: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Ingrediënten (\(ingredients.count))")
                 .font(.headline)
-                .fontWeight(.semibold)
+                .font(.body.weight(.semibold))
             
             LazyVStack(spacing: 8) {
                 ForEach(ingredients, id: \.self) { ingredient in
@@ -217,7 +217,7 @@ struct RecipeIngredientRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(ingredient.wrappedName)
                     .font(.body)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 if !ingredient.wrappedTiming.isEmpty {
                     Text(ingredient.wrappedTiming)
@@ -230,7 +230,7 @@ struct RecipeIngredientRow: View {
             
             Text(ingredient.wrappedAmount)
                 .font(.body)
-                .fontWeight(.semibold)
+                .font(.body.weight(.semibold))
         }
         .padding(.vertical, 8)
         .padding(.horizontal, 12)
@@ -272,7 +272,7 @@ struct NotesSection: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Notities")
                 .font(.headline)
-                .fontWeight(.semibold)
+                .font(.body.weight(.semibold))
             
             Text(notes)
                 .font(.body)
@@ -293,7 +293,7 @@ struct FermentationSection: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Fermentatiestappen (\(steps.count))")
                 .font(.headline)
-                .fontWeight(.semibold)
+                .font(.body.weight(.semibold))
             
             LazyVStack(spacing: 8) {
                 ForEach(steps, id: \.self) { step in
@@ -319,7 +319,7 @@ struct FermentationStepRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(step.wrappedName)
                     .font(.body)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 if !step.wrappedDescription.isEmpty {
                     Text(step.wrappedDescription)
@@ -334,7 +334,7 @@ struct FermentationStepRow: View {
                 if step.temperature > 0 {
                     Text("\(Int(step.temperature))°C")
                         .font(.body)
-                        .fontWeight(.semibold)
+                        .font(.body.weight(.semibold))
                 }
                 
                 if step.duration > 0 {

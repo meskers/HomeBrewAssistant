@@ -15,7 +15,7 @@ struct LanguageSettingsView: View {
                     
                     Text("language.change".localized)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     
                     Text("language.select.subtitle".localized)
                         .font(.subheadline)

@@ -21,7 +21,7 @@ struct HydrometerCalculatorView: View {
                         
                         Text("Hydrometer Correctie")
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                         
                         Text("Corrigeer gravity metingen voor temperatuur")
                             .multilineTextAlignment(.center)

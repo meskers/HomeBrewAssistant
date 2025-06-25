@@ -90,7 +90,7 @@ struct BrewTrackerView: View {
                 VStack(alignment: .leading) {
                     Text(isBrewingActive ? "Actieve Brouwsessie" : "Brouwtracker")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     if isBrewingActive {
                         Text("Gestart: \(brewStartDate, style: .time)")
                             .font(.caption)
@@ -157,7 +157,7 @@ struct BrewTrackerView: View {
             VStack(spacing: 15) {
                 Text("Start een nieuwe brouwsessie")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .multilineTextAlignment(.center)
                 
                 Text("Volg je brouwproces met timers en stap-voor-stap begeleiding")
@@ -203,7 +203,7 @@ struct BrewTrackerView: View {
                 VStack(alignment: .leading) {
                     Text(brewingSteps[currentStep])
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     
                     Text("Stap \(currentStep + 1) van \(brewingSteps.count)")
                         .font(.caption)

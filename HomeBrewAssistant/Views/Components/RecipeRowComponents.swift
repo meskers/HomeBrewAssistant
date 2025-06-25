@@ -10,7 +10,7 @@ struct SimpleRecipeRowView: View {
             HStack {
                 Text(recipe.name)
                     .font(.headline)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .accessibilityLabel("Recipe name: \(recipe.name)")
                 Spacer()
                 DifficultyBadge(difficulty: recipe.difficulty)
@@ -44,7 +44,7 @@ struct DifficultyBadge: View {
     var body: some View {
         Text(difficulty.rawValue)
             .font(.caption)
-            .fontWeight(.medium)
+            .font(.body.weight(.medium))
             .padding(.horizontal, 8)
             .padding(.vertical, 2)
             .background(difficulty.color.opacity(0.2))

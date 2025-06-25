@@ -38,6 +38,17 @@ struct BrewStep {
 struct EnhancedBrewingView: View {
     let selectedRecipe: DetailedRecipe?
     @State private var brewingMode: BrewingViewMode = .simple
+    @StateObject private var inventoryManager = SmartInventoryManager()
+    @State private var showingInventoryCheck = false
+    @State private var inventoryRequirements: [RecipeRequirement] = []
+    @State private var inventoryCheckCompleted = false
+    
+    var inventoryStatus: (available: Int, total: Int, allAvailable: Bool) {
+        guard !inventoryRequirements.isEmpty else { return (0, 0, false) }
+        let available = inventoryRequirements.filter { $0.isAvailable }.count
+        let total = inventoryRequirements.count
+        return (available, total, available == total)
+    }
     
     var body: some View {
         NavigationView {
@@ -52,7 +63,7 @@ struct EnhancedBrewingView: View {
                         VStack(alignment: .leading) {
                             Text("🍺 Brouwassistent")
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             Text("brewing.choose.experience".localized)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
@@ -64,7 +75,7 @@ struct EnhancedBrewingView: View {
                             VStack(alignment: .trailing, spacing: 2) {
                                 Text("📖 \(recipe.name)")
                                     .font(.caption)
-                                    .fontWeight(.medium)
+                                    .font(.body.weight(.medium))
                                     .lineLimit(1)
                                 Text("✅ Recept actief")
                                     .font(.caption2)
@@ -74,12 +85,49 @@ struct EnhancedBrewingView: View {
                             VStack(alignment: .trailing, spacing: 2) {
                                 Text("⚠️ Geen recept")
                                     .font(.caption)
-                                    .fontWeight(.medium)
+                                    .font(.body.weight(.medium))
                                 Text("Ga naar Recepten tab")
                                     .font(.caption2)
                                     .foregroundColor(.orange)
                             }
                         }
+                    }
+                    
+                    // Inventory Status Banner (if recipe selected)
+                    if let recipe = selectedRecipe {
+                        HStack {
+                            Image(systemName: inventoryStatus.allAvailable ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
+                                .foregroundColor(inventoryStatus.allAvailable ? .green : .orange)
+                                .font(.title3)
+                            
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("📋 Voorraadstatus")
+                                    .font(.subheadline)
+                                    .font(.body.weight(.medium))
+                                Text("\(inventoryStatus.available)/\(inventoryStatus.total) ingrediënten beschikbaar")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                            Spacer()
+                            
+                            Button("Controleer") {
+                                showingInventoryCheck = true
+                            }
+                            .font(.caption)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(inventoryStatus.allAvailable ? Color.green.opacity(0.2) : Color.orange.opacity(0.2))
+                            .foregroundColor(inventoryStatus.allAvailable ? .green : .orange)
+                            .cornerRadius(8)
+                        }
+                        .padding()
+                        .background(inventoryStatus.allAvailable ? Color.green.opacity(0.1) : Color.orange.opacity(0.1))
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(inventoryStatus.allAvailable ? Color.green.opacity(0.3) : Color.orange.opacity(0.3), lineWidth: 1)
+                        )
                     }
                     
                     // Mode Selector
@@ -111,14 +159,37 @@ struct EnhancedBrewingView: View {
                 Group {
                     switch brewingMode {
                     case .simple:
-                        SimpleBrewingModeView(selectedRecipe: selectedRecipe)
+                        SimpleBrewingModeView(selectedRecipe: selectedRecipe, inventoryStatus: inventoryStatus)
                     case .advanced:
-                        AdvancedBrewingModeView(selectedRecipe: selectedRecipe)
+                        AdvancedBrewingModeView(selectedRecipe: selectedRecipe, inventoryStatus: inventoryStatus)
                     }
                 }
             }
             .navigationBarHidden(true)
+            .onAppear {
+                checkInventoryIfNeeded()
+            }
+            .onChange(of: selectedRecipe) { _ in
+                checkInventoryIfNeeded()
+            }
+            .sheet(isPresented: $showingInventoryCheck) {
+                if let recipe = selectedRecipe {
+                    InventoryCheckView(recipe: recipe)
+                }
+            }
         }
+    }
+    
+    private func checkInventoryIfNeeded() {
+        guard let recipe = selectedRecipe else {
+            inventoryRequirements = []
+            inventoryCheckCompleted = false
+            return
+        }
+        
+        // Automatically check inventory when recipe changes
+        inventoryRequirements = inventoryManager.checkRecipeRequirements(recipe)
+        inventoryCheckCompleted = true
     }
 }
 
@@ -126,6 +197,7 @@ struct EnhancedBrewingView: View {
 
 struct SimpleBrewingModeView: View {
     let selectedRecipe: DetailedRecipe?
+    let inventoryStatus: (available: Int, total: Int, allAvailable: Bool)
     @State private var currentStep = 0
     @State private var isTimerRunning = false
     @State private var elapsedTime: TimeInterval = 0
@@ -136,6 +208,7 @@ struct SimpleBrewingModeView: View {
     @State private var currentTemperature = ""
     @State private var currentNotes = ""
     @State private var showingEndBrewAlert = false
+    @State private var showingInventoryWarning = false
     
     private var brewingSteps: [BrewStep] {
         if let recipe = selectedRecipe {
@@ -175,6 +248,12 @@ struct SimpleBrewingModeView: View {
         } message: {
             Text("Weet je zeker dat je de brouwsessie wilt beëindigen?")
         }
+        .alert("Ontbrekende Ingrediënten", isPresented: $showingInventoryWarning) {
+            Button("Toch Doorgaan") { startBrewing() }
+            Button("Annuleer", role: .cancel) { }
+        } message: {
+            Text("Je hebt niet alle ingrediënten op voorraad. Wil je toch doorgaan met brouwen?")
+        }
     }
     
     private var activeBrewingView: some View {
@@ -188,21 +267,21 @@ struct SimpleBrewingModeView: View {
                     
                     Text("Stap \(currentStep + 1) van \(brewingSteps.count)")
                         .font(.headline)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     
                     Spacer()
                     
                     if brewingSteps[currentStep].duration > 0 {
                         Text(formatTime(elapsedTime))
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(elapsedTime >= TimeInterval(brewingSteps[currentStep].duration * 60) ? .red : .primary)
                     }
                 }
                 
                 Text(brewingSteps[currentStep].name)
                     .font(.title)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 
                 Text(brewingSteps[currentStep].description)
                     .font(.body)
@@ -214,7 +293,7 @@ struct SimpleBrewingModeView: View {
                             .foregroundColor(.orange)
                         Text("Doel temperatuur: \(brewingSteps[currentStep].targetTemperature)")
                             .font(.subheadline)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                     }
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
@@ -321,7 +400,7 @@ struct SimpleBrewingModeView: View {
                     
                     Text(recipe.name)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     
                     Text("🍺 \(recipe.style)")
                         .font(.subheadline)
@@ -358,12 +437,12 @@ struct SimpleBrewingModeView: View {
                     ForEach(0..<brewingSteps.count, id: \.self) { index in
                         HStack {
                             Text("\(index + 1).")
-                                .fontWeight(.medium)
+                                .font(.body.weight(.medium))
                                 .frame(width: 25, alignment: .leading)
                             
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(brewingSteps[index].name)
-                                    .fontWeight(.medium)
+                                    .font(.body.weight(.medium))
                                 
                                 if brewingSteps[index].duration > 0 {
                                     Text("⏱️ \(brewingSteps[index].duration) minuten")
@@ -390,7 +469,11 @@ struct SimpleBrewingModeView: View {
             
             // Start Brewing Button
             Button("🚀 Start Brouwsessie") {
-                startBrewing()
+                if inventoryStatus.allAvailable {
+                    startBrewing()
+                } else {
+                    showingInventoryWarning = true
+                }
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
@@ -483,6 +566,7 @@ struct SimpleBrewingModeView: View {
 
 struct AdvancedBrewingModeView: View {
     let selectedRecipe: DetailedRecipe?
+    let inventoryStatus: (available: Int, total: Int, allAvailable: Bool)
     @State private var activeTimers: [ProcessTimer] = []
     @State private var completedProcesses: [String] = []
     @State private var sessionStartTime: Date?
@@ -531,7 +615,7 @@ struct AdvancedBrewingModeView: View {
                     
                     Text("🔥 Geavanceerde Brouwsessie")
                         .font(.headline)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     
                     Spacer()
                     
@@ -618,7 +702,7 @@ struct AdvancedBrewingModeView: View {
                                 VStack(spacing: 4) {
                                     Text("\(reading.temperature, specifier: "%.1f")°C")
                                         .font(.headline)
-                                        .fontWeight(.bold)
+                                        .font(.body.weight(.bold))
                                     Text(formatTime(reading.timestamp))
                                         .font(.caption2)
                                         .foregroundColor(.secondary)
@@ -685,7 +769,7 @@ struct AdvancedBrewingModeView: View {
                     
                     Text(recipe.name)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     
                     Text("🍺 \(recipe.style)")
                         .font(.subheadline)
@@ -726,13 +810,13 @@ struct AdvancedBrewingModeView: View {
                                 .overlay(
                                     Text(process.name.prefix(2))
                                         .font(.caption)
-                                        .fontWeight(.bold)
+                                        .font(.body.weight(.bold))
                                         .foregroundColor(process.color)
                                 )
                             
                             Text(process.name)
                                 .font(.caption)
-                                .fontWeight(.medium)
+                                .font(.body.weight(.medium))
                                 .multilineTextAlignment(.center)
                             
                             Text("\(process.estimatedDuration) min")
@@ -855,7 +939,7 @@ struct FeatureRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 Text(description)
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -884,7 +968,7 @@ struct ProcessCard: View {
                 
                 Text(process.name)
                     .font(.caption)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                     .multilineTextAlignment(.center)
                     .foregroundColor(.primary)
                 
@@ -915,14 +999,14 @@ struct TimerCard: View {
                     .overlay(
                         Text(timer.name.prefix(2))
                             .font(.caption2)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(timer.color)
                     )
                 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(timer.name)
                         .font(.subheadline)
-                        .fontWeight(.medium)
+                        .font(.body.weight(.medium))
                     Text(timer.description)
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -932,7 +1016,7 @@ struct TimerCard: View {
                 
                 Text(formatTimerTime(timer.remainingTime))
                     .font(.headline)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                     .foregroundColor(timer.isCompleted ? .green : .primary)
             }
             
@@ -1030,7 +1114,7 @@ struct StepDetailView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Text(step.name)
                     .font(.title)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 
                 Text(step.description)
                     .font(.body)

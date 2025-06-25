@@ -13,7 +13,7 @@ struct SimpleRecipeDetailView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(recipe.name)
                             .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .accessibilityLabel("Recipe: \(recipe.name)")
                         
                         Text(recipe.style)
@@ -39,7 +39,7 @@ struct SimpleRecipeDetailView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Description")
                                 .font(.headline)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             Text(recipe.notes)
                                 .font(.body)
                         }
@@ -50,7 +50,7 @@ struct SimpleRecipeDetailView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Ingredients")
                                 .font(.headline)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             
                             ForEach(recipe.ingredients) { ingredient in
                                 HStack {
@@ -69,12 +69,12 @@ struct SimpleRecipeDetailView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Instructions")
                                 .font(.headline)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             
                             ForEach(Array(recipe.instructions.enumerated()), id: \.offset) { index, instruction in
                                 HStack(alignment: .top) {
                                     Text("\(index + 1).")
-                                        .fontWeight(.medium)
+                                        .font(.body.weight(.medium))
                                     Text(instruction)
                                         .font(.body)
                                 }

@@ -32,7 +32,7 @@ struct SRMCalculatorView: View {
                         
                         Text("SRM Calculator")
                             .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                         
                         Text("Calculate beer color in SRM units")
                             .font(.subheadline)
@@ -97,7 +97,7 @@ struct SRMCalculatorView: View {
                                     VStack(alignment: .trailing) {
                                         Text("\(grain.contribution(batchSize: Double(batchSize) ?? 20.0), specifier: "%.1f")")
                                             .font(.title2)
-                                            .fontWeight(.bold)
+                                            .font(.body.weight(.bold))
                                             .foregroundColor(.maltGold)
                                         Text("SRM")
                                             .font(.caption)
@@ -131,7 +131,7 @@ struct SRMCalculatorView: View {
                             VStack(spacing: 8) {
                                 Text("Total SRM: \(calculatedSRM, specifier: "%.1f")")
                                     .font(.title)
-                                    .fontWeight(.bold)
+                                    .font(.body.weight(.bold))
                                     .foregroundColor(.maltGold)
                                 
                                 Text(beerStyleForSRM(calculatedSRM))

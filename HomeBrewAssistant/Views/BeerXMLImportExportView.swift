@@ -88,7 +88,7 @@ struct BeerXMLImportExportView: View {
             
             Text("beerxml.title".localized)
                 .font(.title2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
             
             Text("beerxml.subtitle".localized)
                 .font(.subheadline)
@@ -136,7 +136,7 @@ struct BeerXMLImportExportView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("beerxml.import.tips.title".localized)
                     .font(.caption)
-                    .fontWeight(.semibold)
+                    .font(.body.weight(.semibold))
                     .foregroundColor(.orange)
                 
                 Text("beerxml.import.tip.1".localized)
@@ -213,7 +213,7 @@ struct BeerXMLImportExportView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("beerxml.export.info.title".localized)
                     .font(.caption)
-                    .fontWeight(.semibold)
+                    .font(.body.weight(.semibold))
                     .foregroundColor(.blue)
                 
                 Text("beerxml.export.info.1".localized)
@@ -254,7 +254,7 @@ struct BeerXMLImportExportView: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text("beerxml.compatible.title".localized)
                     .font(.subheadline)
-                    .fontWeight(.semibold)
+                    .font(.body.weight(.semibold))
                 
                 Text("beerxml.compatible.beersmith".localized)
                     .font(.caption)

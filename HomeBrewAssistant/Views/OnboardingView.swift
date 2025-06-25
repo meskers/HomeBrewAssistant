@@ -126,7 +126,7 @@ struct OnboardingView: View {
                                 }
                             }
                             .font(.headline)
-                            .fontWeight(.semibold)
+                            .font(.body.weight(.semibold))
                             .foregroundColor(.white)
                             .padding(.horizontal, 30)
                             .padding(.vertical, 12)
@@ -137,7 +137,7 @@ struct OnboardingView: View {
                                 completeOnboarding()
                             }
                             .font(.headline)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(.white)
                             .padding(.horizontal, 40)
                             .padding(.vertical, 15)
@@ -211,13 +211,13 @@ struct OnboardingPageView: View {
                 VStack(spacing: 12) {
                     Text(title)
                         .font(.largeTitle)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .multilineTextAlignment(.center)
                         .foregroundColor(.primary)
                     
                     Text(subtitle)
                         .font(.title3)
-                        .fontWeight(.medium)
+                        .font(.body.weight(.medium))
                         .foregroundColor(Color("BrewTheme"))
                         .multilineTextAlignment(.center)
                     
@@ -262,7 +262,7 @@ struct OnboardingFeatureRow: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(feature.title)
                     .font(.headline)
-                    .fontWeight(.semibold)
+                    .font(.body.weight(.semibold))
                     .foregroundColor(.primary)
                 
                 Text(feature.description)
@@ -419,7 +419,7 @@ struct SplashScreenView: View {
                             .font(.system(size: 16, weight: .medium))
                             .foregroundColor(.secondary)
                             .opacity(textOpacity * 0.8)
-                            .tracking(2)
+                            
                     }
                 }
                 
@@ -457,7 +457,7 @@ struct SplashScreenView: View {
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(.secondary)
                         .opacity(showingDots ? 0.7 : 0)
-                        .tracking(1)
+                        
                 }
                 .padding(.bottom, 50)
             }

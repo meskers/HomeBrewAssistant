@@ -76,7 +76,7 @@ struct RecipeListView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Mijn Recepten")
                                 .font(.title2)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                             Text("\(filteredRecipes.count) van \(recipes.count) recepten")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
@@ -293,7 +293,7 @@ struct EnhancedRecipeRowView: View {
                     if recipe.abv > 0 {
                         Text("\(String(format: "%.1f", recipe.abv))% ABV")
                             .font(.caption2)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                             .foregroundColor(.white)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
@@ -381,7 +381,7 @@ struct StatBadge: View {
                     .font(.caption)
                 Text(value)
                     .font(.caption)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
             }
             Text(label)
                 .font(.caption2)
@@ -403,7 +403,7 @@ struct FilterChip: View {
                     .font(.caption)
                 Text(title)
                     .font(.caption)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
@@ -587,7 +587,7 @@ struct EmptyStateView: View {
             VStack(spacing: 8) {
                 Text(hasFilters ? "Geen recepten gevonden" : "Nog geen recepten")
                     .font(.title2)
-                    .fontWeight(.semibold)
+                    .font(.body.weight(.semibold))
                 
                 Text(hasFilters ? "Probeer andere filters" : "Voeg je eerste recept toe om te beginnen")
                     .font(.body)

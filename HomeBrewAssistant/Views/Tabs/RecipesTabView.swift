@@ -136,7 +136,7 @@ struct RecipeHeaderView: View {
                 VStack(alignment: .leading) {
                     Text("recipes.title".localized)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     if let recipe = selectedRecipeForBrewing {
                         Text("🍺 \("recipes.selected".localized): \(recipe.name)")
                             .font(.caption)

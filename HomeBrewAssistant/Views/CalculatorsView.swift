@@ -11,6 +11,7 @@ struct CalculatorsView: View {
         case carbonation = "CO₂"
         case water = "Water"
         case waterChemistry = "Water Chemistry"
+        case mash = "Mash"
         case hydrometer = "Hydrometer"
         case strikeWater = "Strike Water"
         case yeastPitch = "Yeast Pitch"
@@ -24,6 +25,7 @@ struct CalculatorsView: View {
             case .carbonation: return "calculator.co2.title".localized
             case .water: return "calculator.water.title".localized
             case .waterChemistry: return "Water Chemistry"
+            case .mash: return "Mash Calculator"
             case .hydrometer: return "Hydrometer Correctie"
             case .strikeWater: return "Strike Water"
             case .yeastPitch: return "Gist Pitch Rate"
@@ -39,6 +41,7 @@ struct CalculatorsView: View {
             case .carbonation: return "bubbles.and.sparkles"
             case .water: return "drop.triangle"
             case .waterChemistry: return "flask.fill"
+            case .mash: return "thermometer.medium"
             case .hydrometer: return "thermometer"
             case .strikeWater: return "flame"
             case .yeastPitch: return "microbe"
@@ -54,6 +57,7 @@ struct CalculatorsView: View {
             case .carbonation: return "calculator.co2.description".localized
             case .water: return "calculator.water.description".localized
             case .waterChemistry: return "Optimize brewing water mineral profile"
+            case .mash: return "Calculate strike water temperature and mash schedules"
             case .hydrometer: return "Corrigeer gravity voor temperatuur"
             case .strikeWater: return "Bereken water temperatuur voor mashing"
             case .yeastPitch: return "Bereken hoeveel gist nodig is"
@@ -77,7 +81,7 @@ struct CalculatorsView: View {
                             VStack(alignment: .leading) {
                                 Text("calculators.title".localized)
                                     .font(.title2)
-                                    .fontWeight(.bold)
+                                    .font(.body.weight(.bold))
                                 Text("calculators.subtitle".localized)
                                     .font(.caption)
                                     .foregroundColor(.secondary)
@@ -132,6 +136,8 @@ struct CalculatorsView: View {
             ComingSoonView(title: "Water Calculator", description: "Water treatment calculator coming soon!")
         case .waterChemistry:
             WaterChemistryCalculatorView()
+        case .mash:
+            MashCalculatorView()
         case .hydrometer:
             HydrometerCalculatorView()
         case .strikeWater:
@@ -158,7 +164,7 @@ struct CalculatorCard: View {
             // Title
             Text(calculator.title)
                 .font(.headline)
-                .fontWeight(.semibold)
+                .font(.body.weight(.semibold))
                 .multilineTextAlignment(.center)
             
             // Description
@@ -192,7 +198,7 @@ struct ComingSoonView: View {
                 
                 Text(title)
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
                 
                 Text(description)
                     .multilineTextAlignment(.center)

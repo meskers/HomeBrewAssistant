@@ -31,6 +31,31 @@ extension Animation {
     static var cardFlip: Animation {
         .timingCurve(0.6, 0, 0.4, 1, duration: 1.0)
     }
+    
+    /// Smooth page transition animation
+    static var pageTransition: Animation {
+        .timingCurve(0.4, 0, 0.2, 1, duration: 0.6)
+    }
+    
+    /// Elegant floating animation
+    static var elegantFloat: Animation {
+        .easeInOut(duration: 2.0).repeatForever(autoreverses: true)
+    }
+    
+    /// Quick snap animation for immediate feedback
+    static var quickSnap: Animation {
+        .interpolatingSpring(stiffness: 300, damping: 15)
+    }
+    
+    /// Smooth reveal animation for content
+    static var smoothReveal: Animation {
+        .timingCurve(0.23, 1, 0.32, 1, duration: 0.4)
+    }
+    
+    /// Premium progress animation
+    static var premiumProgress: Animation {
+        .timingCurve(0.4, 0, 0.6, 1, duration: 0.8)
+    }
 }
 
 // MARK: - Premium Haptic Feedback Manager
@@ -147,7 +172,7 @@ struct ShakeEffect: ViewModifier {
     func body(content: Content) -> some View {
         content
             .offset(x: shakeOffset)
-            .onChange(of: trigger) { _, _ in
+            .onChange(of: trigger) { _ in
                 withAnimation(.errorWobble) {
                     shakeOffset = 10
                 }
@@ -172,7 +197,7 @@ struct PulseEffect: ViewModifier {
                     isPulsing = true
                 }
             }
-            .onChange(of: isActive) { _, active in
+            .onChange(of: isActive) { active in
                 isPulsing = active
             }
     }
@@ -193,8 +218,155 @@ struct GlowEffect: ViewModifier {
                     glowIntensity = 0.8
                 }
             }
-            .onChange(of: isActive) { _, active in
+            .onChange(of: isActive) { active in
                 glowIntensity = active ? 0.8 : 0
+            }
+    }
+}
+
+// MARK: - Advanced Premium View Modifiers
+struct PremiumPageTransition: ViewModifier {
+    @State private var isVisible = false
+    let delay: Double
+    
+    init(delay: Double = 0) {
+        self.delay = delay
+    }
+    
+    func body(content: Content) -> some View {
+        content
+            .opacity(isVisible ? 1 : 0)
+            .offset(y: isVisible ? 0 : 20)
+            .animation(.smoothReveal.delay(delay), value: isVisible)
+            .onAppear {
+                isVisible = true
+            }
+    }
+}
+
+struct PremiumLoadingSpinner: ViewModifier {
+    @State private var isRotating = false
+    let isActive: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .rotationEffect(.degrees(isRotating ? 360 : 0))
+            .animation(isActive ? .loadingPulse : .easeInOut(duration: 0.3), value: isRotating)
+            .onAppear {
+                if isActive {
+                    isRotating = true
+                }
+            }
+            .onChange(of: isActive) { active in
+                isRotating = active
+            }
+    }
+}
+
+struct PremiumProgressBar: ViewModifier {
+    let progress: Double
+    let color: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                GeometryReader { geometry in
+                    Rectangle()
+                        .fill(color.opacity(0.3))
+                        .frame(height: 4)
+                        .overlay(
+                            Rectangle()
+                                .fill(color)
+                                .frame(width: geometry.size.width * progress, height: 4)
+                                .animation(.premiumProgress, value: progress),
+                            alignment: .leading
+                        )
+                }
+                .frame(height: 4),
+                alignment: .bottom
+            )
+    }
+}
+
+struct FloatingActionStyle: ViewModifier {
+    @State private var isFloating = false
+    
+    func body(content: Content) -> some View {
+        content
+            .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
+            .scaleEffect(isFloating ? 1.05 : 1.0)
+            .animation(.elegantFloat, value: isFloating)
+            .onAppear {
+                isFloating = true
+            }
+    }
+}
+
+struct SuccessCheckmark: ViewModifier {
+    @State private var isVisible = false
+    @State private var checkmarkScale: CGFloat = 0
+    let trigger: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                Group {
+                    if isVisible {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.title)
+                            .foregroundColor(.green)
+                            .scaleEffect(checkmarkScale)
+                            .animation(.successBounce, value: checkmarkScale)
+                    }
+                }
+            )
+            .onChange(of: trigger) { shouldShow in
+                if shouldShow {
+                    withAnimation(.quickSnap) {
+                        isVisible = true
+                        checkmarkScale = 1.0
+                    }
+                    
+                    // Hide after 2 seconds
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        withAnimation(.premiumSlide) {
+                            isVisible = false
+                            checkmarkScale = 0
+                        }
+                    }
+                }
+            }
+    }
+}
+
+struct PremiumShimmer: ViewModifier {
+    @State private var shimmerOffset: CGFloat = -200
+    let isActive: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        .clear,
+                        .white.opacity(0.3),
+                        .clear
+                    ]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .offset(x: shimmerOffset)
+                .animation(isActive ? .loadingPulse : .easeInOut(duration: 0.3), value: shimmerOffset)
+                .opacity(isActive ? 1 : 0)
+            )
+            .clipped()
+            .onAppear {
+                if isActive {
+                    shimmerOffset = 200
+                }
+            }
+            .onChange(of: isActive) { active in
+                shimmerOffset = active ? 200 : -200
             }
     }
 }
@@ -226,6 +398,36 @@ extension View {
         modifier(GlowEffect(color: color, isActive: isActive))
     }
     
+    /// Premium page transition animation
+    func premiumPageTransition(delay: Double = 0) -> some View {
+        modifier(PremiumPageTransition(delay: delay))
+    }
+    
+    /// Premium loading spinner animation
+    func premiumLoadingSpinner(isActive: Bool) -> some View {
+        modifier(PremiumLoadingSpinner(isActive: isActive))
+    }
+    
+    /// Premium progress bar overlay
+    func premiumProgressBar(progress: Double, color: Color = .brewTheme) -> some View {
+        modifier(PremiumProgressBar(progress: progress, color: color))
+    }
+    
+    /// Floating action button style
+    func floatingAction() -> some View {
+        modifier(FloatingActionStyle())
+    }
+    
+    /// Success checkmark animation
+    func successCheckmark(trigger: Bool) -> some View {
+        modifier(SuccessCheckmark(trigger: trigger))
+    }
+    
+    /// Premium shimmer loading effect
+    func premiumShimmer(isActive: Bool) -> some View {
+        modifier(PremiumShimmer(isActive: isActive))
+    }
+    
     /// Success animation with haptic feedback
     func onSuccess(perform action: @escaping () -> Void) -> some View {
         self.onTapGesture {
@@ -241,6 +443,28 @@ extension View {
         self.onTapGesture {
             HapticManager.shared.error()
             withAnimation(.errorWobble) {
+                action()
+            }
+        }
+    }
+    
+    /// Enhanced button tap with premium haptics
+    func premiumTap(style: UIImpactFeedbackGenerator.FeedbackStyle = .medium, perform action: @escaping () -> Void) -> some View {
+        self.onTapGesture {
+            // Premium haptic feedback
+            switch style {
+            case .light:
+                HapticManager.shared.lightTap()
+            case .medium:
+                HapticManager.shared.mediumTap()
+            case .heavy:
+                HapticManager.shared.heavyTap()
+            default:
+                HapticManager.shared.mediumTap()
+            }
+            
+            // Premium animation feedback
+            withAnimation(.premiumTap) {
                 action()
             }
         }

@@ -45,8 +45,18 @@ struct MainTabView: View {
             }
             .accessibilityLabel("Ingredients tab")
             
-            // 5. FOTO'S - Photo Gallery
-            PhotoGalleryView()
+            // 5. FOTO'S - Photo Gallery (tijdelijk uitgeschakeld)
+            VStack {
+                Image(systemName: "photo.stack")
+                    .font(.system(size: 50))
+                    .foregroundColor(.secondary)
+                Text("Foto functie tijdelijk uitgeschakeld")
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+                Text("Wordt binnenkort toegevoegd")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
             .tabItem {
                 Label("tab.photos".localized, systemImage: "photo.stack.fill")
             }

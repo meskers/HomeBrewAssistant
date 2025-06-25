@@ -47,7 +47,7 @@ struct BrewHistoryView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("history.subtitle".localized)
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.title3.weight(.bold))
                     
                     Text("history.description".localized)
                         .font(.subheadline)
@@ -98,7 +98,7 @@ struct BrewHistoryView: View {
             VStack(spacing: 8) {
                 Text("history.empty.title".localized)
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.title3.weight(.bold))
                 
                 Text("history.empty.message".localized)
                     .font(.body)
@@ -155,8 +155,7 @@ struct BrewHistoryView: View {
                 .foregroundColor(color)
             
             Text(value)
-                .font(.title3)
-                .fontWeight(.bold)
+                .font(.title3.weight(.bold))
                 .foregroundColor(.primary)
             
             Text(title)
@@ -260,8 +259,7 @@ struct BrewSessionCard: View {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(session.recipeName)
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                        .font(.headline.weight(.semibold))
                     
                     Text(session.brewDate, style: .date)
                         .font(.caption)
@@ -276,7 +274,7 @@ struct BrewSessionCard: View {
                     Text(session.status.displayName)
                 }
                 .font(.caption)
-                .fontWeight(.medium)
+                .font(.caption.weight(.medium))
                 .foregroundColor(.white)
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
@@ -292,11 +290,11 @@ struct BrewSessionCard: View {
                         .foregroundColor(.secondary)
                     Text(session.style)
                         .font(.caption)
-                        .fontWeight(.medium)
+                        .font(.caption.weight(.medium))
                     Spacer()
                     Text("\(String(format: "%.1f", session.batchSize))L")
                         .font(.caption)
-                        .fontWeight(.medium)
+                        .font(.caption.weight(.medium))
                         .foregroundColor(.brewTheme)
                 }
                 
@@ -306,12 +304,12 @@ struct BrewSessionCard: View {
                         .foregroundColor(.secondary)
                     Text("\(String(format: "%.1f", session.targetABV))%")
                         .font(.caption)
-                        .fontWeight(.medium)
+                        .font(.caption.weight(.medium))
                     Spacer()
                     if let ibu = session.targetIBU {
                         Text("IBU: \(ibu)")
                             .font(.caption)
-                            .fontWeight(.medium)
+                            .font(.caption.weight(.medium))
                             .foregroundColor(.hopGreen)
                     }
                 }

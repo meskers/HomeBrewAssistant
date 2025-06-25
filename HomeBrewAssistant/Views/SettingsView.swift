@@ -71,7 +71,7 @@ struct SettingsView: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("factory.reset.title".localized)
                                     .foregroundColor(.primary)
-                                    .fontWeight(.medium)
+                                    .font(.body.weight(.medium))
                                 Text("factory.reset.subtitle".localized)
                                     .font(.caption)
                                     .foregroundColor(.secondary)
@@ -195,7 +195,7 @@ struct FactoryResetProgressView: View {
                 VStack(spacing: 12) {
                     Text("factory.reset.progress.title".localized)
                         .font(.title2)
-                        .fontWeight(.semibold)
+                        .font(.body.weight(.semibold))
                     
                     Text("\(Int(factoryResetManager.resetProgress * 100))" + "factory.reset.progress.complete".localized)
                         .font(.headline)
@@ -210,7 +210,7 @@ struct FactoryResetProgressView: View {
                         Text("factory.reset.progress.almost".localized)
                             .font(.caption)
                             .foregroundColor(.orange)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                     }
                 }
                 

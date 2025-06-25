@@ -858,3 +858,23 @@
 "recipe.stats.total" = "Recepten";
 "recipe.success.rate" = "Slaagkans";
 "search.recipes.placeholder" = "Zoek recepten...";
+
+// MARK: - Auto-synchronized keys (2025-06-24)
+"recipe.scaling.original_batch" = "Originele Batch";
+"recipe.scaling.original_batch" = "Original Batch";
+"recipe.scaling.original_batch" = "Original Batch";
+"recipe.scaling.save_scaled" = "Bewaar Geschaald Recept";
+"recipe.scaling.save_scaled" = "Save Scaled Recipe";
+"recipe.scaling.save_scaled" = "Save Scaled Recipe";
+"recipe.scaling.scale_factor" = "Schaalfactor";
+"recipe.scaling.scale_factor" = "Scale Factor";
+"recipe.scaling.scale_factor" = "Scale Factor";
+"recipe.scaling.scale_recipe" = "Schaal Recept";
+"recipe.scaling.scale_recipe" = "Scale Recipe";
+"recipe.scaling.scale_recipe" = "Scale Recipe";
+"recipe.scaling.scaled_ingredients" = "Geschaalde Ingrediënten";
+"recipe.scaling.scaled_ingredients" = "Scaled Ingredients";
+"recipe.scaling.scaled_ingredients" = "Scaled Ingredients";
+"recipe.scaling.title" = "Recept Schalen";
+"recipe.scaling.title" = "Scale Recipe";
+"recipe.scaling.title" = "Recipe Scaling";

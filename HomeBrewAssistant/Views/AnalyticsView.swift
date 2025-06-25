@@ -47,7 +47,7 @@ struct AnalyticsView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Brouw Dashboard")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                     Text(selectedTimeframe.description)
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -105,7 +105,7 @@ struct AnalyticsView: View {
                     .font(.caption)
                 Text(value)
                     .font(.headline)
-                    .fontWeight(.bold)
+                    .font(.body.weight(.bold))
             }
             Text(title)
                 .font(.caption2)
@@ -121,7 +121,7 @@ struct AnalyticsView: View {
             
             Text(value)
                 .font(.subheadline)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
                 .foregroundColor(.brewTheme)
             
             Text(title)
@@ -198,7 +198,7 @@ struct AnalyticsView: View {
                 VStack {
                     Text("\(thisWeekRecipes)")
                         .font(.title)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(.green)
                     Text("Deze Week")
                         .font(.caption)
@@ -209,7 +209,7 @@ struct AnalyticsView: View {
                 VStack {
                     Text("\(thisMonthRecipes)")
                         .font(.title)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(.blue)
                     Text("Deze Maand")
                         .font(.caption)
@@ -220,7 +220,7 @@ struct AnalyticsView: View {
                 VStack {
                     Text("\(allTimeRecipes)")
                         .font(.title)
-                        .fontWeight(.bold)
+                        .font(.body.weight(.bold))
                         .foregroundColor(.purple)
                     Text("Totaal")
                         .font(.caption)
@@ -269,7 +269,7 @@ struct AnalyticsView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(recipe.wrappedName)
                     .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 Text(recipe.wrappedType)
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -281,7 +281,7 @@ struct AnalyticsView: View {
                 Text("\(recipe.ingredientsArray.count) ing.")
                     .font(.caption2)
                     .foregroundColor(.brewTheme)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 if let date = recipe.createdAt {
                     Text(timeAgoString(from: date))
@@ -333,7 +333,7 @@ struct AnalyticsView: View {
             
             Text(value)
                 .font(.headline)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
             
             Text(title)
                 .font(.caption)
@@ -392,7 +392,7 @@ struct AnalyticsView: View {
                         
                         Text("\(type.count)")
                             .font(.caption)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                         
                         Spacer()
                         
@@ -431,7 +431,7 @@ struct AnalyticsView: View {
                             
                             Text("\(complexity.count)")
                                 .font(.headline)
-                                .fontWeight(.bold)
+                                .font(.body.weight(.bold))
                                 .foregroundColor(complexity.color)
                         }
                         
@@ -468,14 +468,14 @@ struct AnalyticsView: View {
                                 .frame(height: 20)
                             
                             Rectangle()
-                                .fill(Color.brewTheme.gradient)
+                                .fill(Color.brewTheme)
                                 .frame(width: max(20, CGFloat(range.count) * 25), height: 20)
                         }
                         .cornerRadius(4)
                         
                         Text("\(range.count)")
                             .font(.caption)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                         
                         Spacer()
                         
@@ -518,7 +518,7 @@ struct AnalyticsView: View {
                     HStack {
                         Text("\(index + 1).")
                             .font(.caption)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(.secondary)
                             .frame(width: 20, alignment: .leading)
                         
@@ -530,7 +530,7 @@ struct AnalyticsView: View {
                         HStack(spacing: 4) {
                             Text("\(ingredient.usage)")
                                 .font(.caption)
-                                .fontWeight(.medium)
+                                .font(.body.weight(.medium))
                                 .foregroundColor(.brewTheme)
                             
                             Text("x")
@@ -574,14 +574,14 @@ struct AnalyticsView: View {
                                 .frame(height: 16)
                             
                             Rectangle()
-                                .fill(colorForIngredientCategory(category.name).gradient)
+                                .fill(colorForIngredientCategory(category.name))
                                 .frame(width: max(20, CGFloat(category.count) * 10), height: 16)
                         }
                         .cornerRadius(4)
                         
                         Text("\(category.count)")
                             .font(.caption)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                         
                         Spacer()
                         
@@ -650,7 +650,7 @@ struct AnalyticsView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 Text(value)
                     .font(.caption)
@@ -691,11 +691,11 @@ struct AnalyticsView: View {
                         
                         Text(season.season)
                             .font(.headline)
-                            .fontWeight(.medium)
+                            .font(.body.weight(.medium))
                         
                         Text("\(season.recipeCount)")
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .font(.body.weight(.bold))
                             .foregroundColor(.brewTheme)
                         
                         Text("recepten")
@@ -742,13 +742,13 @@ struct AnalyticsView: View {
             
             Text(value)
                 .font(.title2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
                 .foregroundColor(.brewTheme)
             
             Text(trend)
                 .font(.caption2)
                 .foregroundColor(.green)
-                .fontWeight(.medium)
+                .font(.body.weight(.medium))
         }
         .frame(maxWidth: .infinity)
         .padding()
@@ -802,7 +802,7 @@ struct AnalyticsView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(.body.weight(.medium))
                 
                 Text(prediction)
                     .font(.caption)
@@ -813,7 +813,7 @@ struct AnalyticsView: View {
             
             Text(confidence)
                 .font(.caption2)
-                .fontWeight(.bold)
+                .font(.body.weight(.bold))
                 .foregroundColor(.green)
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
