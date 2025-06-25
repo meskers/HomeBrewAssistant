@@ -212,22 +212,29 @@ class SmartInventoryManager: ObservableObject {
     
     // MARK: - Shopping List Management
     func markAsAcquired(_ item: ShoppingListItem) {
+        // Determine category based on ingredient name
+        let category = determineIngredientCategory(item.ingredientName)
+        let defaultUnit = getDefaultUnit(for: category)
+        
+        // Convert amount to appropriate unit for display
+        let (convertedAmount, displayUnit) = convertToDisplayUnit(item.requiredAmount, category: category)
+        
         // Add to inventory
         let newInventoryItem = InventoryItem(
             name: item.ingredientName,
-            category: "Gekocht",
-            amount: item.requiredAmount,
-            unit: "g",
+            category: category.rawValue,
+            amount: convertedAmount,
+            unit: displayUnit,
             isLowStock: false,
             inStock: true,
             notes: "Gekocht voor recept"
         )
         
         ingredients.append(newInventoryItem)
+        saveInventory() // 🔧 FIX: Save inventory after adding item
         
         // Remove from shopping list
         shoppingList.removeAll { $0.id == item.id }
-        
         saveShoppingList()
     }
     
@@ -242,6 +249,64 @@ class SmartInventoryManager: ObservableObject {
     }
     
     // MARK: - Helper Methods
+    
+    /// Determine ingredient category based on name
+    private func determineIngredientCategory(_ ingredientName: String) -> IngredientType {
+        let lowerName = ingredientName.lowercased()
+        
+        if lowerName.contains("mout") || lowerName.contains("grain") || lowerName.contains("gerst") || lowerName.contains("wheat") || lowerName.contains("tarwe") {
+            return .grain
+        } else if lowerName.contains("hop") {
+            return .hop
+        } else if lowerName.contains("gist") || lowerName.contains("yeast") {
+            return .yeast
+        } else if lowerName.contains("suiker") || lowerName.contains("honey") || lowerName.contains("honing") || lowerName.contains("spice") || lowerName.contains("kruiden") {
+            return .adjunct
+        } else {
+            return .other
+        }
+    }
+    
+    /// Get default unit for ingredient category
+    private func getDefaultUnit(for category: IngredientType) -> String {
+        switch category {
+        case .grain:
+            return "kg"
+        case .hop:
+            return "g"
+        case .yeast:
+            return "pak"
+        case .adjunct:
+            return "g"
+        case .other:
+            return "g"
+        }
+    }
+    
+    /// Convert amount to display-friendly unit
+    private func convertToDisplayUnit(_ amountInGrams: Double, category: IngredientType) -> (amount: Double, unit: String) {
+        switch category {
+        case .grain:
+            if amountInGrams >= 1000 {
+                return (amountInGrams / 1000, "kg")
+            } else {
+                return (amountInGrams, "g")
+            }
+        case .hop:
+            return (amountInGrams, "g")
+        case .yeast:
+            // Assume ~11g per pack
+            let packs = max(1, round(amountInGrams / 11))
+            return (packs, "pak")
+        case .adjunct, .other:
+            if amountInGrams >= 1000 {
+                return (amountInGrams / 1000, "kg")
+            } else {
+                return (amountInGrams, "g")
+            }
+        }
+    }
+    
     private func parseIngredientAmount(_ amountString: String) -> (value: Double, unit: String) {
         let trimmed = amountString.trimmingCharacters(in: .whitespaces)
         
