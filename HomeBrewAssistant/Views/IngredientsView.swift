@@ -365,7 +365,7 @@ struct ShoppingListItemRow: View {
                     .fontWeight(.bold)
                     .foregroundColor(.green)
                 
-                Button("✓ Gekocht") {
+                Button("🛒 Kopen") {
                     HapticManager.shared.success()
                     withAnimation(.spring()) {
                     inventoryManager.markAsAcquired(item)

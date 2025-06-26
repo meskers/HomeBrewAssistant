@@ -313,7 +313,7 @@ struct ShoppingListItemCard: View {
                     .font(.body.weight(.bold))
                     .foregroundColor(.green)
                 
-                Button("✓ Gekocht") {
+                Button("🛒 Kopen") {
                     inventoryManager.markAsAcquired(item)
                 }
                 .font(.caption)
